@@ -1,10 +1,12 @@
 \documentclass[11pt]{article}
 \usepackage[margin=1in]{geometry}
-\usepackage{amsmath,amsthm,amssymb,amsfonts,mathtools}
+\usepackage{amsmath,amssymb,amsfonts,mathtools}
 \usepackage[dvipdfmx]{graphicx}
 %\usepackage{slashbox}
 %\usepackage{wrapfig}
-\usepackage{color,url,xspace,ascmac}
+%\usepackage{url,xspace,ascmac}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable, skins, theorems}
 %\usepackage{svg}
 %\usepackage{etoolbox}
 %\usepackage[subrefformat=parens]{subcaption}
@@ -12,11 +14,10 @@
 %\usepackage{algorithmic}
 \usepackage[normalem]{ulem}
 \usepackage{todonotes,comment,tikz}
-\usepackage{thmtools,thm-restate}
-\usepackage{enumitem}
-\usepackage{ifthen}
-\usepackage{float}
-\usepackage{todonotes}
+%\usepackage{thmtools,thm-restate}
+%\usepackage{enumitem}
+%\usepackage{ifthen}
+%\usepackage{float}
 
 \usetikzlibrary{positioning,calc}
 
@@ -25,38 +26,32 @@
            }
 
 \usepackage[unicode,colorlinks=true,citecolor=blue,linkcolor=blue,pdfusetitle]{hyperref}
+\usepackage[style=alphabetic,natbib=true,natbib=true,maxnames=99,maxalphanames=99,isbn=false,url=false,backref=true,backend=biber,giveninits=true]{biblatex}
 
-%\usepackage[style=alphabetic,natbib=true,natbib=true,maxnames=99,maxalphanames=99,isbn=false,url=false,backref=true,backend=biber,giveninits=true]{biblatex}
-\usepackage[style=alphabetic,natbib=true,maxnames=99,maxalphanames=99]{biblatex}
+%\usepackage[style=alphabetic,natbib=true,maxnames=99,maxalphanames=99]{biblatex}
 \addbibresource{ref.bib}
 
-\usepackage[capitalise]{cleveref}
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{claim}[theorem]{Claim}
-\newtheorem{fact}[theorem]{Fact}
-\newtheorem{folklore}[theorem]{Folklore}
-\newtheorem{question}[theorem]{Question}
-\newtheorem{observation}[theorem]{Observation}
-\newtheorem{example}[theorem]{Example}
-\newtheorem{conjecture}[theorem]{Conjecture}
-\newtheorem{remark}[theorem]{Remark}
-\newtheorem{definition}[theorem]{Definition}
+\usepackage{cleveref}
 
-\crefname{figure}{Figure}{Figures}
-\crefname{remark}{Remark}{Remarks}
-\crefname{equation}{}{}
-
+\input{theorems.tex}
 \input{commands.tex}
 
-\title{高次元エクスパンダー}
+\title{集中講義:高次元エクスパンダーとその応用}
 \author{清水 伸高 (東工大)}
 \date{2024年5月}
 \begin{document}
 \maketitle
 \tableofcontents
 \section{はじめに}
+\begin{theorem}{Oppenheimのトリクルダウン定理}{oppenheim}
+    hoge
+\end{theorem}
+\newpage
+\cref{thm:oppenheim}より, 以下を得る.
+\begin{corollary}{}{jimei}
+    jimei na kei
+\end{corollary}
+\cref{cor:jimei}
+定理\ref{thm:oppenheim}
 
 \end{document}
