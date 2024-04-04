@@ -1,15 +1,15 @@
 # Fdb version 3
-["biber main"] 1712205068 "main.bcf" "main.bbl" "main" 1712205075
-  "main.bcf" 1712205074 101327 a7d83daf68d559345cdcd7650893738c "latex"
+["biber main"] 1712206828 "main.bcf" "main.bbl" "main" 1712206834
+  "main.bcf" 1712206833 101327 a7d83daf68d559345cdcd7650893738c "latex"
   (generated)
-  "main.blg"
   "main.bbl"
-["dvipdf"] 1712205074 "main.dvi" "main.pdf" "main" 1712205075
-  "main.dvi" 1712205074 20436 3e490025cd3a1b4c71fa4960bcdf56b0 "latex"
+  "main.blg"
+["dvipdf"] 1712206833 "main.dvi" "main.pdf" "main" 1712206834
+  "main.dvi" 1712206833 38540 86469fb0755db67699309c5727713162 "latex"
   (generated)
   "main.pdf"
-["latex"] 1712205072 "/Users/nobushimi/Documents/GitHub/lecture_May2024/main.tex" "main.dvi" "main" 1712205075
-  "/Users/nobushimi/Documents/GitHub/lecture_May2024/main.tex" 1712205066 1641 df2f4381f025a081760836e028e85cb8 ""
+["latex"] 1712206832 "/Users/nobushimi/Documents/GitHub/lecture_May2024/main.tex" "main.dvi" "main" 1712206834
+  "/Users/nobushimi/Documents/GitHub/lecture_May2024/main.tex" 1712206826 2356 4ac13024e6006e5378e632cb4009bcce ""
   "/usr/local/texlive/2020/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -20,6 +20,7 @@
   "/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmex10.tfm" 1136768653 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
+  "/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm" 1136768653 1528 abec98dbc43e172678c11b3b9031252a ""
   "/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1136768653 1524 4414a8315f39513458b80dfc63bff03a ""
   "/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1136768653 1512 f21f83efb36853c0b70002322c1ab3ad ""
   "/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm" 1136768653 1520 eccf95517727cb11801f4f1aee3a21b4 ""
@@ -193,18 +194,18 @@
   "/usr/local/texlive/2020/texmf-var/web2c/euptex/uplatex.fmt" 1612242062 2441664 b1230a807befee11eec596e6bb79e3d2 ""
   "/usr/local/texlive/2020/texmf.cnf" 1586288231 577 d60164b4589a341208aff7a667fbbdcb ""
   "commands.tex" 1712197577 1021 ce9de4c808d96bb07bab11ebfaedf330 ""
-  "main.aux" 1712205074 1473 4f5e1221a512d89f8f3c7ced6101b230 "latex"
-  "main.bbl" 1712205070 466 f7f239c736cf01ac6ce7bd829f9b3c7b "biber main"
-  "main.out" 1712205074 71 e64976bdcf2ee1b520bdd245092816f6 "latex"
-  "main.run.xml" 1712205074 2338 1ce6592cf421c3a52a6f5907ed25509b "latex"
-  "main.tex" 1712205066 1641 df2f4381f025a081760836e028e85cb8 ""
-  "main.toc" 1712205074 207 9ae993915c9c7ee467f59e1c534d4ee3 "latex"
-  "theorems.tex" 1712204512 1495 fba5e41d7f677fa45ab9a2a15040a713 ""
+  "main.aux" 1712206833 4986 5af605a8e003d1541113fdbe7773e48c "latex"
+  "main.bbl" 1712206830 466 f7f239c736cf01ac6ce7bd829f9b3c7b "biber main"
+  "main.out" 1712206833 2290 d14ca29e7ba6f27b6dd345b613719246 "latex"
+  "main.run.xml" 1712206833 2338 1ce6592cf421c3a52a6f5907ed25509b "latex"
+  "main.tex" 1712206826 2356 4ac13024e6006e5378e632cb4009bcce ""
+  "main.toc" 1712206833 2570 6d280e1ae1a93bafddf2bb82d16fa081 "latex"
+  "theorems.tex" 1712206241 1495 fba5e41d7f677fa45ab9a2a15040a713 ""
   (generated)
   "main.run.xml"
-  "main.bcf"
+  "main.toc"
   "main.aux"
   "main.dvi"
-  "main.toc"
-  "main.log"
   "main.out"
+  "main.bcf"
+  "main.log"

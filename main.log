@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.14159265-p3.8.3-u1.26-191112-2.6 (utf8.uptex) (TeX Live 2020) (preloaded format=uplatex 2021.2.2)  4 APR 2024 13:31
+This is e-upTeX, Version 3.14159265-p3.8.3-u1.26-191112-2.6 (utf8.uptex) (TeX Live 2020) (preloaded format=uplatex 2021.2.2)  4 APR 2024 14:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -927,31 +927,44 @@ LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 \tf@toc=\write9
 \openout9 = `main.toc'.
 
-LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 8.65997pt on input line 48.
-LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 8.65997pt on input line 48.
+LaTeX Font Info:    Font shape `JT2/mc/b/n' in size <12> not available
+(Font)              Font shape `JT2/mc/bx/n' tried instead on input line 47.
+LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <12> not available
+(Font)              Font shape `JT2/gt/m/n' tried instead on input line 47.
+LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
+(Font)              scaled to size 11.54663pt on input line 47.
+LaTeX Font Info:    Font shape `JY2/mc/b/n' in size <12> not available
+(Font)              Font shape `JY2/mc/bx/n' tried instead on input line 47.
+LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <12> not available
+(Font)              Font shape `JY2/gt/m/n' tried instead on input line 47.
+LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
+(Font)              scaled to size 11.54663pt on input line 47.
  [1
 
-] [2]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 57.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 57.
+]
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 8.65997pt on input line 72.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 8.65997pt on input line 72.
+ [2] [3]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 81.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 81.
  (./main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 57.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 57.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 81.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 81.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E64976BDCF2EE1B520BDD245092816F6;71.
+(rerunfilecheck)             Checksum: D14CA29E7BA6F27B6DD345B613719246;2290.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 32949 strings out of 481134
- 640788 string characters out of 5917334
- 1297925 words of memory out of 5000000
- 48525 multiletter control sequences out of 15000+600000
- 543263 words of font info for 79 fonts, out of 8000000 for 9000
+ 32976 strings out of 481134
+ 641217 string characters out of 5917334
+ 1306497 words of memory out of 5000000
+ 48552 multiletter control sequences out of 15000+600000
+ 544818 words of font info for 85 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 59i,6n,83p,899b,1036s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 59i,6n,83p,899b,1038s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.dvi (2 pages, 20436 bytes).
+Output written on main.dvi (3 pages, 38540 bytes).
