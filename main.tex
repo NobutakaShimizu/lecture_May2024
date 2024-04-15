@@ -23,7 +23,7 @@
 
 \tikzset{every picture/.style={font issue=\footnotesize},
             font issue/.style={execute at begin picture={#1\selectfont}}
-           }
+        }
 
 \usepackage[unicode,colorlinks=true,citecolor=blue,linkcolor=blue,pdfusetitle]{hyperref}
 \usepackage[style=alphabetic,natbib=true,natbib=true,maxnames=99,maxalphanames=99,isbn=false,url=false,backref=true,backend=biber,giveninits=true]{biblatex}
@@ -42,11 +42,7 @@
 \begin{document}
 \maketitle
 \tableofcontents
-\section{はじめに}
-\section{グラフとランダムウォーク}
-\subsection{定義}
-\subsection{ランダムウォークと固有値}
-\subsection{エクスパンダーグラフ}
+\input{random walk.tex}
 
 \section{高次元エクスパンダー}
 \subsection{定義}

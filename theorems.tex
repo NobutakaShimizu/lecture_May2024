@@ -3,7 +3,7 @@
 %def
 \newtcolorbox[auto counter, number within=section, crefname = {定義}{定義}]{definition}[3][]
 {enhanced, breakable = true, fonttitle = \bfseries,
-title = Def.~\thetcbcounter~\if #2\kara \else（#2） \fi,
+title = 定義~\thetcbcounter~\if #2\kara \else（#2） \fi,
 #1,
 label = def:#3}
 
@@ -24,7 +24,7 @@ label = prop:#3}
 %lemma
 \newtcolorbox[auto counter, use counter from=definition, crefname = {補題}{補題}]{lemma}[3][]
 {enhanced, breakable = true, fonttitle = \bfseries,
-title = Lem.~\thetcbcounter~\if #2\kara \else（#2） \fi,
+title = 補題~\thetcbcounter~\if #2\kara \else（#2） \fi,
 #1,
 label = lem:#3}
 
@@ -38,6 +38,6 @@ label = cor:#3}
 %remark
 \newtcolorbox[auto counter, use counter from=definition, crefname = {注釈}{注釈}]{remark}[3][]
 {enhanced, breakable = true, colback = white, fonttitle = \bfseries,
-title = Rem!~\thetcbcounter~\if #2\kara \else（#2） \fi,
+title = 注釈~\thetcbcounter~\if #2\kara \else（#2） \fi,
 #1,
 label = rem:#3}
