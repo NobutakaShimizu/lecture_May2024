@@ -161,7 +161,7 @@ $t\to \infty$における収束性について述べる.
 \end{theorem}
 
 
-\subsection{一般のランダムウォーク} \label{sec:Markov chain}
+\subsection{一般のランダムウォークの定義と一意収束性} \label{sec:Markov chain}
   \cref{sec:SRW}, \ref{sec:SRW convergence}ではグラフ上の単純ランダムウォークという特定の確率過程を定義し, その収束性を論じてきた.
   今後は辺集合上のランダムウォークやより一般に単体複体の面上のランダムウォークも考えていくため,
   より一般のランダムウォークを定義し, その分布の収束性や定常分布について説明する.
@@ -233,11 +233,27 @@ $t\to \infty$における収束性について述べる.
       特に, 既約的かつ非周期的なランダムウォークの分布はある定常分布に一意収束する.
   \end{theorem}
 
-
-\subsection{辺上のランダムウォーク}
-単純ランダムウォークの定常分布$\pi$を導出してみよう.
-
+  本講義では以後, 単にランダムウォークと言った場合, 特に断りのない限り常に既約的かつ非周期的であると仮定する.
 
 \subsection{混交時間}
 \cref{thm:random walk convergence}ではランダムウォークの一意収束性の条件を与えた.
 では, その収束の速さはどれくらいだろうか?
+この問題は日常的には例えば次のような状況で現れる:
+\begin{itemize}
+  \item トランプカードで遊ぶとき, 何回シャッフルすればカードが「混ざり合う」か?
+  \item 料理で調味料をスープに入れたとき, 何回かき回せば味が「混ざり合う」か？
+\end{itemize}
+
+ここでは「混ざり合う」とは定常分布への全変動距離の意味での収束性で定義し,
+ランダムウォークの混交時間を次で定義する:
+\begin{definition}{混交時間}{mixing time}
+  定常分布$\pi \in [0,1]^V$を持つランダムウォーク$(X_t)_{t\ge 0}$を考え, $t\ge 0$に対し
+  $x_t \in [0,1]^V$を時刻$t$における$X_t$の分布とする.
+  正の実数$\varepsilon > 0$に対し, $\varepsilon$-混交時間$\tmix(\varepsilon)$を
+  \[
+    \tmix(\varepsilon) \defeq \inf\cbra*{ t \ge 0 \colon \dtv(x_t, \pi) \le \varepsilon}
+  \]
+  とする.
+  また, $(1/2)$-混交時間を単に\emph{混交時間 (mixing time)}と呼ぶ.\footnote{$1/2$という数字に特に本質的な意味はない.}
+\end{definition}
+
