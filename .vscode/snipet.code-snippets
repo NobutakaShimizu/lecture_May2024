@@ -86,5 +86,19 @@
 			"\\item $1",
 			"\\end{itemize}"
 		]
-	}
+	},
+	"pmatrix":{
+		"prefix": "pmatrix",
+		"body": [
+			"\\begin{pmatrix}",
+			"\\end{pmatrix}"
+		]
+	},
+	"bmatrix":{
+		"prefix": "bmatrix",
+		"body": [
+			"\\begin{bmatrix}",
+			"\\end{bmatrix}"
+		]
+	},
 }
