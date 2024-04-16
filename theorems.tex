@@ -42,4 +42,11 @@ title = 注釈~\thetcbcounter~\if #2\kara \else（#2） \fi,
 #1,
 label = rem:#3}
 
+%exercise
+\newtcolorbox[auto counter, use counter from=definition, crefname = {演習問題}{演習問題}]{exercise}[3][]
+{enhanced, breakable = true, colback = white, fonttitle = \bfseries,
+title = 演習問題~\thetcbcounter~\if #2\kara \else（#2） \fi,
+#1,
+label = exer:#3}
+
 \crefname{equation}{式}{式}

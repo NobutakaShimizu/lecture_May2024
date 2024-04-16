@@ -38,5 +38,53 @@
 			"\t$1\t&$2",
 			"\\end{cases}"
 		],
+	},
+	"lemma":{
+		"prefix": "lemma",
+		"body": [
+			"\\begin{lemma}{$1}{$2}",
+			"\t$3",
+			"\\end{lemma}"
+		]
+	},
+	"definition":{
+		"prefix": "definition",
+		"body": [
+			"\\begin{definition}{$1}{$2}",
+			"\t$3",
+			"\\end{definition}"
+		]
+	},
+	"theorem":{
+		"prefix": "theorem",
+		"body": [
+			"\\begin{theorem}{$1}{$2}",
+			"\t$3",
+			"\\end{theorem}"
+		]
+	},
+	"corollary":{
+		"prefix": "corollary",
+		"body": [
+			"\\begin{corollary}{$1}{$2}",
+			"\t$3",
+			"\\end{corollary}"
+		]
+	},
+	"proposition":{
+		"prefix": "proposition",
+		"body": [
+			"\\begin{proposition}{$1}{$2}",
+			"\t$3",
+			"\\end{proposition}"
+		]
+	},
+	"itemize":{
+		"prefix": "itemize",
+		"body": [
+			"\\begin{itemize}",
+			"\\item $1",
+			"\\end{itemize}"
+		]
 	}
 }
