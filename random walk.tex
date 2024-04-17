@@ -1,19 +1,19 @@
 \section{ランダムウォークの概論}
 一般に「ランダムウォーク」という用語は文脈によって様々である.
 例えば物理学や金融の文脈でブラウン運動を離散化したモデルを考える際は
-  数直線上を等確率で左右どちらかに移動する粒子の軌跡をランダムウォークと呼ぶことがある.
+数直線上を等確率で左右どちらかに移動する粒子の軌跡をランダムウォークと呼ぶことがある.
 一方でネットワーク解析の文脈ではグラフ上の単純ランダムウォークをランダムウォークと呼ぶこともある.
 本講義では斉時性をもつ有限状態離散時間マルコフ連鎖をランダムウォークと呼ぶ.
 %
 \begin{definition}{ランダムウォーク}{random walk}
-  有限集合$V$と確率行列\footnote{各行和が$1$となる非負行列を\emph{確率行列(stochastic matrix)}と呼ぶ.}$P\in[0,1]^{V\times V}$に対し,
-  $V$上に値をとる確率変数列$(X_t)_{t\ge 0}$であって, 任意の$t\ge 0$, 頂点列$(v_0,\dots,v_{t-1})\in V^t$,
-  および$v\in V$に対して
-  \[
-    \Pr\sbra*{X_t = v \condition X_0 = v_0,\dots,X_{t-1} = v_{t-1}} = \Pr\sbra*{X_t = v \condition X_{t-1} = u} = P(u,v)
-  \]
-  を満たすものを$V$上の\emph{ランダムウォーク (random walk)}という.
-  特に確率行列$P$をランダムウォーク$(X_t)_{t\ge 0}$の\emph{遷移確率行列 (transition matrix)}と呼ぶ.
+    有限集合$V$と確率行列\footnote{各行和が$1$となる非負行列を\emph{確率行列(stochastic matrix)}と呼ぶ.}$P\in[0,1]^{V\times V}$に対し,
+    $V$上に値をとる確率変数列$(X_t)_{t\ge 0}$であって, 任意の$t\ge 0$, 頂点列$(v_0,\dots,v_{t-1})\in V^t$,
+    および$v\in V$に対して
+    \[
+        \Pr\sbra*{X_t = v \condition X_0 = v_0,\dots,X_{t-1} = v_{t-1}} = \Pr\sbra*{X_t = v \condition X_{t-1} = u} = P(u,v)
+    \]
+    を満たすものを$V$上の\emph{ランダムウォーク (random walk)}という.
+    特に確率行列$P$をランダムウォーク$(X_t)_{t\ge 0}$の\emph{遷移確率行列 (transition matrix)}と呼ぶ.
 \end{definition}
 %
 初期地点$X_0$もまた確率変数であるためランダムに決まることに注意されたい.
@@ -21,18 +21,18 @@
 %
 初期頂点$X_0$の分布が決まれば各時刻$t$における$X_t$の分布は一意に定まる.
 実際, $t\ge 0$に対し$p_t \in [0,1]^{V}$を$X_t$の分布とする
-  (すなわち, $p_t(u) = \Pr\sbra*{X_t = u}$).
+(すなわち, $p_t(u) = \Pr\sbra*{X_t = u}$).
 任意の$t\ge 1$に対し
 \begin{align*}
-  p_t(v) &= \Pr\sbra*{X_t = v} \\
-    &= \sum_{u\in V}\Pr\sbra*{ X_t = v \tand X_{t-1} = u} \\
-    &= \sum_{u\in V}\Pr\sbra*{ X_t = v \condition X_{t-1} = u} \Pr\sbra*{X_{t-1} = u}  \\
-    &= \sum_{u\in V} P(u,v) p_{t-1}(u)
+    p_t(v) & = \Pr\sbra*{X_t = v}                                                             \\
+           & = \sum_{u\in V}\Pr\sbra*{ X_t = v \tand X_{t-1} = u}                             \\
+           & = \sum_{u\in V}\Pr\sbra*{ X_t = v \condition X_{t-1} = u} \Pr\sbra*{X_{t-1} = u} \\
+           & = \sum_{u\in V} P(u,v) p_{t-1}(u)
 \end{align*}
 という漸化式を得る.
 これは$p_{t} = p_{t-1} P$とも表せる (ここで$p_t$は行ベクトルとして扱う) ので
 \begin{align}
-  p_t = p_0 P^t \label{eq:p_t}
+    p_t = p_0 P^t \label{eq:p_t}
 \end{align}
 を得る.
 
@@ -43,19 +43,19 @@
 
 まずは収束性について議論するために分布間の距離として全変動距離を導入する.
 \begin{definition}{全変動距離}{total variation distance}
-  有限集合$V$上の二つの分布$\mu,\nu \in[0,1]^V$に対し, \emph{全変動距離 (total variation distance)}を
-  \[
-    \dtv (\mu ,\nu ) \defeq \frac{1}{2} \sum_{u\in V}\abs{\mu(u) - \nu(u)} = \frac{1}{2} \norm{\mu - \nu}_1
-  \]
-  で定める.
+    有限集合$V$上の二つの分布$\mu,\nu \in[0,1]^V$に対し, \emph{全変動距離 (total variation distance)}を
+    \[
+        \dtv (\mu ,\nu ) \defeq \frac{1}{2} \sum_{u\in V}\abs{\mu(u) - \nu(u)} = \frac{1}{2} \norm{\mu - \nu}_1
+    \]
+    で定める.
 \end{definition}
 全変動距離は単に$\ell^1$ノルムを$2$で割った値だが, 次の性質を持つがゆえに統計学, 情報理論, 機械学習, 計算機科学を含む様々な分野で非常に重要な役割を果たしている.
 \begin{proposition}{}{}
-  有限集合$V$を考え, 分布$\pi\in[0,1]^V$と部分集合$U\subseteq V$に対し$\pi(U)\defeq\sum_{u\in U}\pi(u)$とする.
-  任意の二つの分布$\mu,\nu\in[0,1]^V$と任意の部分集合$U\subseteq V$に対して
-  \[
-    \abs*{ \mu(U) - \nu(U) } \le \dtv(\mu,\nu).
-  \]
+    有限集合$V$を考え, 分布$\pi\in[0,1]^V$と部分集合$U\subseteq V$に対し$\pi(U)\defeq\sum_{u\in U}\pi(u)$とする.
+    任意の二つの分布$\mu,\nu\in[0,1]^V$と任意の部分集合$U\subseteq V$に対して
+    \[
+        \abs*{ \mu(U) - \nu(U) } \le \dtv(\mu,\nu).
+    \]
 \end{proposition}
 すなわち,
 全変動距離が小さいということは任意の事象の発生確率の差が小さいことを意味する.
@@ -64,11 +64,11 @@
 
 次に, ランダムウォークが収束するための条件を与える.
 \begin{definition}{既約性、非周期性}{}
-  遷移確率行列$P \in [0,1]^{V\times V}$をもつランダムウォークを考える.
-  \begin{itemize}
-  \item 任意の頂点対$u,v\in V$に対しある$t \ge 0$が存在して$P^t(u,v)>0$を満たすとき, ランダムウォーク$(X_t)_{t\ge 0}$は\emph{既約 (irreducible)}であるという.
-  \item 各頂点$u\in V$に対し, 有向閉路長の集合$L_u = \cbra*{ t \ge 1 \colon P^t(u,u) > 0}$を考え, その最大公約数を頂点$u$の\emph{周期 (period)} と呼ぶ. 全ての頂点の周期が$1$であるとき, ランダムウォーク$(X_t)_{t\ge 0}$は\emph{非周期的 (aperiodic)}であるという.
-  \end{itemize}
+    遷移確率行列$P \in [0,1]^{V\times V}$をもつランダムウォークを考える.
+    \begin{itemize}
+        \item 任意の頂点対$u,v\in V$に対しある$t \ge 0$が存在して$P^t(u,v)>0$を満たすとき, ランダムウォーク$(X_t)_{t\ge 0}$は\emph{既約 (irreducible)}であるという.
+        \item 各頂点$u\in V$に対し, 有向閉路長の集合$L_u = \cbra*{ t \ge 1 \colon P^t(u,u) > 0}$を考え, その最大公約数を頂点$u$の\emph{周期 (period)} と呼ぶ. 全ての頂点の周期が$1$であるとき, ランダムウォーク$(X_t)_{t\ge 0}$は\emph{非周期的 (aperiodic)}であるという.
+    \end{itemize}
 \end{definition}
 %
 既約性は任意の頂点対$u,v$に対し$u$からスタートしたランダムウォークが$v$に到達可能であることを意味している.
@@ -76,11 +76,11 @@
 非周期性は, ランダムウォークが「振動」しないことを意味する性質である.
 例えば遷移確率行列が
 \[
-  P = \begin{bmatrix}
-    0 & 1 & 0 \\
-    0 & 0 & 1 \\
-    1 & 0 & 0
-  \end{bmatrix}
+    P = \begin{bmatrix}
+        0 & 1 & 0 \\
+        0 & 0 & 1 \\
+        1 & 0 & 0
+    \end{bmatrix}
 \]
 で与えられるランダムウォークは全ての有向閉路の長さは$3$の倍数であるためどの頂点の周期も$3$に等しい.
 特に, ランダムウォーク$X_t$は周期$3$でループしており, 例えば確率$1$で特定の頂点からスタートしたときに$p_t$は収束しないことがわかる.
@@ -90,29 +90,29 @@
 \subsection{定常分布}
 ランダムウォークの分布$p_t$がある分布$\pi\in[0,1]^V$に収束するならば, 分布の漸化式$p_t = p_{t-1}P$より収束先の分布$\pi$は
 \begin{align}
-  \pi = \pi P \label{eq:stationary equation}
+    \pi = \pi P \label{eq:stationary equation}
 \end{align}
 を満たすはずである.
 %
 \begin{definition}{定常分布}{stationary distribution}
-  遷移確率行列$P$をもつ$V$上のランダムウォークに対し, \cref{eq:stationary equation}を満たす分布$\pi$を\emph{定常分布 (stationary distribution)}と呼ぶ.
+    遷移確率行列$P$をもつ$V$上のランダムウォークに対し, \cref{eq:stationary equation}を満たす分布$\pi$を\emph{定常分布 (stationary distribution)}と呼ぶ.
 \end{definition}
 %
 任意のランダムウォークは必ず定常分布をもつ.
 詳細は省くがこれは以下の議論から証明できる:
-  \begin{itemize}
-  \item 定常分布$\pi$は転置行列$P^{\top}$の固有値$1$の固有ベクトルに対応する.
-  \item $P$と$P^\top$の固有値は全て同じ (転置をとっても行列式は変わらないから)であり, 最大固有値$1$を持つ.
-  \item Perron--Frobeniusの定理から$P^\top$の最大固有値$1$に対応する固有ベクトルの成分は非負なので, 正規化すると分布になる.
-  \end{itemize}
+\begin{itemize}
+    \item 定常分布$\pi$は転置行列$P^{\top}$の固有値$1$の固有ベクトルに対応する.
+    \item $P$と$P^\top$の固有値は全て同じ (転置をとっても行列式は変わらないから)であり, 最大固有値$1$を持つ.
+    \item Perron--Frobeniusの定理から$P^\top$の最大固有値$1$に対応する固有ベクトルの成分は非負なので, 正規化すると分布になる.
+\end{itemize}
 %
 %
 \begin{theorem}{一般のランダムウォークの収束性}{random walk convergence}
     遷移確率行列$P$を持つ$V$上の任意のランダムウォークは定常分布$\pi \in [0,1]^V$を持つ.
     さらに,
     \begin{itemize}
-    \item ランダムウォークが既約的ならば, 定常分布$\pi$は一意に存在し, 全ての頂点$v\in V$に対し$\pi(v)>0$である.
-    \item ランダムウォークが非周期的ならば, 任意の初期分布$p_0$に対してある定常分布$\pi$が存在して$\dtv(p_t,\pi)\to 0$ ($t\to\infty$)が成り立つ.
+        \item ランダムウォークが既約的ならば, 定常分布$\pi$は一意に存在し, 全ての頂点$v\in V$に対し$\pi(v)>0$である.
+        \item ランダムウォークが非周期的ならば, 任意の初期分布$p_0$に対してある定常分布$\pi$が存在して$\dtv(p_t,\pi)\to 0$ ($t\to\infty$)が成り立つ.
     \end{itemize}
 
     特に, 既約的かつ非周期的なランダムウォークの分布は一意に定まる定常分布に$\dtv$の意味で収束する.
@@ -126,22 +126,22 @@
 では, その収束の速さはどれくらいだろうか?
 この問題は日常的には例えば次のような状況で現れる:
 \begin{itemize}
-  \item トランプカードで遊ぶとき, 何回シャッフルすればカードが「混ざり合う」か?
-  \item 料理で調味料をスープに入れたとき, 何回かき回せば味が「混ざり合う」か？
+    \item トランプカードで遊ぶとき, 何回シャッフルすればカードが「混ざり合う」か?
+    \item 料理で調味料をスープに入れたとき, 何回かき回せば味が「混ざり合う」か？
 \end{itemize}
 
 ここでは「混ざり合う」とは定常分布への全変動距離の意味での収束性で定義し,
 ランダムウォークの混交時間を次で定義する:
 \begin{definition}{混交時間}{mixing time}
-  既約なランダムウォーク$(X_t)_{t\ge 0}$を考え, $t\ge 0$に対し
-  $p_t \in [0,1]^V$を時刻$t$における$X_t$の分布とする.
-  定常分布を$\pi \in [0,1]^V$とする.
-  正の実数$\varepsilon > 0$に対し, $\varepsilon$-混交時間$\tmix(\varepsilon)$を
-  \[
-    \tmix(\varepsilon) \defeq \inf\cbra*{ t \ge 0 \colon \dtv(p_t, \pi) \le \varepsilon}
-  \]
-  とする.
-  また, $(1/2)$-混交時間を単に\emph{混交時間 (mixing time)}と呼ぶ.\footnote{$1/2$という数字に特に本質的な意味はない.}
+    既約なランダムウォーク$(X_t)_{t\ge 0}$を考え, $t\ge 0$に対し
+    $p_t \in [0,1]^V$を時刻$t$における$X_t$の分布とする.
+    定常分布を$\pi \in [0,1]^V$とする.
+    正の実数$\varepsilon > 0$に対し, $\varepsilon$-混交時間$\tmix(\varepsilon)$を
+    \[
+        \tmix(\varepsilon) \defeq \inf\cbra*{ t \ge 0 \colon \dtv(p_t, \pi) \le \varepsilon}
+    \]
+    とする.
+    また, $(1/2)$-混交時間を単に\emph{混交時間 (mixing time)}と呼ぶ.\footnote{$1/2$という数字に特に本質的な意味はない.}
 \end{definition}
 
 本講義では全体を通じてランダムウォークの混交時間(特にその上界)を評価することに取り組む.
@@ -153,6 +153,7 @@
 \subsection{グラフ上のランダムウォーク}
 グラフ上のランダムウォークとして最も有名な単純ランダムウォークを紹介する.
 
+\paragraph*{グラフの定義.}
 まずグラフに関する基礎的な概念を定義する.
 グラフの定義に詳しい読者は\cref{def:SRW}まで読み飛ばしても構わない.
 本講義では有限単純無向グラフを単に\emph{グラフ (graph)}と呼ぶ.
@@ -162,12 +163,15 @@ $V$の元を\emph{頂点(vertex)}, $E$の元を\emph{辺(edge)}と呼ぶ.
 頂点$u$と辺$e\in E$が$u\in e$を満たすとき, $e$は$u$に接続(incident)しているという.
 頂点$u$に接続している辺の本数を$u$の\emph{次数(degree)}といい, $\deg(u)$で表す.
 全ての頂点の次数が$d$に等しいとき, $G$は\emph{$d$-正則 ($d$-regular)}であるという.
+二つのグラフ$G=(V,E),H=(U,F)$に対して$U\subseteq V,F\subseteq E$を満たすとき$G$は$H$を\emph{部分グラフ (subgraph)}として含むといい, $H\subseteq G$で表す.
 
-グラフ$G=(V,E)$の連結性を定義する.
-二頂点$a,b\in V$に対し,
-  ある頂点列$v_0=a,v_1,\dots,v_{\ell-1},v_\ell = b$
-  が存在して$\cbra{v_0,v_1},\dots,\cbra{v_{\ell-1},v_\ell}$が全て$G$の辺になっているとき,
-  $a\sim b$と表す.
+頂点列$(v_0,\dots,v_\ell) \in V^{\ell+1}$は
+$\{v_0,v_1\},\dots,\{v_{\ell-1},v_\ell\}\in E$を満たすとき,
+\emph{路 (walk)} といい, $\ell$を長さと呼ぶ.
+路$(v_0,\dots,v_\ell)$に対し$v_0$と$v_\ell$をそれぞれ始点,終点と呼ぶ.
+路$(v_0,\dots,v_\ell)$が$v_0=v_\ell$であって満たすものを\emph{閉路 (cycle)}という.
+
+任意の二頂点$a,b\in V$に対し, $a$と$b$をそれぞれ始点と終点とする路が存在するとき, $a\sim b$表す.
 この関係は同値関係になっており, $V$を$\sim$で割った商集合$V / \sim$の各同値類$[v]$を$G$の\emph{連結成分 (connected component)}という.
 商集合$V / \sim$が単一の連結成分からなるとき, $G$は\emph{連結 (connected)}であるという.
 
@@ -177,35 +181,39 @@ $V$の元を\emph{頂点(vertex)}, $E$の元を\emph{辺(edge)}と呼ぶ.
 直感的には, $G$が二部グラフであるというのは, ある頂点分割$V=L\sqcup R$に対して
 $G$の全ての辺が$L$と$R$の間を跨いでいることを意味する.
 なお, 部集合への分割$V = L\sqcup R$は必ずしも一意であるとは限らない.
+よく知られる事実として, グラフ$G$が二部グラフであることの必要十分条件は$G$の全ての閉路の長さが偶数であることである.
 
+\paragraph*{単純ランダムウォーク}
 単純ランダムウォークとは, 初期地点$X_0$を選び, 現在いる頂点から一様ランダムな隣接点を選びそこに遷移するという
 確率的な操作を繰り返して得られるランダムウォークである.
 %
 \begin{definition}{単純ランダムウォーク}{SRW}
-  グラフ$G=(V,E)$を考える.
-  遷移確率行列が
-  \[
-    P_{\SRW}(u,v) \defeq \begin{cases}
-      \frac{1}{\deg(u)}	& \text{if }uv\in E,\\
-      0 & \text{otherwise}
-    \end{cases}
-  \]
-  で与えられる$V$上のランダムウォークを
-  $G$上の\emph{単純ランダムウォーク (simple random walk)}という.
+    グラフ$G=(V,E)$を考える.
+    遷移確率行列が
+    \[
+        P_{\SRW}(u,v) \defeq \begin{cases}
+            \frac{1}{\deg(u)} & \text{if }uv\in E, \\
+            0                 & \text{otherwise}
+        \end{cases}
+    \]
+    で与えられる$V$上のランダムウォークを
+    $G$上の\emph{単純ランダムウォーク (simple random walk)}という.
 \end{definition}
 %
 
 単純ランダムウォークの定常分布はの一つは
 \begin{align}
-  \pi(u) = \frac{\deg(u)}{2|E|}. \label{eq:SRW stationary distribution}
+    \pi(u) = \frac{\deg(u)}{2|E|}. \label{eq:SRW stationary distribution}
 \end{align}
 で与えられる.
-一般に単純ランダムウォークは既約性を持つとは限らない.
-既約であることの必要十分条件はグラフ$G$が連結であることである.
-同様に単純ランダムウォークは非周期性を持つとは限らない.
-\begin{exercise}{}{}
-    グラフ$G$上の単純ランダムウォークが非周期的であることの必要十分条件は二部グラフであることを示せ.
-\end{exercise}
+一般に単純ランダムウォークは既約性や非周期性を持つとは限らない.
+既約的であることの必要十分条件はグラフ$G$が連結であることであり,
+非周期的であることの必要十分条件はグラフ$G$の全ての連結成分のなす誘導部分グラフが二部グラフでないことである.
+実際, 全ての連結成分が二部グラフでないならばそれぞれに長さ奇数の閉路$C$が存在する.
+各頂点$u$について, 辺$\{u,v\}$上で$u\to v \to u$という遷移を考えれば長さ$2$の閉路になっている.
+また, 頂点$u$から奇閉路$C$に向い, $C$に沿って遷移した後に再び$u$に戻るという経路を考えればこれは奇数長の閉路である.
+すなわち$P^2(u,u)>0$かつある奇数$\ell$に対し$P^{\ell}(u,u)>0$となるため頂点$u$の周期は$1$である.
+逆に二部グラフならば全ての閉路が偶数長なので任意の奇数$\ell$と頂点$u\in V$に対し$P^\ell(u,u)=0$である.
 
 \begin{definition}{遅延単純ランダムウォーク}{lazy SRW}
     グラフ$G=(V,E)$上の単純ランダムウォークの遷移確率行列を$P_{\SRW}$とする.
@@ -216,7 +224,8 @@ $G$の全ての辺が$L$と$R$の間を跨いでいることを意味する.
 自己ループの遷移を許すことによって各頂点の周期が必ず$1$となるため, 遅延単純ランダムウォークは必ず非周期的である.
 従って, 連結グラフ上の遅延単純ランダムウォークは\cref{eq:SRW stationary distribution}で与えられる定常分布に一意収束する.
 
-遅延単純ランダムウォークの1回の遷移は次の2つのステップに分解して考えることができる:
+\subsection{グラフ上での上昇ウォークと下降ウォーク} \label{sec:graph up and down walk}
+グラフ$G=(V,E)$上の遅延単純ランダムウォークの1回の遷移は次の2つのステップに分解して考えることができる:
 \begin{enumerate}
     \item 現在いる頂点$u\in V$に接続している辺$e \in E$を一様ランダムに選ぶ.
     \item 選んだ辺$e$に含まれる二頂点を一様ランダムに選び, その頂点に遷移する.
@@ -228,14 +237,14 @@ $G$の全ての辺が$L$と$R$の間を跨いでいることを意味する.
 同様にステップ2を辺$e$から開始したときに頂点$w \in \{u,v\}$が選ばれる確率を$\Pdown_1(e,w)$とする.
 すなわち
 \begin{align*}
-    &\Pup_0(u,e) = \begin{cases}
-        \frac{1}{\deg(u)}	& \text{if }u \in e,\\
-        0 & \text{otherwise}.
-    \end{cases} \\
-    &\Pdown_1(e,w) = \begin{cases}
-        \frac{1}{2}	& \text{if }e \ni w,\\
-        0 & \text{otherwise}.
-    \end{cases}
+     & \Pup_0(u,e) = \begin{cases}
+                         \frac{1}{\deg(u)} & \text{if }u \in e, \\
+                         0                 & \text{otherwise}.
+                     \end{cases} \\
+     & \Pdown_1(e,w) = \begin{cases}
+                           \frac{1}{2} & \text{if }e \ni w, \\
+                           0           & \text{otherwise}.
+                       \end{cases}
 \end{align*}
 このとき, 遅延単純ランダムウォークの遷移確率行列$P_{\LSRW}$は$P_{\LSRW} = \Pup_0 \Pdown_1$と表せる.
 
@@ -252,5 +261,6 @@ $G$の全ての辺が$L$と$R$の間を跨いでいることを意味する.
 \begin{exercise}{}{}
     グラフ$G$が連結であるとする.
     上記の$P'$を遷移確率行列としてもつ辺上のランダムウォークの定常分布を求めよ.
+    答えだけでよい.
 \end{exercise}
 %
