@@ -79,6 +79,14 @@
 			"\\end{proposition}"
 		]
 	},
+	"exercise":{
+		"prefix": "exercise",
+		"body": [
+			"\\begin{exercise}{$1}{$2}",
+			"\t$3",
+			"\\end{exercise}"
+		]
+	},
 	"itemize":{
 		"prefix": "itemize",
 		"body": [
