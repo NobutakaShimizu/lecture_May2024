@@ -1,24 +1,28 @@
-\section{高次元エクスパンダー}
+\chapter{高次元エクスパンダー}
 高次元エクスパンダーとはグラフのエクスパンダー性を単体複体に拡張した概念である.
-\subsection{定義}
+\section{定義}
 まずは単体複体に関する基礎的な用語を定義していく.
 文脈によっては単体複体は多面体などを貼り合わせた幾何的な概念を指すこともあるが,
 本講義では組合せ的ないわゆるset systemとしての単体複体を扱う.
 
-%\begin{definition}{単体複体}{simplicial complex}
+\begin{definition}{単体複体}{simplicial complex}
 有限集合$V$と$V$の部分集合族$\F\subseteq 2^V$であって部分集合で閉じているもの(すなわち, $\sigma\subseteq \tau \in \F \Rightarrow \sigma\in \F$)の組$X=(V,\F)$を\emph{単体複体 (simplicial complex)}という.
 集合族$\F$の元を\emph{面 (face)}と呼び,
-面$\sigma \in \F$の\emph{次元 (dimension)}を$\dim \sigma = \abs{\sigma} - 1$で定義する.
-次元$0$の面を\emph{頂点 (vertex)}, 次元$1$の面を\emph{辺 (edge)}と呼ぶ.
-特に, 空集合$\emptyset \in \F$の次元は$-1$である.
-単体複体$X$の次元$\dim X$を, $X$の面の次元のうち最大の値で定める.
+面$\sigma \in \F$の\emph{次元 (dimension)}を$\dim \sigma = \abs{\sigma} - 1$とする\footnote{特に, 空集合$\emptyset \in \F$の次元は$-1$である.}.
+単体複体$X$の次元を$\dim X = \max\cbra{\dim \sigma \colon \sigma \in \F}$とする.
+
 次元$d$の単体複体$X$は(包含関係に関して)極大な面の次元が全て$d$に等しいとき, \emph{純粋 (pure)}であるという.
 整数$-1 \le k \le \dim X$に対し$X(k) = \cbra*{\sigma \in \F\colon \dim \sigma = k }$とする.
 特に断りのない限り, $X(0)=V$を仮定する
 (そうでなければ$V$として$V=X(0)$とした単体複体を考える).
+\end{definition}
+面の次元の概念は単体複体の幾何的な表現に由来する.
+このイメージになぞらえて,
+次元$0$の面を\emph{頂点 (vertex)}, 次元$1$の面を\emph{辺 (edge)}と呼ぶことがある.
 
 \paragraph*{例1.}
 グラフ$G=(V,E)$に対し, $\F = \{\emptyset\} \cup \cbra*{\{v\}\colon v \in V} \cup E$とすると, $(V,\F)$は単体複体である.
+また, 次元$2$以上の任意の単体複体$X$に対して$(X(0),X(1))$はグラフである.
 
 \paragraph*{例2.}
 有限集合$V$に対し,
@@ -77,7 +81,7 @@ $\F = \binom{V}{\le k} \defeq \cbra*{ \sigma \subseteq V \colon |\sigma|\le k}$�
 %\end{definition}
 
 
-\subsection{単体複体上のランダムウォーク}
+\section{単体複体上のランダムウォーク}
 グラフ上のランダムウォークは頂点集合上で遷移するものを考えていたが,
 単体グラフ上のランダムウォークは同じ次元の面の間で遷移するものを考える.
 アイデアとしては, \cref{sec:graph up and down walk}で考えたようにある次元$k$の面から次元$k+1$の面に遷移する上昇ウォークと逆に次元$k+1$の面から次元$k$の面に遷移する下降ウォークを組み合わせることによって, $X(k)$上のランダムウォークを定義する.
@@ -85,5 +89,5 @@ $\F = \binom{V}{\le k} \defeq \cbra*{ \sigma \subseteq V \colon |\sigma|\le k}$�
 \begin{definition}{上昇ウォークと下降ウォーク}{up and down walk}
     純粋な$d$次元単体複体$X=(V,\F)$を考える.
 \end{definition}
-\subsection{局所スペクトルエクスパンダー}
-\subsection{Oppenheimのトリクルダウン定理}
+\section{局所スペクトルエクスパンダー}
+\section{Oppenheimのトリクルダウン定理}

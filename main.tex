@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[12pt,dvipdfmx]{book}
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amssymb,amsfonts,mathtools,amsthm}
 \usepackage[dvipdfmx]{graphicx}
@@ -43,12 +43,10 @@
 \begin{document}
 \maketitle
 \tableofcontents
-\newpage
+\input{preface.tex}
+\addcontentsline{toc}{chapter}{Preface}
 \input{random walk.tex}
-\newpage
 \input{expander graph.tex}
-\newpage
 \input{HDX.tex}
-\newpage
 \input{matroid.tex}
 \end{document}

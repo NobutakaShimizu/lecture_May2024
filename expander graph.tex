@@ -1,9 +1,9 @@
-\section{ランダムウォークの固有値とエクスパンダーグラフ}
+\chapter{ランダムウォークの固有値とエクスパンダーグラフ}
 遷移確率行列$P \in [0,1]^{V \times V}$に従う$V$上の既約的かつ非周期的なランダムウォーク$(X_t)_{t\ge 0}$を考え,
 その一意な定常分布を$\pi$とする.
 \Cref{thm:random walk convergence}より収束性が保証されるが, その速さを評価したい.
 
-\subsection{ランダムウォークの固有値と可逆性}
+\section{ランダムウォークの固有値と可逆性}
 遷移確率行列$P \in [0,1]^{n \times n}$の固有値
 \footnote{本講義では左固有値, すなわち$Px=\lambda x$を満たす$\lambda\in \Comp$を考える.}
 $\lambda_1,\dots,\lambda_n$について考える.
@@ -83,7 +83,12 @@ $(X_T,\dots,X_0)$はランダムウォークから得られた系列と見做せ
     \end{pmatrix}.
 \end{align*}
 この例は遷移が決定的なのでランダムウォークとしては面白くないが,
-    次のようにして可逆でないことが確認できる.
+    次のようにして可逆でないことが確認できる:
+    頂点集合を$V=\{0,1,2\}$とし, $i\in V$に対して$(i+1)\bmod 3$を省略して$i+1 \in V$と書くと
+\begin{align*}
+    \pi(i) = \pi(i) P(i, i+1) = \pi(i+1)P(i+1,i) = 0
+\end{align*}
+より$\pi=0$となってしまい, 分布であることに矛盾.
 
 \begin{exercise}{easy}{}
     可逆なランダムウォークの遷移確率行列を$P$とする.
@@ -93,11 +98,11 @@ $(X_T,\dots,X_0)$はランダムウォークから得られた系列と見做せ
 %
 
 
-\subsection{定常分布から定まる内積とノルム}
+\section{定常分布から定まる内積とノルム}
 可逆なランダムウォークは遷移確率行列の固有値を考える上で非常に扱いやすいランダムウォークのクラスとなっている.
 このことを説明するために, $\Real^V$に次の内積を導入する.
 \begin{definition}{}{naiseki}
-    有限集合$V$上の分布$\pi\in[0,1]^V$に対し,
+    有限集合$V$上の分布$\pi\in(0,1]^V$に対し,
     $\Real^V$上の内積$\piprod{\cdot,\cdot}$を以下で定義する:
     \begin{align*}
         \piprod{f,g} \defeq \sum_{u \in V} \pi(u) f(u) g(u) 
@@ -110,6 +115,11 @@ $(X_T,\dots,X_0)$はランダムウォークから得られた系列と見做せ
         \pinorm{f} \defeq \sqrt{\piprod{f,f}}.
     \]
 \end{definition}
+分布$\pi$の全ての成分が正であるため,
+上記の内積$\piprod{\cdot,\cdot}$はちゃんと実ベクトル空間の内積の公理(対称双線形性, 非退化性, 半正定値性)を満たしている.
+既約的なランダムウォークの定常分布は全成分が正である
+(\cref{thm:random walk convergence})
+から$(\Real^V,\piprod{\cdot,\cdot})$は内積空間となる.
 
 $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の対称行列$M \in \Real^{V\times V}$とベクトル$f,g\in \Real^V$に対して $\abra{f,Ag} = \abra{Af,g}$
 が成り立っていたが,
@@ -133,13 +143,15 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
 \cref{eq:reversal chain}で与えられる時間反転ランダムウォークの遷移確率行列$P^*$に対し$\piprod{f,Pg} = \piprod{P^*f,g}$が成り立つ.
 この意味で$P^*$は$P$の随伴とみなすことができる.
 
-対称行列と同様に可逆なランダムウォークの遷移確率行列は実固有値をもつ.
+対称行列に対して展開される線形代数の理論を可逆なランダムウォークの遷移確率行列に対して
+同様に展開することができる.
+例えば, 対称行列と同様に可逆なランダムウォークの遷移確率行列は実固有値をもつ.
 \begin{exercise}{easy}{reversible real eigenvalue}
     可逆なランダムウォークの遷移確率行列は全ての固有値が実数であることを示せ.
     ただし, 実対称行列の固有値は全て実数であるという事実は証明なしで用いてよい.
 \end{exercise}
 
-\subsection{ランダムウォークのスペクトルと混交時間}
+\section{ランダムウォークのスペクトルと混交時間}
 サイズ$n$の集合$V$上の可逆なランダムウォークは
 \cref{exer:reversible real eigenvalue}より,
 実固有値$1=\lambda_1 \ge \dots \ge \lambda_n$をもつ.
@@ -149,3 +161,16 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
 ここで, $\lambda(P)=\max\{\abs{\lambda_2},\abs{\lambda_n}\}$に対し,
 $\gamma_P \defeq 1 - \lambda(P)$をランダムウォークの\emph{スペクトルギャップ (spectral gap)}という.
 
+\section{エクスパンダーグラフ}
+
+\section{エクスパンダーグラフの応用}
+グラフのエクスパンダー性は組合せ論的な興味だけでなく,
+理論計算機科学において多くの定理の証明の道具として非常に重要な役割を果たしている.
+ここではその一端を軽く紹介する.
+\subsection{脱乱択化}
+hoge
+\subsection{誤り訂正符号}
+fuga
+\subsection{PCP定理}
+piyo
+\subsection{暗号の安全性証明}
