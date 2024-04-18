@@ -4,11 +4,13 @@
 \Cref{thm:random walk convergence}より収束性が保証されるが, その速さを評価したい.
 
 \subsection{ランダムウォークの固有値と可逆性}
-遷移確率行列$P \in [0,1]^{n \times n}$の固有値$\lambda_1,\dots,\lambda_n$について考える.
+遷移確率行列$P \in [0,1]^{n \times n}$の固有値
+\footnote{本講義では左固有値, すなわち$Px=\lambda x$を満たす$\lambda\in \Comp$を考える.}
+$\lambda_1,\dots,\lambda_n$について考える.
 全ての成分が$1$であるベクトル$\allone\in \Real^n$を考えると$P\allone = \allone$であるから
 $P$は固有値$1$を持つことがわかる.
 また, 以下の結果が知られている (Perron--Frobeniusの定理やGershgorinの定理から従う):
-\begin{proposition}{遷移確率行列の固有値}{}
+\begin{proposition}{遷移確率行列の固有値}{random walk eigenvalue}
     既約的かつ非周期的なランダムウォークの
     遷移確率行列$P\in [0,1]^{n\times n}$の固有値を$\lambda_1,\dots,\lambda_n$とすると,
     全ての$i\in\{1,\dots,n\}$に対して$\abs{\lambda_i} \le 1$を満たす.
@@ -20,13 +22,16 @@ $P$は固有値$1$を持つことがわかる.
 ある意味で対称行列のように扱うことができる.
 \begin{definition}{可逆性}{reversible}
     遷移確率行列$P$を持つ$V$上のランダムウォークは,
-    ある$V$上の分布$\pi \in [0,1]^V$が存在して全ての$u,v\in V$に対し
+    ある$V$上の分布$\pi \in [0,1]^V$が存在して
     \begin{align}
-        \pi(u) P(u,v) = \pi(v) P(v,u) \label{eq:reversible}
+        \forall u,v\in V,\pi(u) P(u,v) = \pi(v) P(v,u) \label{eq:reversible}
     \end{align}
     を満たすとき\emph{可逆 (reversible)}であるという.
 \end{definition}
 \cref{eq:reversible}で表される条件を\emph{詳細釣り合い条件 (detailed balanced equation)}という.
+分布$\pi\in [0,1]^V$を対角成分に並べた対角行列$\Pi\in[0,1]^{V\times V}$を用いると
+$(\ref{eq:reversible}) \iff \Pi P = (\Pi P)^{\top}$
+となる.
 
 可逆性とは直感的に言うと, 逆再生しても同じ分布のランダムウォークになるという性質である.
 ランダムウォーク$(X_t)_{t\ge 0}$であって初期頂点$X_0$が分布$\pi$に従って選ばれたものを考えよう.
@@ -37,14 +42,110 @@ $(X_T,\dots,X_0)$はランダムウォークから得られた系列と見做せ
 初期頂点$X_0$の分布$\pi$が定常分布だとすると, $X_1$の分布も$\pi$である.
 また, ランダムウォークの条件から$\Pr[X_1 = v \tand X_0=u] = \pi(u)P(u,v)$である.
 従って条件付き確率の定義より
-\[
-    P^*(v,u) = \Pr[X_0 = u | X_1 = v] = \frac{\Pr[X_0 = u \tand X_1 = v]}{\Pr[X_1 = v]} = \frac{\pi(u)P(u,v)}{\pi(v)}
-\]
+\begin{align}
+    P^*(v,u) = \Pr[X_0 = u | X_1 = v] = \frac{\Pr[X_0 = u \tand X_1 = v]}{\Pr[X_1 = v]} = \frac{\pi(u)P(u,v)}{\pi(v)} \label{eq:reversal chain}
+\end{align}
 が得られる.
 もし元のランダムウォークが可逆ならば, \cref{eq:reversible}から$P^*=P$を得る.
-すなわち, ランダムウォークの可逆性とはそのランダムウォークを逆再生しても自身と全く同じ分布に従う頂点系列が得られるという性質を意味する.
-\todo[inline]{定常分布との関係}
+すなわち, ランダムウォークの可逆性とはそのランダムウォークが時間反転に関して対称性を持つことを意味する.
+なお, \cref{eq:reversal chain}で得られる遷移確率行列に従って生成されるランダムウォークを\emph{時間反転ランダムウォーク (time-reversal random walk)}と呼ぶ.
+
+\paragraph*{例1.単純ランダムウォーク}
+連結グラフ$G=(V,E)$上の単純ランダムウォークを考えよう.
+\cref{eq:SRW stationary distribution}で与えられる定常分布を$\pi$とすると
+任意の二頂点$u,v\in V$に対して
+\[
+    \pi(u) P(u,v) = \frac{\deg(u)}{2|E|} \cdot \frac{\indicator{\{u,v\}\in E}}{\deg(u)} 
+    = \frac{\deg(v)}{2|E|} \cdot \frac{\indicator{\{u,v\}\in E}}{\deg(v)} 
+    = \pi(v) P(v,u)
+\]
+より, 単純ランダムウォークは可逆である (連結なので全ての頂点に対して$\deg(u)>0$である).
+ここで, $\indicator{\dots}$は指示関数である.
+
+\paragraph*{例2.重み付きランダムウォーク}
+重みつきグラフ$G=(V,E,W)$上の重み付きランダムウォークを考えよう.
+重み行列$W$の成分和を$S=\sum_{u,v\in V} W(u,v)$として
+分布$\pi(u) = \frac{\deg_W(u)}{S}$を考えると,
+\[
+    \pi(u) P(u,v) = \frac{\deg_W(u)}{S} \cdot \frac{W(u,v)}{\deg_W(u)}
+    = \frac{\deg_W(v)}{S} \cdot \frac{W(v,u)}{\deg_W(v)}
+    = \pi(v) P(v,u)
+\]
+より, 可逆である.
+
+\paragraph*{例3.有向グラフ上のランダムウォーク}
+可逆で\emph{ない}例として次の遷移確率行列で与えられるランダムウォークを考えてみよう:
+\begin{align*}
+    P = \begin{pmatrix}
+        0 & 1 & 0 \\
+        0 & 0 & 1 \\
+        1 & 0 & 0
+    \end{pmatrix}.
+\end{align*}
+この例は遷移が決定的なのでランダムウォークとしては面白くないが,
+    次のようにして可逆でないことが確認できる.
+
+\begin{exercise}{easy}{}
+    可逆なランダムウォークの遷移確率行列を$P$とする.
+    \cref{eq:reversible}を満たす分布$\pi$は定常分布であることを示せ.
+\end{exercise}
+
 %
-\subsection{定常分布が誘導する内積}
+
+
+\subsection{定常分布から定まる内積とノルム}
 可逆なランダムウォークは遷移確率行列の固有値を考える上で非常に扱いやすいランダムウォークのクラスとなっている.
-このことを説明するために, 
+このことを説明するために, $\Real^V$に次の内積を導入する.
+\begin{definition}{}{naiseki}
+    有限集合$V$上の分布$\pi\in[0,1]^V$に対し,
+    $\Real^V$上の内積$\piprod{\cdot,\cdot}$を以下で定義する:
+    \begin{align*}
+        \piprod{f,g} \defeq \sum_{u \in V} \pi(u) f(u) g(u) 
+        = f^\top \Pi g.
+    \end{align*}
+    ここで$f,g$は列ベクトルとして扱い, $\Pi=\mathrm{diag}(\pi)$はベクトル$\pi$の成分を対角に並べた行列である.
+    また, 内積$\piprod{\cdot,\cdot}$が誘導するノルムを$\pinorm{\cdot}$で表す.
+    すなわち, $f\in\Real^V$に対して
+    \[
+        \pinorm{f} \defeq \sqrt{\piprod{f,f}}.
+    \]
+\end{definition}
+
+$\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の対称行列$M \in \Real^{V\times V}$とベクトル$f,g\in \Real^V$に対して $\abra{f,Ag} = \abra{Af,g}$
+が成り立っていたが,
+可逆なランダムウォークの遷移確率行列$P$は内積$\piprod{\cdot,\cdot}$に関して同様の性質を持つ.
+\begin{proposition}{}{reversible adjoint}
+    定常分布$\pi$をもつ可逆なランダムウォークの遷移確率行列$P$は,
+    任意の$f,g\in\Real^V$に対して
+    \[ \piprod{f,Pg} = \piprod{Pf,g} \]
+    を満たす.
+\end{proposition}
+\begin{proof}
+    定常分布$\pi$を対角成分に並べた対角行列$\Pi$を考えると
+    \begin{align*}
+        \piprod{f,Pg} &= f^\top \Pi P g \\
+        &= f^\top (\Pi P)^\top g & & \text{可逆性より$\Pi P$は対称}\\
+        &= (Pf)^\top \Pi g & & \text{$\Pi^\top = \Pi$} \\
+        &= \piprod{Pf,g}.
+    \end{align*}
+\end{proof}
+一般に$P$が可逆とは限らない場合,
+\cref{eq:reversal chain}で与えられる時間反転ランダムウォークの遷移確率行列$P^*$に対し$\piprod{f,Pg} = \piprod{P^*f,g}$が成り立つ.
+この意味で$P^*$は$P$の随伴とみなすことができる.
+
+対称行列と同様に可逆なランダムウォークの遷移確率行列は実固有値をもつ.
+\begin{exercise}{easy}{reversible real eigenvalue}
+    可逆なランダムウォークの遷移確率行列は全ての固有値が実数であることを示せ.
+    ただし, 実対称行列の固有値は全て実数であるという事実は証明なしで用いてよい.
+\end{exercise}
+
+\subsection{ランダムウォークのスペクトルと混交時間}
+サイズ$n$の集合$V$上の可逆なランダムウォークは
+\cref{exer:reversible real eigenvalue}より,
+実固有値$1=\lambda_1 \ge \dots \ge \lambda_n$をもつ.
+\Cref{prop:random walk eigenvalue}より,
+ランダムウォークが既約ならば$\lambda_2<1$であり,
+非周期的ならば$\lambda_n > -1$である.
+ここで, $\lambda(P)=\max\{\abs{\lambda_2},\abs{\lambda_n}\}$に対し,
+$\gamma_P \defeq 1 - \lambda(P)$をランダムウォークの\emph{スペクトルギャップ (spectral gap)}という.
+

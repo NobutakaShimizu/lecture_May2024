@@ -9,14 +9,14 @@ label = def:#3}
 
 %thm
 \newtcolorbox[auto counter, use counter from=definition, crefname = {定理}{定理}]{theorem}[3][]
-{enhanced, breakable = true, fonttitle = \bfseries,
+{enhanced, colback = orange!10!white, colframe = red!50!black, breakable = true, fonttitle = \bfseries,
 title = 定理~\thetcbcounter~\if #2\kara \else（#2） \fi,
 #1,
 label = thm:#3}
 
 %prop
 \newtcolorbox[auto counter, use counter from=definition, crefname = {命題}{命題}]{proposition}[3][]
-{enhanced, breakable = true, fonttitle = \bfseries,
+{enhanced,  colback = orange!10!white, colframe = red!50!black, breakable = true, fonttitle = \bfseries,
 title = 命題~\thetcbcounter~\if #2\kara \else（#2） \fi,
 #1,
 label = prop:#3}
@@ -43,11 +43,13 @@ title = 注釈~\thetcbcounter~\if #2\kara \else（#2） \fi,
 label = rem:#3}
 
 %exercise
-\newtcolorbox[auto counter, use counter from=definition, crefname = {演習問題}{演習問題}]{exercise}[3][]
-{enhanced, breakable = true, colback = white, fonttitle = \bfseries,
+\newtcolorbox[auto counter, crefname = {演習問題}{演習問題}]{exercise}[3][]
+{enhanced, breakable = true, colback = blue!10!white, colframe = blue!50!black, fonttitle = \bfseries,
 title = 演習問題~\thetcbcounter~\if #2\kara \else（#2） \fi,
 #1,
 label = exer:#3}
+
+\renewcommand{\proofname}{\textbf{証明}}
 
 \crefname{equation}{式}{式}
 \crefname{section}{セクション}{セクション}
