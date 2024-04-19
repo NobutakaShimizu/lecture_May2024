@@ -96,11 +96,19 @@
 		]
 	},
 	"itemize":{
-		"prefix": "itemize",
+		"prefix": "item",
 		"body": [
 			"\\begin{itemize}",
 			"\\item $1",
 			"\\end{itemize}"
+		]
+	},
+	"enumerate":{
+		"prefix": "enum",
+		"body": [
+			"\\begin{enumerate}",
+			"\\item $1",
+			"\\end{enumerate}"
 		]
 	},
 	"pmatrix":{
@@ -117,4 +125,16 @@
 			"\\end{bmatrix}"
 		]
 	},
+	"tran":{
+		"prefix": "tran",
+		"body": [
+			"遷移確率行列"
+		]
+	},
+	"sta":{
+		"prefix": "sta",
+		"body": [
+			"定常分布"
+		]
+	}
 }

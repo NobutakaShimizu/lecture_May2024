@@ -1,7 +1,15 @@
 \chapter{ランダムウォークの固有値とエクスパンダーグラフ}
 遷移確率行列$P \in [0,1]^{V \times V}$に従う$V$上の既約的かつ非周期的なランダムウォーク$(X_t)_{t\ge 0}$を考え,
 その一意な定常分布を$\pi$とする.
-\Cref{thm:random walk convergence}より収束性が保証されるが, その速さを評価したい.
+\Cref{thm:random walk convergence}より収束性が保証されるが, その速さを遷移確率行列の固有値に基づいて評価するのが本チャプターの目標である.
+この議論の土台となるのがランダムウォークの可逆性という概念である.
+一般の遷移確率行列は対称とは限らないが, 可逆性を仮定することによって
+遷移確率行列を対称行列として扱うことができ,
+対称行列に対して展開される固有値分解などの理論を同じように
+遷移確率行列に対しても適用することができる.
+これに基づいて既約性, 非周期性, 可逆性を持つランダムウォークの混交時間の上界を与える.
+また, エクスパンダーグラフの概念をそのグラフ上の単純ランダムウォークに基づいて定義し,
+その組合せ論的な性質をいくつか紹介する.
 
 \section{ランダムウォークの固有値と可逆性}
 遷移確率行列$P \in [0,1]^{n \times n}$の固有値
@@ -10,12 +18,12 @@ $\lambda_1,\dots,\lambda_n$について考える.
 全ての成分が$1$であるベクトル$\allone\in \Real^n$を考えると$P\allone = \allone$であるから
 $P$は固有値$1$を持つことがわかる.
 また, 以下の結果が知られている (Perron--Frobeniusの定理やGershgorinの定理から従う):
-\begin{proposition}{遷移確率行列の固有値}{random walk eigenvalue}
+\begin{lemma}{遷移確率行列の固有値}{random walk eigenvalue}
     既約的かつ非周期的なランダムウォークの
     遷移確率行列$P\in [0,1]^{n\times n}$の固有値を$\lambda_1,\dots,\lambda_n$とすると,
     全ての$i\in\{1,\dots,n\}$に対して$\abs{\lambda_i} \le 1$を満たす.
     さらに,固有値$1$の多重度は$1$であり (つまり固有値$1$に対応する固有空間は$\{c\allone \colon c \in \Real\}$となる), 他の固有値は全て絶対値が真に$1$より小さい.
-\end{proposition}
+\end{lemma}
 %
 
 一方でこれまで見ていたグラフ上のランダムウォークは可逆性と呼ばれる嬉しい性質を持っており,
@@ -103,7 +111,7 @@ $(X_T,\dots,X_0)$はランダムウォークから得られた系列と見做せ
 このことを説明するために, $\Real^V$に次の内積を導入する.
 \begin{definition}{}{naiseki}
     有限集合$V$上の分布$\pi\in(0,1]^V$に対し,
-    $\Real^V$上の内積$\piprod{\cdot,\cdot}$を以下で定義する:
+    $\Real^V$に以下の内積$\piprod{\cdot,\cdot}$を定めた内積空間を$\pispace$で表す:
     \begin{align*}
         \piprod{f,g} \defeq \sum_{u \in V} \pi(u) f(u) g(u)
         = f^\top \Pi g.
@@ -114,28 +122,27 @@ $(X_T,\dots,X_0)$はランダムウォークから得られた系列と見做せ
     \[
         \pinorm{f} \defeq \sqrt{\piprod{f,f}}.
     \]
+%    二つのベクトル$f,g \in \Real^V$が$\piprod{f,g} = 0$であるとき, $f \piorth g$で表す.
 \end{definition}
-分布$\pi$の全ての成分が正であるため,
-上記の内積$\piprod{\cdot,\cdot}$はちゃんと実ベクトル空間の内積の公理(対称双線形性, 非退化性, 半正定値性)を満たしている.
-既約的なランダムウォークの定常分布は全成分が正である
-(\cref{thm:random walk convergence})
-から$(\Real^V,\piprod{\cdot,\cdot})$は内積空間となる.
+\cref{def:naiseki}で考える分布$\pi$は全ての成分が正であるため,
+上記の内積$\piprod{\cdot,\cdot}$はちゃんと実ベクトル空間の内積の公理(対称双線形性, 非退化性, 半正定値性)を満たしており,
+確かに$\pispace$は内積空間である.
 
 $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の対称行列$M \in \Real^{V\times V}$とベクトル$f,g\in \Real^V$に対して $\abra{f,Ag} = \abra{Af,g}$
 が成り立っていたが,
 可逆なランダムウォークの遷移確率行列$P$は内積$\piprod{\cdot,\cdot}$に関して同様の性質を持つ.
-\begin{proposition}{}{reversible adjoint}
+\begin{lemma}{}{reversible adjoint}
     定常分布$\pi$をもつ可逆なランダムウォークの遷移確率行列$P$は,
     任意の$f,g\in\Real^V$に対して
     \[ \piprod{f,Pg} = \piprod{Pf,g} \]
     を満たす.
-\end{proposition}
+\end{lemma}
 \begin{proof}
     定常分布$\pi$を対角成分に並べた対角行列$\Pi$を考えると
     \begin{align*}
         \piprod{f,Pg} & = f^\top \Pi P g                                     \\
-                      & = f^\top (\Pi P)^\top g &  & \text{可逆性より$\Pi P$は対称}  \\
-                      & = (Pf)^\top \Pi g       &  & \text{$\Pi^\top = \Pi$} \\
+                      & = f^\top (\Pi P)^\top g &  & \text{$\because$可逆性より$\Pi P$は対称}  \\
+                      & = (Pf)^\top \Pi g       &  & \text{$\because\Pi^\top = \Pi$} \\
                       & = \piprod{Pf,g}.
     \end{align*}
 \end{proof}
@@ -143,14 +150,109 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
 \cref{eq:reversal chain}で与えられる時間反転ランダムウォークの遷移確率行列$P^*$に対し$\piprod{f,Pg} = \piprod{P^*f,g}$が成り立つ.
 この意味で$P^*$は$P$の随伴とみなすことができる.
 
-対称行列に対して展開される線形代数の理論を可逆なランダムウォークの遷移確率行列に対して
-同様に展開することができる.
-例えば, 対称行列と同様に可逆なランダムウォークの遷移確率行列は実固有値をもつ.
-\begin{exercise}{easy}{reversible real eigenvalue}
-    可逆なランダムウォークの遷移確率行列は全ての固有値が実数であることを示せ.
-    ただし, 実対称行列の固有値は全て実数であるという事実は証明なしで用いてよい.
-\end{exercise}
 
+対称行列に対して展開される固有値分解などの理論は可逆なランダムウォークの遷移確率行列に対しても同様に展開できる.
+例えば, 対称行列と同様に可逆なランダムウォークの遷移確率行列は実固有値をもつ.
+\begin{lemma}{実固有値性}{reversible real eigenvalue}
+    既約的かつ可逆なランダムウォークの遷移確率行列$P$と定常分布$\pi$に対し,
+    行列
+    \begin{align}
+        A \defeq \sqrt{\Pi} P \sqrt{\Pi}^{-1} \label{eq: symmetrized P}
+    \end{align}
+    を考える.
+    $P$と$A$は(多重度も含め)同じ固有値をもち, これらは全て実数である.
+\end{lemma}
+\begin{proof}
+    行列$A$は対称である.
+    実際,
+    \begin{align*}
+        A^\top &= \sqrt{\Pi}^{-1} P^{\top} \sqrt{\Pi} & & \text{$\because$$\sqrt{\Pi},\sqrt{\Pi}^{-1}$は対称}\\
+        &= \sqrt{\Pi} \cdot \Pi^{-1} P^{\top} \Pi \cdot \sqrt{\Pi}^{-1} \\
+        &= \sqrt{\Pi} \cdot \Pi^{-1} (\Pi P)^{\top} \cdot \sqrt{\Pi}^{-1} \\
+        &= \sqrt{\Pi} \cdot \Pi^{-1} \Pi P \cdot \sqrt{\Pi}^{-1} & & \text{$\because$可逆性より$\Pi P$は対称} \\
+        &= A.
+    \end{align*}
+    $A$は対称なので全ての固有値は実数である.
+
+    $A$の固有値$\lambda$に対する固有ベクトルを$x$とし, ベクトル$y\defeq \sqrt{\Pi}^{-1}x$を考える.
+    固有ベクトルの式
+    \begin{align*}
+        A x = (\sqrt{\Pi} P \sqrt{\Pi}^{-1})x =  \lambda x
+    \end{align*}
+    の両辺に左から$\sqrt{\Pi}^{-1}$を掛けると
+    \begin{align*}
+        P y = \lambda y
+    \end{align*}
+    を得る.
+    すなわち, $P$と$A$は同じ固有値を持つ.
+    特に, $P$の固有値も全て実数である.
+\end{proof}
+\cref{lem:reversible real eigenvalue}において既約性の仮定は除去できる.
+実際, $P$が定める状態遷移を表す有向グラフを強連結成分に分解し,
+各成分ごとに\cref{lem:reversible real eigenvalue}を適用すればよい.
+
+%
+\begin{theorem}{固有分解}{eigendecomposition}
+    既約的かつ可逆なランダムウォークの遷移確率行列を$P$とし, その定常分布を$\pi$とする.
+    $|V|=n$とする.
+    $P$の固有値を$1=\lambda_1\ge \dots \ge \lambda_n \ge -1$とする.
+    空間$\pispace$の正規直交基底$x,\dots,x_n$が存在して任意の$t\ge 1$に対して
+    \[ P^t\Pi^{-1} = \sum_{i=1}^n \lambda_i^t x_i x_i^{\top}  \]
+    と表せる.
+    特に, $x_1 = \allone$であり, $\lambda_2 < 1$であり,
+    $J \in \Real^{V \times V}$を全成分が$1$の行列とすると
+    \[ P^t \Pi^{-1} - J =  \sum_{i=1}^n \lambda_i^t x_j x_j^\top. \]
+\end{theorem}
+\begin{proof}
+    \cref{eq: symmetrized P}で定義された行列$A$は対称なので,
+    対称行列に対する固有分解の定理より, 
+    通常の内積$\abra{\cdot, \cdot}$の意味での$\Real^V$の正規直交基底$y_1,\dots,y_n$が存在して
+    \[
+        A = \sum_{i=1}^n \lambda_i y_i y_i^\top
+    \]
+    と表せる.
+    一方で$A^t = \sqrt{\Pi} P^t \sqrt{\Pi}^{-1}$だから,
+    \[
+        \sqrt{\Pi} P^t \sqrt{\Pi}^{-1} = \sum_{i=1}^n \lambda_i^t y_i y_i^\top.
+    \]
+    両辺に左右から$\sqrt{\Pi}^{-1}$を一つずつ掛けて
+    $x_i = \sqrt{\Pi}^{-1}y_i$とおくと
+    \[
+        P^t \Pi^{-1} = \sum_{i=1}^n \lambda_i^t x_i x_i^\top
+    \]
+    を得る.
+    ここで
+    \[
+        \piprod{x_i,x_j} = \abra{\sqrt{\Pi}x_i,\sqrt{\Pi}x_j} = \abra{y_i,y_j} = \indicator{i=j}
+    \]
+    より, 確かに$(x_i)_{i=1,\dots,n}$は空間$\pispace$の正規直交基底である.
+
+    特に, $\lambda_1=1$に対応する$A$の固有ベクトルは$y_1 = (\sqrt{\pi(u)})_{u \in V}$なので,
+    対応する$P$の固有ベクトルは$x_1 = \allone$となり,
+    \cref{lem:random walk eigenvalue}より$\lambda_2<1$を得る.
+\end{proof}
+%
+\begin{lemma}{}{second laregst eigenvalue}
+    既約的かつ可逆なランダムウォークの遷移確率行列を$P$とし, その定常分布を$\pi$とする.
+        
+\end{lemma}
+\begin{proof}
+    \cref{thm:eigendecomposition}の正規直交基底を$x_1,\dots,x_n$とする.
+    ピタゴラスの定理より任意のベクトル$f \in \Real^V$は
+    \[ \pinorm{f}^2 = \sum_{i=1}^n \piprod{f,x_i}^2 \]
+    を満たす.
+    特に, 頂点$u$を固定し$f$としてディラック測度$f=\delta_u$とすると
+    \begin{align*}
+        \pi(u) &= \pinorm{\delta_u}^2 \\
+        &= \sum_{i=1}^n \piprod{\delta_u,x_i}^2 \\
+        &= \sum_{i=1}^n \pi(u)^2x_i(u)^2 \\
+        &= \pi(u)^2 + \pi(u)^2\sum_{i=2}^n x_i(u)^2 & & \text{($\because x_1=\allone$)}
+    \end{align*}
+    を得る.
+    特に, $\sum_{i=2}^n x_i(u)^2 = \frac{1}{\pi(u)} - 1 \le \frac{1}{\pi(u)}$である.
+\end{proof}
+
+\begin{comment}
 \paragraph*{遷移確率行列を左右どちらから作用させるか?}
 \cref{eq:p_t}では遷移確率行列$P$を右から作用させることで次のステップのランダムウォークの分布が得られることがわかる.
 では, 遷移確率行列$P$を左から作用させて得られる線形作用素はどのような意味合いを持つだろうか?
@@ -164,12 +266,35 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
 
 可逆なランダムウォークを考える限りにおいては\cref{prop:reversible adjoint}から本質的にはどちらを考えても変わらない.
 ただし, 応用側の都合で混交時間の定義において全変動距離を用いており, 全変動距離は通常の$\ell^1$ノルムを用いているため, 本来考えるべきであろう自然な$\ell^1$ノルム$f \mapsto \sum_{u \in V} \pi(u)\abs{f(u)}$に対して$\pi_{\min} \defeq \min_{u\in V}\pi(u)$倍程度のギャップが生じる.
+\end{comment}
 
 \section{ランダムウォークのスペクトルと混交時間}
+
+全変動距離は$\pi$ノルムを使って上から抑えることができるため, 空間$\pispace$は混交時間の解析において重要な役割を果たす.
+%
+\begin{lemma}{全変動距離と$\pi$ノルムの関係}{dtv pinorm}
+    空間$\pispace$を考える.
+    分布$\pi$に対し$\pimin \defeq \min_{u \in V} \pi(u)$とする.
+    任意の分布$p,q \in [0,1]^V$に対し, 
+    $\dtv(p,q) \le \frac{1}{2\pimin} \pinorm{p-q}^2$.
+\end{lemma}
+\begin{proof}
+    Cauchy--Schwarzの不等式より,
+    \begin{align*}
+        \dtv(p,q) &= \frac{1}{2} \sum_{u \in V} \abs*{p(u) - q(u)} \\
+        &\le \frac{1}{2\pimin} \sum_{u\in V} \sqrt{\pi(u)}  \abs*{p(u) - q(u)} \cdot \sqrt{\pi(u)} \\
+        & \le  \frac{1}{2\pimin} \sum_{u\in V} \pi(u)(p(u) - q(u))^2 \cdot \sum_{u\in V} \pi(u) \\
+        &= \frac{1}{2\pimin} \pinorm{p-q}^2.
+    \end{align*}
+\end{proof}
+%
+固有値を用いた混交時間の解析では基本的に$\pinorm{p_0P^t-\pi}$の上界を求め,
+\cref{lem:dtv pinorm}を適用することで混交時間を抑える.
+
 サイズ$n$の集合$V$上の可逆なランダムウォークは
-\cref{exer:reversible real eigenvalue}より,
+\cref{lem:reversible real eigenvalue}より,
 実固有値$1=\lambda_1 \ge \dots \ge \lambda_n$をもつ.
-\Cref{prop:random walk eigenvalue}より,
+\Cref{lem:random walk eigenvalue}より,
 ランダムウォークが既約ならば$\lambda_2<1$であり,
 非周期的ならば$\lambda_n > -1$である.
 ここで, $\lambda(P)=\max\{\abs{\lambda_2},\abs{\lambda_n}\}$に対し,
