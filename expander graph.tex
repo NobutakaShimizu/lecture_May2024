@@ -55,8 +55,8 @@ $(X_T,\dots,X_0)$はランダムウォークから得られた系列と見做せ
 \cref{eq:SRW stationary distribution}で与えられる定常分布を$\pi$とすると
 任意の二頂点$u,v\in V$に対して
 \[
-    \pi(u) P(u,v) = \frac{\deg(u)}{2|E|} \cdot \frac{\indicator{\{u,v\}\in E}}{\deg(u)} 
-    = \frac{\deg(v)}{2|E|} \cdot \frac{\indicator{\{u,v\}\in E}}{\deg(v)} 
+    \pi(u) P(u,v) = \frac{\deg(u)}{2|E|} \cdot \frac{\indicator{\{u,v\}\in E}}{\deg(u)}
+    = \frac{\deg(v)}{2|E|} \cdot \frac{\indicator{\{u,v\}\in E}}{\deg(v)}
     = \pi(v) P(v,u)
 \]
 より, 単純ランダムウォークは可逆である (連結なので全ての頂点に対して$\deg(u)>0$である).
@@ -77,14 +77,14 @@ $(X_T,\dots,X_0)$はランダムウォークから得られた系列と見做せ
 可逆で\emph{ない}例として次の遷移確率行列で与えられるランダムウォークを考えてみよう:
 \begin{align*}
     P = \begin{pmatrix}
-        0 & 1 & 0 \\
-        0 & 0 & 1 \\
-        1 & 0 & 0
-    \end{pmatrix}.
+            0 & 1 & 0 \\
+            0 & 0 & 1 \\
+            1 & 0 & 0
+        \end{pmatrix}.
 \end{align*}
 この例は遷移が決定的なのでランダムウォークとしては面白くないが,
-    次のようにして可逆でないことが確認できる:
-    頂点集合を$V=\{0,1,2\}$とし, $i\in V$に対して$(i+1)\bmod 3$を省略して$i+1 \in V$と書くと
+次のようにして可逆でないことが確認できる:
+頂点集合を$V=\{0,1,2\}$とし, $i\in V$に対して$(i+1)\bmod 3$を省略して$i+1 \in V$と書くと
 \begin{align*}
     \pi(i) = \pi(i) P(i, i+1) = \pi(i+1)P(i+1,i) = 0
 \end{align*}
@@ -105,7 +105,7 @@ $(X_T,\dots,X_0)$はランダムウォークから得られた系列と見做せ
     有限集合$V$上の分布$\pi\in(0,1]^V$に対し,
     $\Real^V$上の内積$\piprod{\cdot,\cdot}$を以下で定義する:
     \begin{align*}
-        \piprod{f,g} \defeq \sum_{u \in V} \pi(u) f(u) g(u) 
+        \piprod{f,g} \defeq \sum_{u \in V} \pi(u) f(u) g(u)
         = f^\top \Pi g.
     \end{align*}
     ここで$f,g$は列ベクトルとして扱い, $\Pi=\mathrm{diag}(\pi)$はベクトル$\pi$の成分を対角に並べた行列である.
@@ -133,10 +133,10 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
 \begin{proof}
     定常分布$\pi$を対角成分に並べた対角行列$\Pi$を考えると
     \begin{align*}
-        \piprod{f,Pg} &= f^\top \Pi P g \\
-        &= f^\top (\Pi P)^\top g & & \text{可逆性より$\Pi P$は対称}\\
-        &= (Pf)^\top \Pi g & & \text{$\Pi^\top = \Pi$} \\
-        &= \piprod{Pf,g}.
+        \piprod{f,Pg} & = f^\top \Pi P g                                     \\
+                      & = f^\top (\Pi P)^\top g &  & \text{可逆性より$\Pi P$は対称}  \\
+                      & = (Pf)^\top \Pi g       &  & \text{$\Pi^\top = \Pi$} \\
+                      & = \piprod{Pf,g}.
     \end{align*}
 \end{proof}
 一般に$P$が可逆とは限らない場合,
@@ -150,6 +150,20 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
     可逆なランダムウォークの遷移確率行列は全ての固有値が実数であることを示せ.
     ただし, 実対称行列の固有値は全て実数であるという事実は証明なしで用いてよい.
 \end{exercise}
+
+\paragraph*{遷移確率行列を左右どちらから作用させるか?}
+\cref{eq:p_t}では遷移確率行列$P$を右から作用させることで次のステップのランダムウォークの分布が得られることがわかる.
+では, 遷移確率行列$P$を左から作用させて得られる線形作用素はどのような意味合いを持つだろうか?
+ベクトル$f\in \Real^V$を関数$f\colon V \to \Real$とみなす.
+遷移確率行列$P$ を$f$に左から作用させて得られる関数 $Pf\colon V\to \Real$ は
+\[
+    (Pf)(u) = \sum_{v\in V}P(u,v)f(v) = \mathbb{E}_{v\sim P(u,\cdot)}[f(v)]
+\]
+と表せる. ここで, $\E_{v\sim P(u,\cdot)}[f(v)]$とは$P$の第$u$行が定める$V$上の分布に従ってランダムに選ばれた頂点$v$に対して$f(v)$の期待値を意味する.
+従って, 線形作用素としての$P$は$V$上の関数$f$に対し局所的に$P(u,\cdot)$で重みつけして平均化しているとみなせる.
+
+可逆なランダムウォークを考える限りにおいては\cref{prop:reversible adjoint}から本質的にはどちらを考えても変わらない.
+ただし, 応用側の都合で混交時間の定義において全変動距離を用いており, 全変動距離は通常の$\ell^1$ノルムを用いているため, 本来考えるべきであろう自然な$\ell^1$ノルム$f \mapsto \sum_{u \in V} \pi(u)\abs{f(u)}$に対して$\pi_{\min} \defeq \min_{u\in V}\pi(u)$倍程度のギャップが生じる.
 
 \section{ランダムウォークのスペクトルと混交時間}
 サイズ$n$の集合$V$上の可逆なランダムウォークは
