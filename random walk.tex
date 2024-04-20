@@ -47,7 +47,7 @@
   で定める.
 \end{definition}
 全変動距離は単に$\ell^1$ノルムを$2$で割った値だが, 次の性質を持つがゆえに統計学, 情報理論, 機械学習, 計算機科学を含む様々な分野で非常に重要な役割を果たしている.
-\begin{proposition}{}{}
+\begin{proposition}{}{dtv}
   有限集合$V$を考え, 分布$\pi\in[0,1]^V$と部分集合$U\subseteq V$に対し$\pi(U)\defeq\sum_{u\in U}\pi(u)$とする.
   任意の二つの分布$\mu,\nu\in[0,1]^V$と任意の部分集合$U\subseteq V$に対して
   \[
@@ -60,7 +60,7 @@
 実際, $U=\cbra*{ u\in V \colon \mu(u) > \nu(u) }$とすれば等号が成り立つ.
 
 次に, ランダムウォークが収束するための条件を与える.
-\begin{definition}{既約性、非周期性}{}
+\begin{definition}{既約性、非周期性}{irreducibility and aperiodicity}
   遷移確率行列$P \in [0,1]^{V\times V}$をもつランダムウォークを考える.
   \begin{itemize}
     \item 任意の頂点対$u,v\in V$に対しある$t \ge 0$が存在して$P^t(u,v)>0$を満たすとき, ランダムウォーク$(X_t)_{t\ge 0}$は\emph{既約 (irreducible)}であるという.
@@ -140,6 +140,19 @@
   とする.
   また, $(1/2)$-混交時間を単に\emph{混交時間 (mixing time)}と呼ぶ.\footnote{$1/2$という数字に特に本質的な意味はない.}
 \end{definition}
+\begin{remark}{初期分布}{mixing time initial distribution}
+ランダムウォークの混交時間はその初期分布に依存する.
+例えば初期分布が定常分布$\pi$であった場合, 混交時間は$0$である.
+基本的には任意の初期分布を考え, その中で混交時間の最大値を考える.
+任意の分布はディラック測度の凸結合で表せるため,
+  全ての初期分布での最大を考える代わりに,
+  各ディラック測度(確率$1$で特定の頂点を選択する測度)に関する最大値だけ考えればよい.
+すなわち, 本講義で初期分布を指定していないランダムウォークに対して混交時間の上界を議論する際は
+\[
+  \max_{u\in U} \inf\cbra*{ t\ge 0 \colon \dtv(P^t(u,\cdot),\pi) \le \varepsilon }
+\]
+を上から抑えることを意味する.
+\end{remark}
 
 本講義では全体を通じてランダムウォークの混交時間(特にその上界)を評価することに取り組む.
 中でも特に強力な固有値に基づく解析について説明し,
@@ -175,7 +188,7 @@
   路$(v_0,\dots,v_\ell)$が$v_0=v_\ell$であって満たすものを\emph{閉路 (cycle)}という.
 \end{definition}
 グラフの連結性を定義する.
-\begin{definition}{連結性}{}
+\begin{definition}{連結性}{graph connectivity}
   グラフ$G=(V,E)$を考える.
   二頂点$u,v \in V$に対し, 
   $u$から$v$への路が存在しかつそのときに限り$u\sim v$
@@ -184,7 +197,7 @@
   商集合$V / \sim$が単一の連結成分からなるとき, $G$は\emph{連結 (connected)}であるという.    
 \end{definition}
 最後にグラフの二部性を定義する.
-\begin{definition}{二部性}{}
+\begin{definition}{二部グラフ}{bipartite graph}
   グラフ$G=(V,E)$を考える.
   ある頂点分割$V=L\sqcup R$が存在して$E\cap \binom{L}{2}=\emptyset$かつ$E\cap \binom{R}{2}=\emptyset$が成り立つとき, $G$は\emph{二部 (bipartite)}であるといい,
   頂点部分集合$L,R$を$G$の\emph{部集合 (partite set)}と呼ぶ.    
@@ -273,7 +286,7 @@ $G$の全ての辺が$L$と$R$の間を跨いでいることを意味する.
 さらに元のグラフ$G$が連結ならば既約的である.
 従って\cref{thm:random walk convergence}より定常分布が一意に存在し, その分布への収束性が成り立つ.
 %
-\begin{exercise}{easy}{}
+\begin{exercise}{easy}{prob1}
   グラフ$G$が連結であるとする.
   上記の$P'$を遷移確率行列としてもつ辺上のランダムウォークの定常分布を求めよ.
   答えだけでよい.
@@ -294,7 +307,7 @@ $G$の全ての辺が$L$と$R$の間を跨いでいることを意味する.
 重み行列$W$をグラフ$G$の隣接行列とすれば$G$上の単純ランダムウォークになる.
 同様に単純遅延ランダムウォークも重み付きランダムウォークの特殊ケースとして表現できる.
 
-\section{混交時間解析の恩恵}
+\section{混交時間解析の実例}
 講義とは直接な関係はないが,
 最後にランダムウォークの混交性解析の応用例をいくつか簡単に説明する.
 \subsection{到達時間, 全訪問時間の解析}
