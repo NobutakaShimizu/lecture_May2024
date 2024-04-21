@@ -108,6 +108,11 @@ $(X_T,\dots,X_0)$はランダムウォークから得られた系列と見做せ
 
 \section{定常分布から定まる内積とノルム}
 可逆なランダムウォークは遷移確率行列の固有値を考える上で非常に扱いやすいランダムウォークのクラスとなっている.
+ランダムウォークの分布は遷移確率$P$を右から掛けて得られるのに対し,
+    固有値に基づく議論では左固有値を考えており,
+この左右の差異に違和感を覚える読者もいるであろう.
+実は可逆なランダムウォークでは遷移確率行列を対称行列のように扱うことができ,
+ゆえに左右どちらから作用させようが本質的に同じとなる.
 このことを説明するために, $\Real^V$に次の内積を導入する.
 \begin{definition}{}{naiseki}
     有限集合$V$上の分布$\pi\in(0,1]^V$に対し,
@@ -198,10 +203,12 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
     $P$の固有値を$1=\lambda_1\ge \dots \ge \lambda_n \ge -1$とする.
     空間$\pispace$の正規直交基底$x,\dots,x_n$が存在して任意の$t\ge 1$に対して
     \[ P^t\Pi^{-1} = \sum_{i=1}^n \lambda_i^t x_i x_i^{\top}  \]
-    と表せる.
-    特に, $x_1 = \allone$であり, $\lambda_2 < 1$であり,
+    と表せ, さらに各$x_i$は$P$の固有値$\lambda_i$に対応する固有ベクトルとなる.
+    
+    特に$x_1 = \allone$であり,
     $J \in \Real^{V \times V}$を全成分が$1$の行列とすると
-    \[ P^t \Pi^{-1} - J =  \sum_{i=1}^n \lambda_i^t x_j x_j^\top. \]
+    \[ P^t \Pi^{-1} - J =  \sum_{i=2}^n \lambda_i^t x_i x_i^\top \]
+    と表せる.
 \end{theorem}
 \begin{proof}
     \cref{eq: symmetrized P}で定義された行列$A$は対称なので,
@@ -210,7 +217,7 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
     \[
         A = \sum_{i=1}^n \lambda_i y_i y_i^\top
     \]
-    と表せる.
+    と表せ, さらに各$y_i$は$A$の固有値$\lambda_i$に対応する固有ベクトルとなる.
     一方で$A^t = \sqrt{\Pi} P^t \sqrt{\Pi}^{-1}$だから,
     \[
         \sqrt{\Pi} P^t \sqrt{\Pi}^{-1} = \sum_{i=1}^n \lambda_i^t y_i y_i^\top.
@@ -226,11 +233,34 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
         \piprod{x_i,x_j} = \abra{\sqrt{\Pi}x_i,\sqrt{\Pi}x_j} = \abra{y_i,y_j} = \indicator{i=j}
     \]
     より, 確かに$(x_i)_{i=1,\dots,n}$は空間$\pispace$の正規直交基底である.
+    さらに
+    \[
+        Px_i = P\sqrt{\Pi}^{-1}y_i = \sqrt{\Pi}^{-1}Ay_i = \lambda_i x_i
+    \]
+    より確かに$x_i$は$P$の固有値$\lambda_i$に対応する固有ベクトルである.
 
     特に, $\lambda_1=1$に対応する$A$の固有ベクトルは$y_1 = (\sqrt{\pi(u)})_{u \in V}$なので,
-    対応する$P$の固有ベクトルは$x_1 = \allone$となり,
-    \cref{lem:random walk eigenvalue}より$\lambda_2<1$を得る.
+    対応する$P$の固有ベクトルは$x_1 = \allone$となる.
 \end{proof}
+
+\begin{corollary}{}{covariance}
+    \cref{thm:eigendecomposition}と同じ仮定の下で
+    空間$\pispace$上の関数$f\colon V \to \Real$に対し,
+    \begin{align}
+        &\Epi f \defeq \piprod{f,\allone} = \sum_{u\in V}\pi(u) f(u), \label{eq:mean}\\
+        &\Varpi f \defeq \pinorm{f - \E_\pi \allone}^2 = \E_\pi f^2 - (\E_\pi f)^2 \label{eq:variance}
+    \end{align}
+    とする.
+    任意の$f,g\colon V \to \Real$に対し
+    \[
+        \abs*{\piprod{f,g} - \E_\pi f\cdot \E_\pi g} \le \max\cbra*{\abs{\lambda_2},\abs{\lambda_n}}\sqrt{\Varpi f \cdot \Varpi g}.
+    \]
+\end{corollary}
+%
+\begin{exercise}{}{covariance}
+    \cref{cor:covariance}を証明せよ.
+\end{exercise}
+%
 %
 \begin{comment}
 \paragraph*{遷移確率行列を左右どちらから作用させるか?}
@@ -310,12 +340,20 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
     グラフ $G=(V,E)$上の遷移確率行列$P$が$\lambda(P) \le \lambda$を満たすときグラフ$G$は\emph{$\lambda$-エクスパンダー ($\lambda$-expander)}という.
     また, $P$の第二固有値が$\lambda_2 \le \lambda$を満たすとき, グラフ$G$は\emph{片側$\lambda$-エクスパンダー (one-sided $\lambda$-expander)}という.
 \end{definition}
-要するにエクスパンダー性とは単純ランダムウォークの混交時間が小さいという性質を意味する.
-しかし二部グラフは周期的でありエクスパンダーになりえない.
-そういったグラフでも片側エクスパンダーであれば遅延単純ランダムウォークの混交時間を上から抑えることができる.
+本講義ではエクスパンダー性を持つ単体複体も取り扱うため,
+エクスパンダー性を持つグラフのことを\emph{エクスパンダーグラフ}と呼んで区別する.
+
+要するにグラフのエクスパンダー性とは単純ランダムウォークの混交時間が小さいという性質を意味する.
+二部グラフは周期的であり特に最小固有値が$\lambda_{|V|}=-1$となるためこの意味ではエクスパンダーグラフになりえないが,
+片側エクスパンダーであるならば
+遅延単純ランダムウォークの混交時間は小さくなる.
 
 ランダムウォークの混交時間が小さいとはランダムウォークが「すぐに混ざり合う」ことを意味する.
 この「すぐに混ざり合う」性質から, ランダムウォーク$(X_t)_{t\ge 0}$が時刻$t$までに訪れた頂点の集合を$U_t = \cbra*{X_0,\dots,X_t}$とすると, $\abs{U_t}$はすぐに拡大(expand)していく.
+
+\paragraph*{例1 完全グラフ.}
+\paragraph*{例2 閉路グラフ.}
+\paragraph*{例3 Petersenグラフ.}
 
 \subsection{エクスパンダーの擬似ランダム性(*)}
 この節は高次元エクスパンダーの本筋から少し外れるが,
@@ -358,7 +396,7 @@ Green--Taoの定理の証明においても重要な役割を果たしている
     \mathcal{F} = \cbra*{ f_{S,T} \colon (s,t) \mapsto \indicator{s\in S,t\in T} \colon S,T\subseteq V}  \label{eq:expander F}
 \end{align}
 で定める.
-\begin{lemma}{エクスパンダーグラフの擬似ランダム性}{expander pseudorandomness}
+\begin{lemma}{エクスパンダー混交補題}{expander mixing lemma}
     グラフ$G$が$n$頂点$d$-正則$\lambda$-エクスパンダーであるとき, \cref{eq:expander mu}で定義された分布$\mu$は\cref{eq:expander F}で定義された関数族$\mathcal{F}$に関して$\varepsilon$-擬似ランダムである.
     すなわち, 任意の頂点部分集合$S,T\subseteq V$に対して,
     $e(S,T) = \sum_{s\in S,t\in T} \indicator{\{s,t\} \in E}$を$S,T$間の辺の本数($S\cap T$内の辺は2回数える)とすると,
@@ -367,17 +405,54 @@ Green--Taoの定理の証明においても重要な役割を果たしている
     \]
 \end{lemma}
 \begin{proof}
-    ...
+    \Cref{cor:covariance}を適用する.
+
 \end{proof}
 
-\section{エクスパンダーグラフの応用}
+\subsection{エクスパンダー性の限界とラマヌジャングラフ}
+あとの節(\cref{sec:expander graph application})で説明するが,
+応用上では正則なエクスパンダーグラフであってできるだけ辺の少ないものが重要である.
+
+\section{エクスパンダーグラフの応用} \label{sec:expander graph application}
 グラフのエクスパンダー性は組合せ論的な興味だけでなく,
 理論計算機科学において多くの定理の証明の道具として非常に重要な役割を果たしている.
 ここではその一端を軽く紹介する.
+%
 \subsection{脱乱択化}
-hoge
+Albert Einsteinは「量子は確率的に振る舞う」とする量子力学の枠組みに対して懐疑的であり,
+1926年にMax Bornに宛てた手紙において
+\begin{quotation}
+    Der Alte würfelt nicht. (神はサイコロを振らない)
+\end{quotation}
+と述べている.
+では, アルゴリズムの神はサイコロを振るだろうか?
+より具体的には, 乱択は計算能力を真に向上させるだろうか?
+この哲学的な問いは90年代から今もなお計算量理論において深く研究されており,
+その中心的なリーダーの一人であるAvi Wigdersonは2021年にAbel賞, 2023年にTuring賞を受賞している.
+
+ここではエクスパンダーグラフを使って「少ないサイコロで多くのサイコロの出目をhitting性の意味で模倣できる」
+という結果を紹介する.
+$R_1,\dots,R_{t} \in \binset^n$を独立な確率変数で各$R_i$を$\binset^n$上一様ランダムな文字列とする.
+集合$S\subseteq \binset^n$を一つ固定し, $\abs{S} \ge \delta 2^n$とする.
+直感的にはある$n$ビットの乱数を用いて確率$\delta$で成功する乱択アルゴリズム$\mathcal{A}$を考え,
+    そのアルゴリズムが成功するランダムシードの集合を$S$としている.
+アルゴリズム$\mathcal{A}$を一度実行するだけでは成功確率は$\delta$であるが,
+独立に$t$回走らせるとその確率を増加させることができ, $t$回の試行の中で少なくとも一度は成功する確率は
+\[
+    \Pr[\exists i\in\cbra{1,\dots,t}, R_i \in S] = 1 - (1-\delta)^t \ge 1-\e^{-\delta t}
+\]
+である.
+従って試行回数$t$を増やすと$t$に関して指数的に成功確率が上昇する.
+このとき, 全体で用いたランダムビットの長さは$nt$ビットである.
+
+エクスパンダーグラフ上のランダムウォークを考えると
+成功確率に少しのロスが生じるものの, ランダムビットの長さを$n+t\log d$ビットに減らすことができる ($d\in\Nat$はパラメータで, 大きくするほど成功確率のロスが小さくできる).
+グラフ$G=(\binset^n,E)$を$d$-正則$\lambda$-エクスパンダーグラフとする (頂点集合が$V=\binset^n$であることに注意).
+
 \subsection{誤り訂正符号}
-fuga
+
 \subsection{PCP定理}
-piyo
-\subsection{暗号の安全性証明}
+
+\subsection{Goldreichの擬似乱数生成器}
+
+\subsection{エクスパンダーハッシュ}
