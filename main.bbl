@@ -16,5 +16,93 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{anyt/global//global/global}
+    \entry{HLW06}{article}{}
+      \name{author}{3}{}{%
+        {{hash=7a2e07605478413e89736ff680e2593c}{%
+           family={Hoory},
+           familyi={H\bibinitperiod},
+           given={Shlomo},
+           giveni={S\bibinitperiod}}}%
+        {{hash=3799f17b3ff4ed819996ef9220d1b820}{%
+           family={Linial},
+           familyi={L\bibinitperiod},
+           given={Nathan},
+           giveni={N\bibinitperiod}}}%
+        {{hash=94bdc407739d530448ac88956c6c98a5}{%
+           family={Wigderson},
+           familyi={W\bibinitperiod},
+           given={Avi},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{36b43dceaf100b79205ddd9a0fd9c257}
+      \strng{fullhash}{36b43dceaf100b79205ddd9a0fd9c257}
+      \strng{bibnamehash}{36b43dceaf100b79205ddd9a0fd9c257}
+      \strng{authorbibnamehash}{36b43dceaf100b79205ddd9a0fd9c257}
+      \strng{authornamehash}{36b43dceaf100b79205ddd9a0fd9c257}
+      \strng{authorfullhash}{36b43dceaf100b79205ddd9a0fd9c257}
+      \field{labelalpha}{HLW06}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0273-0979, 1088-9485}
+      \field{journaltitle}{Bull. Am. Math. Soc.}
+      \field{number}{4}
+      \field{title}{Expander graphs and their applications}
+      \field{volume}{43}
+      \field{year}{2006}
+      \field{pages}{439\bibrangedash 561}
+      \range{pages}{123}
+      \verb{doi}
+      \verb 10.1090/S0273-0979-06-01126-8
+      \endverb
+    \endentry
+    \entry{LP17}{book}{}
+      \name{author}{2}{}{%
+        {{hash=32ad21054f07b38c5fef8dcf472ca73c}{%
+           family={Levin},
+           familyi={L\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=be791fcf2bac698f7a6b715cdf5d5d51}{%
+           family={Peres},
+           familyi={P\bibinitperiod},
+           given={Yuval},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Providence, Rhode Island}%
+      }
+      \list{publisher}{1}{%
+        {American Mathematical Society}%
+      }
+      \strng{namehash}{8202b22adac9a1a16e73501c278aade3}
+      \strng{fullhash}{8202b22adac9a1a16e73501c278aade3}
+      \strng{bibnamehash}{8202b22adac9a1a16e73501c278aade3}
+      \strng{authorbibnamehash}{8202b22adac9a1a16e73501c278aade3}
+      \strng{authornamehash}{8202b22adac9a1a16e73501c278aade3}
+      \strng{authorfullhash}{8202b22adac9a1a16e73501c278aade3}
+      \field{labelalpha}{LP17}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2nd}
+      \field{isbn}{9781470429621}
+      \field{month}{10}
+      \field{title}{Markov Chains and Mixing Times}
+      \field{year}{2017}
+      \verb{doi}
+      \verb 10.1090/mbk/107
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
 \endinput
 

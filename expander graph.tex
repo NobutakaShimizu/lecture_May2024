@@ -243,27 +243,48 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
     対応する$P$の固有ベクトルは$x_1 = \allone$となる.
 \end{proof}
 
-\begin{corollary}{}{covariance}
-    \cref{thm:eigendecomposition}と同じ仮定の下で
-    空間$\pispace$上の関数$f\colon V \to \Real$に対し,
+空間$\pispace$上での期待値と分散を以下のように定義する:
+\begin{definition}{期待値と分散}{expectation and variance}
+    \cref{thm:eigendecomposition}と同じ仮定の下で,
+    $f \in \pispace$の
+    期待値と分散を
     \begin{align}
-        &\Epi f \defeq \piprod{f,\allone} = \sum_{u\in V}\pi(u) f(u), \label{eq:mean}\\
-        &\Varpi f \defeq \pinorm{f - \E_\pi \allone}^2 = \E_\pi f^2 - (\E_\pi f)^2 \label{eq:variance}
+        &\Epi[f] \defeq \piprod{f,\allone} = \sum_{u\in V}\pi(u) f(u), \label{eq:mean}\\
+        &\Varpi[f] \defeq \pinorm{f - \E_\pi[\allone]}^2 = \E_\pi [f^2] - (\E_\pi [f])^2 \label{eq:variance}
     \end{align}
     とする.
-    任意の$f,g\colon V \to \Real$に対し
+\end{definition}
+すなわち, 関数$f\colon V \to \Real$を,
+ランダムに選ばれた$u\sim \pi$に対して$f(u)$を出力する確率変数とみなして
+その平均と分散をそれぞれ$\Epi[f],\Varpi[f]$とした.
+以後, 特に混乱がない限り, $\Epi[f]$や$\Varpi[f]$は$\Epi f$や$\Varpi f$などとも表す.
+同様に共分散$\mathrm{Cov}_\pi(f,g)$を$\piprod{f,g} - \Epi f \cdot \Epi g$で定義できるが,
+この値は以下の性質を持つ.
+\begin{lemma}{}{covariance}
+    任意の$f,g\in \pispace$に対し,
     \[
-        \abs*{\piprod{f,g} - \E_\pi f\cdot \E_\pi g} \le \max\cbra*{\abs{\lambda_2},\abs{\lambda_n}}\sqrt{\Varpi f \cdot \Varpi g}.
+        \abs*{\piprod{f,g} - \Epi f\cdot \Epi g} \le \sqrt{\Varpi f\cdot \Varpi g}.
     \]
-\end{corollary}
-%
-\begin{exercise}{}{covariance}
-    \cref{cor:covariance}を証明せよ.
-\end{exercise}
-%
-\Cref{eq:mean}と(\ref{eq:variance})で定義された$\Epi f$や$\Varpi f$は関数$f$を
-分布$\pi$に従ってランダムに選ばれた頂点$u\in V$に対し$f(v)$を出力するという
-確率変数とみなしたときの期待値と分散に対応している.
+\end{lemma}
+\begin{proof}
+    \cref{thm:eigendecomposition}で得られる$\pispace$の正規直交基底を$x_1,\dots,x_n$とし, 関数$f,g$をこれらの線形結合
+    \begin{align*}
+        f &= \Epi f \cdot \allone + \sum_{i=2}^n f_i x_i,\\
+        g &= \Epi g \cdot \allone + \sum_{j=2}^n g_j x_j
+    \end{align*}
+    で表す.
+    ここで$f_i = \piprod{f,x_i},g_j = \piprod{g,x_j}$であり,
+    $x_1 = \allone$なので$f_1 = \Epi f,g_1 =  \Epi g$である.
+    特に, 基底$(x_i)$の直交性より
+    従って
+    \begin{align*}
+        \abs*{ \piprod{f,g} - \Epi f\cdot \Epi g} 
+        &\le \sum_{i\ge 2} \abs{f_i}\abs{g_i} \\
+        &\le \sqrt{\sum_{i\ge 2}f_i^2} \cdot \sqrt{\sum_{j\ge 2} g_j^2} & & \text{$\because$Cauchy--Schwarzの不等式}\\
+        &= \sqrt{\Varpi f} \cdot \sqrt{\Varpi g}
+    \end{align*}
+    より主張を得る.
+\end{proof}
 %
 \section{ランダムウォークのスペクトルと混交時間}
 非自明な固有値が絶対値の意味で小さいときに混交時間が上から抑えられることを示す.
@@ -273,7 +294,46 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
     $\lambda(P) \defeq \max\cbra{\abs{\lambda_2},\abs{\lambda_n}}$とする.
     特に, $\gamma\defeq 1-\lambda(P)$を\emph{スペクトルギャップ (spectral gap)}と呼ぶ.
 \end{definition}
-既約性と非周期性を仮定するとスペクトルギャップは正となる.
+先確率行列$P$を作用させると分散が減少する.
+\begin{lemma}{}{variance}
+    遷移確率行列$P$と関数$f$に対し
+    \[
+        (Pf)(u) \defeq \sum_{v\in V} P(u,v)f(v)
+    \]
+    とする. このとき,
+    \[
+        \Varpi[Pf] \le \lambda(P)^2 \cdot \Varpi [f].
+    \]
+\end{lemma}
+証明は演習問題とする.
+\begin{exercise}{}{Epi Pf = f}
+    遷移確率行列$P$とベクトル$f\in \pispace$に対し, $\Epi[Pf]$を求めよ.
+    また, \cref{lem:variance}を証明せよ.
+\end{exercise}
+\begin{comment}
+\begin{proof}
+    \cref{thm:eigendecomposition}で得られる空間$\pispace$の正規直交基底$x_1,\dots,x_n$を考え,
+    関数$f$をそれらの線形結合
+    \[ f = \sum_{i=1}^n f_i x_i\]
+    で表す (ここで$f_i = \piprod{f,x_i}$).
+    %
+    ここで, $x_1 = \allone$なので$f_1 = \E_\pi f$なので,
+    両辺に左から$P$を掛けて移項すると
+    \[
+        Pf - \Epi[f] \allone  = \sum_{i=2}^n f_i P x_i = \sum_{i=2}^n \lambda_i f_i x_i
+    \]
+    を得る.
+    両辺の$\pinorm{\cdot}$をとると, ピタゴラスの定理より
+    \begin{align*}
+        \pinorm{Pf - \Epi[f]\allone}^2 &= \sum_{i=2}^n f_i^2 \lambda_i^2 \\
+        &\le \lambda(P)^2\cdot \sum_{i=2}^n f_i^2 \\
+        &= \lambda(P)^2\cdot \pinorm{f - \Epi[f]\allone}^2 \\
+        &= \lambda(P)^2\cdot \Varpi f
+    \end{align*}
+    を得る.
+\end{proof}
+\end{comment}
+
 スペクトルギャップが大きいほど混交時間が小さくなる.
 \begin{lemma}{混交時間とスペクトルギャップ}{mixing time and spectral gap}
     集合$V$上の既約, 非周期的, 可逆なランダムウォークを考え,
@@ -324,7 +384,7 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
 多くの文脈では通常, 正則グラフに対してのみエクスパンダー性が定義されるが
 本講義では一般のグラフに対してエクスパンダー性を定義する.
 \begin{definition}{エクスパンダー}{expander}
-    グラフ $G=(V,E)$上の遷移確率行列$P$が$\lambda(P) \le \lambda$を満たすときグラフ$G$は\emph{$\lambda$-エクスパンダー ($\lambda$-expander)}という.
+    グラフ $G=(V,E)$上の単純ランダムウォークの遷移確率行列$P$が$\lambda(P) \le \lambda$を満たすときグラフ$G$は\emph{$\lambda$-エクスパンダー ($\lambda$-expander)}という.
     また, $P$の第二固有値が$\lambda_2 \le \lambda$を満たすとき, グラフ$G$は\emph{片側$\lambda$-エクスパンダー (one-sided $\lambda$-expander)}という.
 \end{definition}
 本講義ではエクスパンダー性を持つ単体複体も取り扱うため,
@@ -339,8 +399,36 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
 この「すぐに混ざり合う」性質から, ランダムウォーク$(X_t)_{t\ge 0}$が時刻$t$までに訪れた頂点の集合を$U_t = \cbra*{X_0,\dots,X_t}$とすると, $\abs{U_t}$はすぐに拡大(expand)していく.
 
 \paragraph*{例1 完全グラフ.}
+グラフ$\rbra*{V, \binom{V}{2}}$を\emph{完全グラフ (complete graph)}という.
+$n$頂点完全グラフ上の単純ランダムウォークの遷移確率行列$P$は, 単位行列$I$と全成分が$1$の行列$J$を用いて
+$P = \frac{1}{n-1}(J-I)$で表せる.
+完全グラフは正則グラフなので定常分布$\pi$は$V$上の一様分布である.
+第一固有値は$\allone$であり,
+その他の固有ベクトル$x_i$($i\ge 2$)は全て$\allone$に直交し, 特に$Jx_i = 0$となる.
+従って$P x_i = -\frac{1}{n-1}x_i$なので, $\lambda_1=1$, $\lambda_2=\dots=\lambda_n = -\frac{1}{n}$である.
+よって, $n$頂点完全グラフは$(1/n)$-expanderであると同時に片側$(-1/n)$-エクスパンダーグラフである
+($\lambda(P)$の定義では絶対値をつけているが片側エクスパンダー性の定義では絶対値をつけていないことに注意).
+%
 \paragraph*{例2 閉路グラフ.}
-\paragraph*{例3 Petersenグラフ.}
+頂点数$n$の閉路グラフとは, 頂点集合$V=\cbra{v_1,\dots,v_n}$に対して
+辺集合$E$が$E = \cbra{\cbra{v_1,v_2},\dots,\cbra{v_{n-1},v_n}, \cbra{v_n,v_1}}$で与えられるグラフ$(V,E)$である.
+頂点数$n$が偶数のとき, 閉路グラフは二部グラフとなる.
+
+ここでは$\omega = \exp\rbra*{\frac{2\pi \mathrm{i}}{n}}$を$1$の冪根とし,
+頂点集合を$V=\cbra{\omega^i \colon i=0,\dots,n-1}$とし, 各辺を$\cbra{\omega^i,\omega^{i+1}}$で表す.
+任意の関数$f\colon V\to \Real$に$P$を作用させると
+\[ Pf(\omega^i) = \frac{f(\omega^{i-1}) + f(\omega^{i+1})}{2}\]
+を得る.
+関数$x_k\colon \omega^j \mapsto \omega^{kj}$を考えると,
+$Px_k (\omega_j) = \frac{\omega^{k(j-1)} + \omega^{k(j+1)}}{2} = \frac{\omega^{-k}+\omega^{-k}}{2}\cdot x_k(\omega_j)$を得る.
+従って各$k=0,\dots,n-1$に対し$x_k$はそれぞれ固有値$\frac{\omega^k + \omega^{-k}}{2} = \cos\frac{2\pi k}{n}$に対応する固有ベクトルである.
+
+これらの固有値を降順に並べて$1=\lambda_1\ge \dots\ge \lambda_n\ge-1$とすると,
+$\lambda_2 = \cos\frac{2\pi}{n} = 1-\frac{4\pi^2}{2n^2} + O(n^{-4})$である.
+頂点数$n$が偶数のときは$\lambda_n = -1$,
+頂点数$n$が奇数のときは$\lambda_n = \cos\pi\rbra*{1 - \frac{1}{n}} = -\cos\frac{\pi}{n} = -1 + \frac{\pi^2}{2n^2} - O(n^{-4})$である.
+従って頂点数$n$が奇数のときの閉路グラフは$\cos\frac{\pi}{n}$-エクスパンダーであり,
+$n\to\infty$の漸近を考えると$n$のスペクトルギャップは$\Theta(1/n^2)$となる.
 
 \subsection{エクスパンダー性の限界とラマヌジャングラフ}
 直感的にはランダムウォークがすぐに混ざり合うということはそのグラフは多くの辺を持つべきである.
@@ -418,7 +506,8 @@ Green--Taoの定理の証明においても重要な役割を果たしている
     \]
 \end{lemma}
 \begin{proof}
-    \Cref{cor:covariance}を適用する.
+    グラフ$G$上の単純ランダムウォークに対して
+    \cref{cor:covariance}を適用する.
 
 \end{proof}
 
@@ -427,6 +516,7 @@ Green--Taoの定理の証明においても重要な役割を果たしている
 グラフのエクスパンダー性は組合せ論的な興味だけでなく,
 理論計算機科学において多くの定理の証明の道具として非常に重要な役割を果たしている.
 ここではその一端を軽く紹介する.
+より詳細の議論は\cite{HLW06}を参照されたい.
 %
 \subsection{脱乱択化}
 Albert Einsteinは「量子は確率的に振る舞う」とする量子力学の枠組みに対して懐疑的であり,
