@@ -96,7 +96,7 @@
 		]
 	},
 	"itemize":{
-		"prefix": "item",
+		"prefix": "itemize",
 		"body": [
 			"\\begin{itemize}",
 			"\\item $1",
@@ -104,7 +104,7 @@
 		]
 	},
 	"enumerate":{
-		"prefix": "enum",
+		"prefix": "enumerate",
 		"body": [
 			"\\begin{enumerate}",
 			"\\item $1",
