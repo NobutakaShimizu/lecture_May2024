@@ -129,17 +129,17 @@ $i$次の定常分布という言葉は本講義における造語である (よ
 \cref{def:down walk and stationary distribution}では次元$i$の面から次元$i-1$に遷移する下降ウォークを与えた.
 同様に, 次元$i$の面から次元$i+1$の面に遷移する上昇ウォークを, $X(i)$と$X(i+1)$の間の詳細釣り合い条件が成り立つように定義する.
 %
-\begin{definition}{上昇ウォークと下降ウォーク}{up and down walk}
+\begin{definition}{上昇ウォーク}{up walk}
     純粋な$d$次単体複体$X=(V,\F)$を考える.
     各$i=-1,\dots,d-2$に対し
         確率行列$\Pup_i \in [0,1]^{X(i) \times X(i+1)}$を
-    \[
-        \Pup_i(\sigma,\tau) = \frac{\pi_{i+1}(\tau)}{\pi_i(\sigma)}\Pdown_{i+1}(\tau,\sigma)
-        = \begin{cases}
+    \begin{align*}
+        \Pup_i(\sigma,\tau) &= \frac{\pi_{i+1}(\tau)}{\pi_i(\sigma)}\Pdown_{i+1}(\tau,\sigma) \\
+        &= \begin{cases}
             \frac{\pi_{i+1}(\tau)}{(i+1)\pi_i(\sigma)}	& \tif \sigma\subseteq \tau,\\
             0 & \totherwise
         \end{cases}
-    \]
+    \end{align*}
     で定める.
 \end{definition}
 %
@@ -151,7 +151,7 @@ $i$次の定常分布という言葉は本講義における造語である (よ
 \]
 を満たしている.
 %
-\begin{remark}{}{HDX adjoint}
+\begin{remark}{「上昇」「下降」の名称}{up and down}
     非常にややこしいのだが,
     上昇ウォークと下降ウォークをそれぞれランダムウォークの遷移確率行列とみなすか線形作用素としてみなすかによって「上昇」「下降」の意味合いが反転してしまう.
     確率行列としての上昇ウォークは$\Pup_i \in [0,1]^{X(i)\times X(i+1)}$で表せる.
@@ -159,10 +159,11 @@ $i$次の定常分布という言葉は本講義における造語である (よ
     $\Pup_i\colon \Real^{X(i+1)} \to \Real^{X(i)}$
     であるので, 次元を一つ落とすように見えてしまうのである.
     下降ウォークについても同様である.
-
-    これまでの可逆
-    各$X(i)$に対して空間$\ell^2_{\pi_i}(X(i))$を考えることができる.
-    すなわち, \cref{def:naiseki}と同様にして$\Real^{X(i)}$に内積$\abra{\cdot,\cdot}_{\pi_i}$が導入された空間である.
+    本講義はランダムウォークを主眼におき, 右から作用させるときの$\Pup_i,\Pdown_i$に興味があるので\cref{def:down walk and stationary distribution}, \cref{def:up walk}の呼称を採用している.
+\end{remark}
+\begin{remark}{随伴}{HDX adjoint}
+    各$X(i)$に対して空間$\ell^2_{\pi_i}(X(i))$, 
+    すなわち, \cref{def:naiseki}と同様にして$\Real^{X(i)}$に内積$\abra{\cdot,\cdot}_{\pi_i}$が導入された空間を定義できる.
     このとき, 
     \[\Pup_i\colon \ell^2_{\pi_{i+1}}(X(i+1)) \to \ell^2_{\pi_{i}}(X(i))\]
     と
