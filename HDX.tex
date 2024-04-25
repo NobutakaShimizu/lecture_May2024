@@ -90,8 +90,59 @@ $\F = \binom{V}{\le k} \defeq \cbra*{ \sigma \subseteq V \colon |\sigma|\le k}$�
 単体グラフ上のランダムウォークは同じ次元の面の間で遷移するものを考える.
 アイデアとしては, \cref{sec:graph up and down walk}で考えたようにある次元$k$の面から次元$k+1$の面に遷移する上昇ウォークと逆に次元$k+1$の面から次元$k$の面に遷移する下降ウォークを組み合わせることによって, $X(k)$上のランダムウォークを定義する.
 
-\begin{definition}{上昇ウォークと下降ウォーク}{up and down walk}
-    純粋な$d$次元単体複体$X=(V,\F)$を考える.
+\paragraph*{下降ウォークと定常分布.}
+まず, \cref{sec:graph up and down walk}で考えた下降ウォークを単体複体に拡張し, $X(d-1)$上では一様分布を定常分布とすることによって帰納的に各$X(i)$上での定常分布を定める.
+\begin{definition}{下降ウォークと面上の定常分布}{down walk and stationary distribution}
+    純粋な$d$次単体複体$X=(V,\F)$を考える.
+    各$i=0,\dots,d-1$に対し
+        確率行列$\Pdown_i \in [0,1]^{X(i) \times X(i-1)}$を
+        \[
+            \Pdown_i(\tau,\sigma) = \begin{cases}
+                \frac{1}{i+1}	& \tif \sigma \subseteq \tau,\\
+                0 & \totherwise
+            \end{cases}
+        \]
+        とする.
+    各$i=0,\dots,d-1$に対して, $X(i)$上の分布$\pi_i \in [0,1]^{X(i)}$を
+        \begin{itemize}
+        \item $i=d-1$のとき, $\pi_{d-1}$は$X(d-1)$上の一様分布. すなわち$\pi_{d-1}(\sigma) = \frac{1}{\abs{X(d-1)}}$
+        \item $\pi_{i+1}$が定義されているとき, $\pi_i = \pi_{i+1}\Pdown_{i+1}$
+        \end{itemize}
+    で定める.
+    分布$\pi_i$を$i$次の定常分布と呼ぶ.
 \end{definition}
+面$\tau \in X(i)$に対して$\Pdown_i(\tau,\cdot)$で定まる$X(i-1)$上の分布は, 面$\tau$に含まれる頂点$u$を一様ランダムに選んだときの$\sigma = \tau \setminus\{u\}$の分布と等しい.
+$i$次の定常分布という言葉は本講義における造語である (よく知られる一般的な名称はないのだが, 名称をつけると便利なので名付けた).
+この分布は, まず$\tau \sim X(d)$を一様ランダムに選び, その中から一様ランダムに選ばれた$i+1$個の頂点からなる$X(i)$の面のなす分布である.
+ある面$\tau\in X(i)$から分布$\Pdown_i(\tau,\cdot)$に従ってランダムに選ばれた面$\sigma$に遷移する過程を\emph{下降ウォーク (down walk)}と呼ぶ.
+
+\paragraph*{上昇ウォーク.}
+\cref{def:down walk and stationary distribution}では次元$i$の面から次元$i-1$に遷移する下降ウォークを与えた.
+同様に, 次元$i$の面から次元$i+1$の面に遷移する上昇ウォークを, $X(i)$と$X(i+1)$の間の詳細釣り合い条件が成り立つように定義する.
+%
+\begin{definition}{上昇ウォークと下降ウォーク}{up and down walk}
+    純粋な$d$次単体複体$X=(V,\F)$を考える.
+    各$i=-1,\dots,d-2$に対し
+        確率行列$\Pup_i \in [0,1]^{X(i) \times X(i+1)}$を
+    \[
+        \Pup_i(\sigma,\tau) = \frac{\pi_{i+1}(\tau)}{\pi_i(\sigma)}\Pdown_{i+1}(\tau,\sigma)
+        = \begin{cases}
+            \frac{\pi_{i+1}(\tau)}{(i+1)\pi_i(\sigma)}	& \tif \sigma\subseteq \tau,\\
+            0 & \totherwise
+        \end{cases}
+    \]
+    で定める.
+\end{definition}
+%
+二つの面集合$X(i)$と$X(i+1)$を部集合とする二部グラフを考えればわかりやすい.
+それぞれの部集合には$\pi_i,\pi_{i+1}$が定常分布として付随しており,
+上昇ウォーク$\Pup_i$と下降ウォーク$\Pdown_{i+1}$は詳細釣り合い条件
+\[
+    \forall \sigma\in X(i),\tau\in X(i+1),\,\pi_i(\sigma)\Pup_i(\sigma,\tau) = \pi_{i+1}(\tau)\Pdown_{i+1}(\tau,\sigma)
+\]
+を満たしている.
+%
+
+
 \section{局所スペクトルエクスパンダー}
 \section{Oppenheimのトリクルダウン定理}
