@@ -136,5 +136,16 @@
 		"body": [
 			"定常分布"
 		]
-	}
+	},
+	"figure":{
+		"prefix": "figure",
+		"body": [
+			"\\begin{figure}",
+			"\t\\begin{center}",
+			"\t\\includegraphics[$1]{$2}",
+			"\t\\caption{$3}",
+			"\t\\end{center}",
+			"\\end{figure}"
+		]
+	},
 }

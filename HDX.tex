@@ -23,10 +23,12 @@
 面の次元の概念は単体複体の幾何的な表現に由来する.
 このイメージになぞらえて,
 次元$0$の面を\emph{頂点 (vertex)}, 次元$1$の面を\emph{辺 (edge)}と呼ぶことがある.
+次元$2$以上の任意の単体複体$X$に対して$(X(0),X(1))$はグラフである.
 
 \paragraph*{例1.}
-グラフ$G=(V,E)$に対し, $\F = \{\emptyset\} \cup \cbra*{\{v\}\colon v \in V} \cup E$とすると, $(V,\F)$は単体複体である.
-また, 次元$2$以上の任意の単体複体$X$に対して$(X(0),X(1))$はグラフである.
+グラフ$G=(V,E)$に対し, 空集合, $V$, $E$からなる部分集合族
+$\F = \{\emptyset\} \cup \cbra*{\{v\}\colon v \in V} \cup E$考えると,
+$(V,\F)$は単体複体である.
 
 \paragraph*{例2.}
 有限集合$V$に対し,
@@ -68,6 +70,12 @@ $\F = \binom{V}{\le k} \defeq \cbra*{ \sigma \subseteq V \colon |\sigma|\le k}$�
     \caption{マッチング$M_1=\{v_1,v_2\},\{v_3,v_4\}\}$と$M_2=\{\{v_2,v_3\}\}$はどちらも極大である. \label{fig:matching}}
 \end{figure}
 
+\paragraph*{例6.}
+グラフ$G=(V,E)$の頂点部分集合$U\subseteq V$は, $U$に属する任意の二頂点間に辺がある(すなわち$\binom{U}{2}\subseteq E$)とき, \emph{クリーク (clique)}\footnote{cliqueとは派閥を意味する英単語である.}という.
+特に, 単一頂点からなる集合$\{u\}$や$\emptyset$もクリークである.
+クリークの部分集合もまたクリークなので,
+グラフ$G$の全てのクリークからなる頂点集合族を$\F$とすると, $(V,\F)$は単体複体である.
+
 \begin{definition}{リンクとスケルトン}{link and skelton}
     単体複体$X=(V,\F)$を考える.
     面$\sigma \in \F$の\emph{リンク (link)}とは単体複体$(V\setminus \sigma, \F_{\sigma})$であって集合族$\F_\sigma$が
@@ -81,6 +89,7 @@ $\F = \binom{V}{\le k} \defeq \cbra*{ \sigma \subseteq V \colon |\sigma|\le k}$�
     \]
     に対し$(V,\F_k)$を\emph{$k$-スケルトン ($k$-skelton)}という.
 \end{definition}
+面$\sigma$のリンクとは, $\sigma$を「縮約」して得られる単体複体である.
 
 %\end{definition}
 
@@ -134,7 +143,7 @@ $i$次の定常分布という言葉は本講義における造語である (よ
     で定める.
 \end{definition}
 %
-二つの面集合$X(i)$と$X(i+1)$を部集合とする二部グラフを考えればわかりやすい.
+二つの面集合$X(i)$と$X(i+1)$を部集合とする二部グラフを考えればわかりやすい (\cref{fig:up and down walk}).
 それぞれの部集合には$\pi_i,\pi_{i+1}$が定常分布として付随しており,
 上昇ウォーク$\Pup_i$と下降ウォーク$\Pdown_{i+1}$は詳細釣り合い条件
 \[
@@ -142,7 +151,12 @@ $i$次の定常分布という言葉は本講義における造語である (よ
 \]
 を満たしている.
 %
-
+\begin{figure}
+    \begin{center}
+    \includegraphics[width=10cm]{images/HDX_bipartite.pdf}
+    \caption{上昇ウォークと下降ウォーク \label{fig:up and down walk}}
+    \end{center}
+\end{figure}
 
 \section{局所スペクトルエクスパンダー}
 \section{Oppenheimのトリクルダウン定理}
