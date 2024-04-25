@@ -95,6 +95,15 @@
 			"\\end{exercise}"
 		]
 	},
+	"remark":{
+		"prefix": "remark",
+		"body": [
+			"\\begin{remark}{$1}{$2}",
+			"\t$3",
+			"\\end{remark}"
+		]
+	},
+
 	"itemize":{
 		"prefix": "itemize",
 		"body": [

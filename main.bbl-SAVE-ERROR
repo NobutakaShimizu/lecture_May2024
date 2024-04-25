@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.2 $
+% $ biblatex bbl format version 3.3 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -18,8 +18,8 @@
 
 
 \refsection{0}
-  \datalist[entry]{anyt/global//global/global}
-    \entry{Friedman_random_regular}{article}{}
+  \datalist[entry]{anyt/global//global/global/global}
+    \entry{Friedman_random_regular}{article}{}{}
       \name{author}{1}{}{%
         {{hash=131c59850de5a32c00bbfa3136032bf5}{%
            family={Friedman},
@@ -29,10 +29,12 @@
       }
       \strng{namehash}{131c59850de5a32c00bbfa3136032bf5}
       \strng{fullhash}{131c59850de5a32c00bbfa3136032bf5}
+      \strng{fullhashraw}{131c59850de5a32c00bbfa3136032bf5}
       \strng{bibnamehash}{131c59850de5a32c00bbfa3136032bf5}
       \strng{authorbibnamehash}{131c59850de5a32c00bbfa3136032bf5}
       \strng{authornamehash}{131c59850de5a32c00bbfa3136032bf5}
       \strng{authorfullhash}{131c59850de5a32c00bbfa3136032bf5}
+      \strng{authorfullhashraw}{131c59850de5a32c00bbfa3136032bf5}
       \field{labelalpha}{Fri08}
       \field{sortinit}{F}
       \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
@@ -43,7 +45,7 @@
       \field{volume}{195}
       \field{year}{2008}
     \endentry
-    \entry{HLW06}{article}{}
+    \entry{HLW06}{article}{}{}
       \name{author}{3}{}{%
         {{hash=7a2e07605478413e89736ff680e2593c}{%
            family={Hoory},
@@ -66,10 +68,12 @@
       }
       \strng{namehash}{36b43dceaf100b79205ddd9a0fd9c257}
       \strng{fullhash}{36b43dceaf100b79205ddd9a0fd9c257}
+      \strng{fullhashraw}{36b43dceaf100b79205ddd9a0fd9c257}
       \strng{bibnamehash}{36b43dceaf100b79205ddd9a0fd9c257}
       \strng{authorbibnamehash}{36b43dceaf100b79205ddd9a0fd9c257}
       \strng{authornamehash}{36b43dceaf100b79205ddd9a0fd9c257}
       \strng{authorfullhash}{36b43dceaf100b79205ddd9a0fd9c257}
+      \strng{authorfullhashraw}{36b43dceaf100b79205ddd9a0fd9c257}
       \field{labelalpha}{HLW06}
       \field{sortinit}{H}
       \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
@@ -87,7 +91,7 @@
       \verb 10.1090/S0273-0979-06-01126-8
       \endverb
     \endentry
-    \entry{LPS88}{article}{}
+    \entry{LPS88}{article}{}{}
       \name{author}{3}{}{%
         {{hash=99a2aac5c1f8a85a8b9d1f8fbe5a59f1}{%
            family={Lubotzky},
@@ -107,10 +111,12 @@
       }
       \strng{namehash}{80cd1de6bd5158144dd1bcbcd1fe96cc}
       \strng{fullhash}{80cd1de6bd5158144dd1bcbcd1fe96cc}
+      \strng{fullhashraw}{80cd1de6bd5158144dd1bcbcd1fe96cc}
       \strng{bibnamehash}{80cd1de6bd5158144dd1bcbcd1fe96cc}
       \strng{authorbibnamehash}{80cd1de6bd5158144dd1bcbcd1fe96cc}
       \strng{authornamehash}{80cd1de6bd5158144dd1bcbcd1fe96cc}
       \strng{authorfullhash}{80cd1de6bd5158144dd1bcbcd1fe96cc}
+      \strng{authorfullhashraw}{80cd1de6bd5158144dd1bcbcd1fe96cc}
       \field{labelalpha}{LPS88}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
