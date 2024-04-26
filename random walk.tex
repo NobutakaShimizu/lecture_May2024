@@ -625,6 +625,7 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
 \begin{definition}{}{second eigenvalue}
     サイズ$n$の集合$V$上の可逆なランダムウォークを考え,
     その遷移確率行列$P$の固有値を$1=\lambda_1 \ge \dots \ge \lambda_n\ge -1$に対し,
+    $\lambda_i(P)=\lambda_i$,
     $\lambda(P) \defeq \max\cbra{\abs{\lambda_2},\abs{\lambda_n}}$とする.
     特に, $\gamma\defeq 1-\lambda(P)$を\emph{スペクトルギャップ (spectral gap)}と呼ぶ.
 \end{definition}
@@ -680,7 +681,7 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
     そのスペクトルギャップを$\gamma$とする.
     定常分布$\pi$に対し$\pimin = \min_{u\in V} \pi(u)$とすると,
     任意の初期分布に対して
-    \[ \tmix(\varepsilon) \le\frac{\log\rbra*{\frac{1}{2\pimin\varepsilon}}}{\log(1/\lambda)}. \]
+    \[ \tmix(\varepsilon) \le\frac{\log\rbra*{\frac{1}{2\pimin\varepsilon}}}{\log(1/\lambda(P))}. \]
     特に, スペクトルギャップが$\gamma>0$のとき,
     $\tmix(\varepsilon) \le \frac{1}{\gamma}\log\rbra*{\frac{1}{2\pimin\varepsilon}}$.
 \end{lemma}
