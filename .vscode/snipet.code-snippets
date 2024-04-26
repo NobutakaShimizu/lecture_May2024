@@ -135,13 +135,13 @@
 		]
 	},
 	"tran":{
-		"prefix": "tran",
+		"prefix": "せんい",
 		"body": [
 			"遷移確率行列"
 		]
 	},
 	"sta":{
-		"prefix": "sta",
+		"prefix": "てい",
 		"body": [
 			"定常分布"
 		]

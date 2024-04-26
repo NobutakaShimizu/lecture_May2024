@@ -1,13 +1,13 @@
 \chapter{高次元エクスパンダー概論}
 高次元エクスパンダーとはグラフのエクスパンダー性を単体複体に拡張した概念であり,
-具体的にはエクスパンダー性を持つ単体複体を指す.
+具体的には単体複体の面上で定義されたある種のランダムウォークが速く混交するという性質を意味する.
 本チャプターでは高次元エクスパンダーの概要と重要な性質を紹介し,
 次のチャプターにおいて具体的な応用として近年解決されたマトロイドに関する重要な未解決問題Micali--Vazirani予想の証明を与える.
 
 \section{定義}
 まずは単体複体に関する基礎的な用語を定義していく.
 文脈によっては単体複体は多面体などを貼り合わせた幾何的な概念を指すこともあるが,
-本講義では組合せ的ないわゆるset systemとしての単体複体を扱う.
+本講義では組合せ的ないわゆるset system (ハイパーグラフ) としての単体複体を扱う.
 
 \begin{definition}{単体複体}{simplicial complex}
 有限集合$V$と$V$の部分集合族$\F\subseteq 2^V$であって部分集合で閉じているもの(すなわち, $\sigma\subseteq \tau \in \F \Rightarrow \sigma\in \F$)の組$X=(V,\F)$を\emph{単体複体 (simplicial complex)}という.
@@ -94,12 +94,15 @@ $\F = \binom{V}{\le k} \defeq \cbra*{ \sigma \subseteq V \colon |\sigma|\le k}$�
 %\end{definition}
 
 
-\section{単体複体上のランダムウォーク}
+\section{単体複体上の三つのランダムウォーク}
 グラフ上のランダムウォークは頂点集合上で遷移するものを考えていたが,
-単体グラフ上のランダムウォークは同じ次元の面の間で遷移するものを考える.
-アイデアとしては, \cref{sec:graph up and down walk}で考えたようにある次元$k$の面から次元$k+1$の面に遷移する上昇ウォークと逆に次元$k+1$の面から次元$k$の面に遷移する下降ウォークを組み合わせることによって, $X(k)$上のランダムウォークを定義する.
+単体グラフ上のランダムウォークは異なる次元の面の間で遷移するものを考える.
+具体的には, \cref{sec:graph up and down walk}で考えたようにある次元$i$の面から次元$i+1$の面に遷移する上昇ウォークと逆に次元$i+1$の面から次元$i$の面に遷移する下降ウォークである.
+上昇ウォークと下降ウォークが互いに随伴の関係になるようにするため, 各$X(i)$上での定常分布も定義する.
+また, 各リンクの$2$-スケルトン上のランダムウォークも考える.
+この「局所的な」ランダムウォークと$X(k)$上の二種類のランダムウォークの関係性がグラフ上のランダムウォークとの一番重要な差分となる.
 
-\paragraph*{下降ウォークと定常分布.}
+\subsection{下降ウォークと定常分布}
 まず, \cref{sec:graph up and down walk}で考えた下降ウォークを単体複体に拡張し, $X(d-1)$上では一様分布を定常分布とすることによって帰納的に各$X(i)$上での定常分布を定める.
 \begin{definition}{下降ウォークと面上の定常分布}{down walk and stationary distribution}
     純粋な$d$次単体複体$X=(V,\F)$を考える.
@@ -118,14 +121,14 @@ $\F = \binom{V}{\le k} \defeq \cbra*{ \sigma \subseteq V \colon |\sigma|\le k}$�
         \item $\pi_{i+1}$が定義されているとき, $\pi_i = \pi_{i+1}\Pdown_{i+1}$
         \end{itemize}
     で定める.
-    分布$\pi_i$を$i$次の定常分布と呼ぶ.
+    分布$\pi_i$を($i$次の)定常分布と呼ぶ.
 \end{definition}
 面$\tau \in X(i)$に対して$\Pdown_i(\tau,\cdot)$で定まる$X(i-1)$上の分布は, 面$\tau$に含まれる頂点$u$を一様ランダムに選んだときの$\sigma = \tau \setminus\{u\}$の分布と等しい.
 $i$次の定常分布という言葉は本講義における造語である (よく知られる一般的な名称はないのだが, 名称をつけると便利なので名付けた).
 この分布は, まず$\tau \sim X(d)$を一様ランダムに選び, その中から一様ランダムに選ばれた$i+1$個の頂点からなる$X(i)$の面のなす分布である.
 ある面$\tau\in X(i)$から分布$\Pdown_i(\tau,\cdot)$に従ってランダムに選ばれた面$\sigma$に遷移する過程を\emph{下降ウォーク (down walk)}と呼ぶ.
 
-\paragraph*{上昇ウォーク.}
+\subsection{上昇ウォーク}
 \cref{def:down walk and stationary distribution}では次元$i$の面から次元$i-1$に遷移する下降ウォークを与えた.
 同様に, 次元$i$の面から次元$i+1$の面に遷移する上昇ウォークを, $X(i)$と$X(i+1)$の間の詳細釣り合い条件が成り立つように定義する.
 %
@@ -170,12 +173,33 @@ $i$次の定常分布という言葉は本講義における造語である (よ
     \[\Pdown_{i+1}\colon \ell^2_{\pi_{i}}(X(i)) \to \ell^2_{\pi_{i+1}}(X(i+1))\]
     は互いに随伴の関係にある.
     すなわち, 任意の$f\in \ell^2_{\pi_i}(X(i)),g\in \ell^2_{\pi_{i+1}}(X(i+1))$に対して
-    \[ \abra{\Pup_i f, g}_{\pi_{i+1}} = \abra{ f,\Pdown_{i+1}g }_{\pi_i} \]
+    \begin{align} \abra{\Pup_i f, g}_{\pi_{i+1}} = \abra{ f,\Pdown_{i+1}g }_{\pi_i} \label{eq:adjoint up and walk}\end{align}
     が成り立つ.
 \end{remark}
 %
+\begin{exercise}{}{adjoint check}
+    \cref{eq:adjoint up and walk}を確認せよ.
+    すなわち, \cref{def:down walk and stationary distribution}で定義された定常分布$\pi_i,\pi_{i+1}$および任意の二つの関数$f\colon X(i) \to \Real,g\colon X(i+1) \to \Real$に対して
+    \[ \sum_{\sigma \in X(i)} \pi_i(\sigma) f(u) = \sum_{\tau \in X(i+1)} \pi_{i+1}(\tau) g(\tau) \]
+を確認せよ.
+\end{exercise}
 
+\subsection{局所的なランダムウォーク}
+全てのリンクの$2$-スケルトン上での局所的な重み付きランダムウォークを考える.
+重み付きランダムウォークについては\cref{def:weighted random walk}を参照されたい.
+%
+\begin{definition}{局所ランダムウォーク}{local random walk}
+    純粋な$d$次元単体複体$X = (V,\F)$を考える.
+    次元$i \le d-2$の面$\sigma \in \F$に対し,
+        リンク$X_\sigma$の$2$-スケルトンを$G_\sigma = (V_\sigma,E_\sigma)$とする.
+    このグラフの辺重み$w_\sigma\colon E_\sigma \to [0,1]$を
+    \[ w_\sigma(e) = \pi_i(\sigma\cup e) \]
+    で定め, これによって定まる$V_\sigma$上の重み付きランダムウォークの遷移確率行列を$P_\sigma\in [0,1]^{V_\sigma\times V_\sigma}$とする.
+\end{definition}
+%
+このランダムウォークの概念は高次元エクスパンダーの文脈ではほぼ必ず登場するが, 特に用語が与えられているわけではないので、「局所ランダムウォーク」と言ってもその文脈では必ずしも通じるとは限らないことに注意 (しかし, 自然な概念であり単体複体の局所大域性を述べるために必要な概念でもあるため, あえてこの用語を与えた).
 
 \section{局所スペクトルエクスパンダー}
+純粋な単体複体のエクスパンダー性の定義を与える.
 
 \section{Oppenheimのトリクルダウン定理}
