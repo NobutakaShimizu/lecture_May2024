@@ -135,6 +135,65 @@
       \verb 10.1007/BF02126799
       \endverb
     \endentry
+    \entry{Mar88}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=1fb84a2850db48d43e1f2fcc00952b37}{%
+           family={Margulis},
+           familyi={M\bibinitperiod},
+           given={Grigory\bibnamedelima Aleksandrovich},
+           giveni={G\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{1fb84a2850db48d43e1f2fcc00952b37}
+      \strng{fullhash}{1fb84a2850db48d43e1f2fcc00952b37}
+      \strng{fullhashraw}{1fb84a2850db48d43e1f2fcc00952b37}
+      \strng{bibnamehash}{1fb84a2850db48d43e1f2fcc00952b37}
+      \strng{authorbibnamehash}{1fb84a2850db48d43e1f2fcc00952b37}
+      \strng{authornamehash}{1fb84a2850db48d43e1f2fcc00952b37}
+      \strng{authorfullhash}{1fb84a2850db48d43e1f2fcc00952b37}
+      \strng{authorfullhashraw}{1fb84a2850db48d43e1f2fcc00952b37}
+      \field{labelalpha}{Mar88}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Problems Inform. Transmission}
+      \field{title}{Explicit group-theoretic constructions of combinatorial schemes and their applications in the construction of expanders and concentrators}
+      \field{year}{1988}
+    \endentry
+    \entry{Mor94}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=e7c11d8859efc442f64c79f2cb33e322}{%
+           family={Morgenstern},
+           familyi={M\bibinitperiod},
+           given={M},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{e7c11d8859efc442f64c79f2cb33e322}
+      \strng{fullhash}{e7c11d8859efc442f64c79f2cb33e322}
+      \strng{fullhashraw}{e7c11d8859efc442f64c79f2cb33e322}
+      \strng{bibnamehash}{e7c11d8859efc442f64c79f2cb33e322}
+      \strng{authorbibnamehash}{e7c11d8859efc442f64c79f2cb33e322}
+      \strng{authornamehash}{e7c11d8859efc442f64c79f2cb33e322}
+      \strng{authorfullhash}{e7c11d8859efc442f64c79f2cb33e322}
+      \strng{authorfullhashraw}{e7c11d8859efc442f64c79f2cb33e322}
+      \field{labelalpha}{Mor94}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0095-8956}
+      \field{journaltitle}{Journal of Combinatorial Theory Series B}
+      \field{month}{9}
+      \field{number}{1}
+      \field{title}{Existence and Explicit Constructions of q + 1 Regular Ramanujan Graphs for Every Prime Power q}
+      \field{volume}{62}
+      \field{year}{1994}
+      \field{pages}{44\bibrangedash 62}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1006/jctb.1994.1054
+      \endverb
+    \endentry
   \enddatalist
 \endrefsection
 \endinput
