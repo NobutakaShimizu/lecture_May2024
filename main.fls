@@ -144,14 +144,18 @@ INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/todonotes/todonotes.sty
-INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/todonotes/todonotes.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/bxpdfver/bxpdfver.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/bxpdfver/bxpdfver.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/ifthen.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/ifthen.sty
-INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/xkeyval/xkeyval.sty
-INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/xkeyval/xkeyval.sty
-INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/xkeyval/xkeyval.tex
-INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbbreakable.code.tex
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/pdfcol/pdfcol.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/pdfcol/pdfcol.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
@@ -177,18 +181,6 @@ INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryplo
 INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
-INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
-INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
-INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/bxpdfver/bxpdfver.sty
-INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/bxpdfver/bxpdfver.sty
-INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbbreakable.code.tex
-INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/pdfcol/pdfcol.sty
-INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/pdfcol/pdfcol.sty
-INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/infwarerr/infwarerr.sty
-INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/infwarerr/infwarerr.sty
-INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/tikzfill/tikzfill.image.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/tikzfill/tikzfill.image.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/tikzfill/tikzfill-common.sty
@@ -202,6 +194,8 @@ INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/ulem/ulem.sty
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/latex-fonts/lasy6.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/comment/comment.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/comment/comment.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
+INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
 INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
 INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
@@ -403,3 +397,48 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
+INPUT ./expander graph.tex
+INPUT ./expander graph.tex
+INPUT expander graph.tex
+INPUT ./images/tree.pdf
+INPUT ./images/tree.pdf
+INPUT ./images/tree.pdf
+INPUT extractbb -B cropbox -O images/tree.pdf
+INPUT ./images/EML.pdf
+INPUT ./images/EML.pdf
+INPUT ./images/EML.pdf
+INPUT extractbb -B cropbox -O images/EML.pdf
+INPUT ./HDX.tex
+INPUT ./HDX.tex
+INPUT HDX.tex
+INPUT ./images/face.png
+INPUT ./images/face.png
+INPUT ./images/face.png
+INPUT extractbb -B cropbox -O images/face.png
+INPUT ./images/matching.pdf
+INPUT ./images/matching.pdf
+INPUT ./images/matching.pdf
+INPUT extractbb -B cropbox -O images/matching.pdf
+INPUT ./images/link.png
+INPUT ./images/link.png
+INPUT ./images/link.png
+INPUT extractbb -B cropbox -O images/link.png
+INPUT ./images/localwalk1.png
+INPUT ./images/localwalk1.png
+INPUT ./images/localwalk1.png
+INPUT extractbb -B cropbox -O images/localwalk1.png
+INPUT ./matroid.tex
+INPUT ./matroid.tex
+INPUT matroid.tex
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
+INPUT ./appendix.tex
+INPUT ./appendix.tex
+INPUT appendix.tex
+INPUT main.aux
+INPUT ./main.out
+INPUT ./main.out
+INPUT main.run.xml
+OUTPUT main.run.xml

@@ -19,6 +19,149 @@
 
 \refsection{0}
   \datalist[entry]{anyt/global//global/global/global}
+    \entry{AL20}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{hash=34777cd722000849600d66370fdad8a2}{%
+           family={Alev},
+           familyi={A\bibinitperiod},
+           given={Vedat\bibnamedelima Levi},
+           giveni={V\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=94fd8646f31398db5725e7a7006e5b34}{%
+           family={Lau},
+           familyi={L\bibinitperiod},
+           given={Lap\bibnamedelima Chi},
+           giveni={L\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Chicago, IL, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{8cb2218d08cdfb26b33c3ca87e5e0da4}
+      \strng{fullhash}{8cb2218d08cdfb26b33c3ca87e5e0da4}
+      \strng{fullhashraw}{8cb2218d08cdfb26b33c3ca87e5e0da4}
+      \strng{bibnamehash}{8cb2218d08cdfb26b33c3ca87e5e0da4}
+      \strng{authorbibnamehash}{8cb2218d08cdfb26b33c3ca87e5e0da4}
+      \strng{authornamehash}{8cb2218d08cdfb26b33c3ca87e5e0da4}
+      \strng{authorfullhash}{8cb2218d08cdfb26b33c3ca87e5e0da4}
+      \strng{authorfullhashraw}{8cb2218d08cdfb26b33c3ca87e5e0da4}
+      \field{labelalpha}{AL20}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 52nd Annual {ACM} {SIGACT} Symposium on Theory of Computing}
+      \field{isbn}{9781450369794}
+      \field{month}{6}
+      \field{series}{STOC 2020}
+      \field{title}{Improved analysis of higher order random walks and applications}
+      \field{year}{2020}
+      \field{pages}{1198\bibrangedash 1211}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1145/3357713.3384317
+      \endverb
+    \endentry
+    \entry{ALOV24}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=68418edce5e8412262597ed7575628ef}{%
+           family={Anari},
+           familyi={A\bibinitperiod},
+           given={Nima},
+           giveni={N\bibinitperiod}}}%
+        {{hash=4bb792d114e79dd9c6e41e285156131f}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Kuikui},
+           giveni={K\bibinitperiod}}}%
+        {{hash=b81623ed388dadde4f70a0357d57b49c}{%
+           family={Gharan},
+           familyi={G\bibinitperiod},
+           given={Shayan\bibnamedelima Oveis},
+           giveni={S\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+        {{hash=d22daf4ce391683c9872ec445da78967}{%
+           family={Vinzant},
+           familyi={V\bibinitperiod},
+           given={Cynthia},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {Department of Mathematics of Princeton University}%
+      }
+      \strng{namehash}{f7554fc39468f600de053ac8d62c0d2b}
+      \strng{fullhash}{f7554fc39468f600de053ac8d62c0d2b}
+      \strng{fullhashraw}{f7554fc39468f600de053ac8d62c0d2b}
+      \strng{bibnamehash}{f7554fc39468f600de053ac8d62c0d2b}
+      \strng{authorbibnamehash}{f7554fc39468f600de053ac8d62c0d2b}
+      \strng{authornamehash}{f7554fc39468f600de053ac8d62c0d2b}
+      \strng{authorfullhash}{f7554fc39468f600de053ac8d62c0d2b}
+      \strng{authorfullhashraw}{f7554fc39468f600de053ac8d62c0d2b}
+      \field{labelalpha}{ALGV24}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0003-486X, 1939-8980}
+      \field{journaltitle}{Annals of Mathematics}
+      \field{month}{1}
+      \field{number}{1}
+      \field{title}{Log-concave polynomials {II}: High-dimensional walks and an {FPRAS} for counting bases of a matroid}
+      \field{volume}{199}
+      \field{year}{2024}
+      \field{pages}{259\bibrangedash 299}
+      \range{pages}{41}
+      \verb{doi}
+      \verb 10.4007/annals.2024.199.1.4
+      \endverb
+    \endentry
+    \entry{balanced_matroids}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{hash=6ca45a075214e3f9e1fc09e857374e6f}{%
+           family={Feder},
+           familyi={F\bibinitperiod},
+           given={Tom\'{a}s},
+           giveni={T\bibinitperiod}}}%
+        {{hash=b332f1bb36bc98d57538e9b568da7d52}{%
+           family={Mihail},
+           familyi={M\bibinitperiod},
+           given={Milena},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Victoria, British Columbia, Canada}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{cdf6c2faa0638b1216a9d441084abdd3}
+      \strng{fullhash}{cdf6c2faa0638b1216a9d441084abdd3}
+      \strng{fullhashraw}{cdf6c2faa0638b1216a9d441084abdd3}
+      \strng{bibnamehash}{cdf6c2faa0638b1216a9d441084abdd3}
+      \strng{authorbibnamehash}{cdf6c2faa0638b1216a9d441084abdd3}
+      \strng{authornamehash}{cdf6c2faa0638b1216a9d441084abdd3}
+      \strng{authorfullhash}{cdf6c2faa0638b1216a9d441084abdd3}
+      \strng{authorfullhashraw}{cdf6c2faa0638b1216a9d441084abdd3}
+      \field{labelalpha}{FM92}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the twenty-fourth annual {ACM} symposium on Theory of Computing}
+      \field{isbn}{9780897915113}
+      \field{month}{7}
+      \field{series}{STOC '92}
+      \field{title}{Balanced matroids}
+      \field{year}{1992}
+      \field{pages}{26\bibrangedash 38}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1145/129712.129716
+      \endverb
+    \endentry
     \entry{Friedman_random_regular}{article}{}{}
       \name{author}{1}{}{%
         {{hash=131c59850de5a32c00bbfa3136032bf5}{%
@@ -89,6 +232,45 @@
       \range{pages}{123}
       \verb{doi}
       \verb 10.1090/S0273-0979-06-01126-8
+      \endverb
+    \endentry
+    \entry{KO20}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=917b86b4872b94aef0df53fb3ab081e2}{%
+           family={Kaufman},
+           familyi={K\bibinitperiod},
+           given={Tali},
+           giveni={T\bibinitperiod}}}%
+        {{hash=fc2fac5ff4f7a72c719f92f990214abe}{%
+           family={Oppenheim},
+           familyi={O\bibinitperiod},
+           given={Izhar},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{8a63707ce4f45e4a4673daa9edae18a4}
+      \strng{fullhash}{8a63707ce4f45e4a4673daa9edae18a4}
+      \strng{fullhashraw}{8a63707ce4f45e4a4673daa9edae18a4}
+      \strng{bibnamehash}{8a63707ce4f45e4a4673daa9edae18a4}
+      \strng{authorbibnamehash}{8a63707ce4f45e4a4673daa9edae18a4}
+      \strng{authornamehash}{8a63707ce4f45e4a4673daa9edae18a4}
+      \strng{authorfullhash}{8a63707ce4f45e4a4673daa9edae18a4}
+      \strng{authorfullhashraw}{8a63707ce4f45e4a4673daa9edae18a4}
+      \field{labelalpha}{KO20}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0209-9683, 1439-6912}
+      \field{journaltitle}{Combinatorica}
+      \field{month}{4}
+      \field{number}{2}
+      \field{title}{High Order Random Walks: Beyond Spectral Gap}
+      \field{volume}{40}
+      \field{year}{2020}
+      \field{pages}{245\bibrangedash 281}
+      \range{pages}{37}
+      \verb{doi}
+      \verb 10.1007/s00493-019-3847-0
       \endverb
     \endentry
     \entry{LPS88}{article}{}{}
