@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2024.4.15)  30 APR 2024 01:04
+This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2024.4.15)  30 APR 2024 02:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1150,42 +1150,44 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 188.
  [41]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 197.
+(Font)              No change on input line 215.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 233.
+(Font)              No change on input line 236.
  [42]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 274.
+(Font)              No change on input line 283.
  [43]
 File: images/link.png Graphic file (type bmp)
 <images/link.png>
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 290.
+(Font)              No change on input line 305.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 290.
-
-Underfull \vbox (badness 1231) has occurred while \output is active []
-
+(Font)              No change on input line 305.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 313.
+(Font)              No change on input line 306.
  [44]
 File: images/localwalk1.png Graphic file (type bmp)
 <images/localwalk1.png>
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 350.
+(Font)              No change on input line 363.
  [45]
-Underfull \vbox (badness 2435) has occurred while \output is active []
+Underfull \vbox (badness 2318) has occurred while \output is active []
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 378.
- [46]) (./matroid.tex
+(Font)              No change on input line 389.
+ [46]
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
+(Font)              No change on input line 420.
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
+(Font)              No change on input line 421.
+ [47]) (./matroid.tex
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 1.
- [47] [48
+ [48]
+Chapter 4.
+) [49
 
 ]
-Chapter 4.
-) [49]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 59.
  [50]
@@ -1223,12 +1225,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34591 strings out of 474762
- 696962 string characters out of 5758587
+ 34601 strings out of 474762
+ 697151 string characters out of 5758587
  1941338 words of memory out of 5000000
- 56476 multiletter control sequences out of 15000+600000
+ 56486 multiletter control sequences out of 15000+600000
  577527 words of font info for 125 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  83i,18n,93p,739b,1621s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.dvi (51 pages, 516356 bytes).
+Output written on main.dvi (51 pages, 531836 bytes).

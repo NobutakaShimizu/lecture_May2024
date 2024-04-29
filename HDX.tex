@@ -187,21 +187,7 @@ $X_\sigma$の全ての面は辺集合$F$を含むので, $F$に含まれる全�
     ここで, $X(-1)$上での下降上昇ウォークと$X(d-1)$上での上昇下降ウォークは定義されない.
 \end{definition}
 上昇下降ウォークはグラフ上の遅延単純ランダムウォークの自然な一般化になっている (\cref{sec:graph up and down walk}).
-\begin{exercise}{}{PUD diagonal}
-    常に行列$\PUD_i$の対角成分が全て$\frac{1}{i+2}$であることを示せ.
-\end{exercise}
-\begin{lemma}{定常分布}{UP and DU stationary distribution}
-    面$X(i)$上の上昇下降ウォークと下降上昇ウォークはどちらも$\pi_i$を定常分布としてもつ.
-\end{lemma}
-\begin{proof}
-    計算によって簡単に確認できる.
-    実際,
-    \begin{align*}
-        &\pi_i \PUD_i = \pi_i \Pup_i \Pdown_{i+1} = \pi_{i+1} \Pdown_{i+1} = \pi_i, \\
-        &\pi_i \PDU_i = \pi_i \Pdown_i \Pup_{i-1} = \pi_{i-1}\Pup_{i-1} = \pi_i
-    \end{align*}
-    より主張を得る.
-\end{proof}
+
 \begin{remark}{「上昇」「下降」の名称}{up and down}
     非常にややこしいのだが,
     上昇ウォークと下降ウォークの遷移確率行列と左右どちらから作用させるかによって「上昇」「下降」の意味合いが反転してしまう.
@@ -220,6 +206,35 @@ $X_\sigma$の全ての面は辺集合$F$を含むので, $F$に含まれる全�
 %    そもそも, 遷移確率行列$P(u,v)$を「$u$から$v$に遷移する確率」として定義してしまったのが根本的な原因であり, 転置したものを改めて遷移確率行列と定義しなおせば解決できるのだが, ランダムウォークの文化ではもはや\cref{def:random walk}の定義が完全に主流となってしまっておりそれに反するとほとんどの参考文献が読みづらくなってしまうので従った.   
     なお, 可逆なランダムウォーク(\cref{def:reversible})は内積$\piprod{\cdot,\cdot}$の意味で左右どちらから作用させても本質的に同じであるので左右どちらから作用させるかについてこのような煩雑な話は考えなくて良い.
 \end{remark}
+
+上昇下降ウォークの性質を述べていく.
+\begin{lemma}{定常分布}{UD and DU stationary distribution}
+    面$X(i)$上の上昇下降ウォークと下降上昇ウォークはどちらも$\pi_i$を定常分布としてもつ.
+\end{lemma}
+\begin{proof}
+    計算によって簡単に確認できる.
+    実際,
+    \begin{align*}
+        &\pi_i \PUD_i = \pi_i \Pup_i \Pdown_{i+1} = \pi_{i+1} \Pdown_{i+1} = \pi_i, \\
+        &\pi_i \PDU_i = \pi_i \Pdown_i \Pup_{i-1} = \pi_{i-1}\Pup_{i-1} = \pi_i
+    \end{align*}
+    より主張を得る.
+\end{proof}
+\begin{lemma}{成分}{PUD seibun}
+    上昇下降ウォーク$\PUD_i$の各成分は
+        \[
+            \PUD_i(\sigma,\sigma') = \begin{cases}
+                \frac{\pi_{i+1}(\sigma\cup\sigma')}{(i+1)(i+2)\pi_i(\sigma)}
+                & \tif \sigma\cup\sigma'\in X(i+1),\\
+                \frac{1}{i+2} & \tif \sigma=\sigma', \\
+                0 & \totherwise.
+            \end{cases}
+        \]
+\end{lemma}
+\begin{exercise}{}{PUD calc}
+    \cref{lem:PUD seibun}を示せ.
+\end{exercise}
+
 
 \subsection{各次元の内積空間} \label{sec:inaiseki}
 各次元$i$に対して$X(i)$とそれに付随する定常分布を定義できたので, \cref{def:naiseki}の特殊ケースの内積空間を考えることができる.
@@ -295,7 +310,24 @@ $\Pdown_{i+1} \colon \ispace \to \ispace[i+1]$
 
 グラフ($1$次元単体複体)だと面$\emptyset$に対する局所ランダムウォークのみ存在するが, これは上昇下降ウォーク(すなわち遅延単純ランダムウォーク)と同じである.
 従って局所ランダムウォークの概念はより高次元の単体複体を考える際に意味を持つ.
-
+簡単な計算から, 遷移確率行列$P_\sigma$の各成分は以下のように表せる.
+\begin{lemma}{}{local RW seibun}
+    面$\sigma \in X(i)$ (ただし$i\le d-2$) に関する局所ランダムウォークの遷移確率行列$P_\sigma$の各成分は
+    \begin{align*}
+        P_\sigma(u,v) &= \begin{cases}
+            	\frac{\pi_{i+2}(\sigma\cup\{u,v\})}{(i+3)\pi_{i+1}(\sigma\cup\{u\})}& \tif \{u,v\}\in E_\sigma,\\
+        0 & \totherwise.
+        \end{cases} \\
+        &= \begin{cases}
+            (i+2)\PUD_{i+1}\rbra*{\sigma\cup\{u\}, \sigma\cup\{v\}}	& \tif \{u,v\}\in E_\sigma,\\
+            0 & \totherwise.
+        \end{cases}
+    \end{align*}
+\end{lemma}
+%
+\begin{exercise}{}{local RW seibun}
+    \cref{lem:local RW seibun}を示せ.
+\end{exercise}
 %
 %\begin{lemma}{}{local random walk stationary distribution}
 %    遷移確率行列$P_\sigma$をもつ局所ランダムウォークの定常分布を$\pi_\sigma$とすると, 
@@ -362,7 +394,7 @@ $G$辺$\{u,v_1\},\{u,v_2\}\in E$に対し, $\{v_1,v_2\}\in E$のときに三角�
     \[ \nonlazyPUD_i = \frac{i+2}{i+1}\rbra*{ \PUD_i - \frac{1}{i+2}I } \]
     とする. ここで$I$は$X(i)\times X(i)$の単位行列である.
 \end{definition}
-\cref{exer:PUD diagonal}より$\PUD_i$に従うランダムウォークは確率$\frac{1}{i+2}$の自己ループを持つ.
+\cref{lem:PUD seibun}より$\PUD_i$に従うランダムウォークは確率$\frac{1}{i+2}$の自己ループを持つ.
 従って$\PUD_i$から$\frac{1}{i+2}I$を引くと自己ループの確率は$0$になる.
 しかしこうすると行和が$1-\frac{1}{i+2} = \frac{i+1}{i+2}$になるので, $\frac{i+2}{i+1}$倍して確率行列になるよう正規化したものが$\nonlazyPUD_i$である.
 例えばグラフ上の単純遅延ランダムウォーク(\cref{def:lazy SRW})に対して同様の操作を行うと単純ランダムウォーク(\cref{def:SRW})を得る.
@@ -384,7 +416,9 @@ $f\in \ispace$と面$\sigma\in X(i-1)$に対し$f$の$X_\sigma(0)$への制限�
     \[ \iprod{f, \nonlazyPUD_i f} = \E_{\sigma\sim \pi_{i-1}}\sbra*{\abra*{ f_\sigma, P_\sigma f_\sigma }_{\pi^\sigma_0}}. \]
     ここで, $\pi^\sigma_0 \in [0,1]^{X_\sigma(0)}$はリンク$X_\sigma$の頂点集合$X_\sigma(0)$上の定常分布である.
 \end{lemma}
-
+\begin{proof}
+...
+\end{proof}
 
 \section{Oppenheimのトリクルダウン定理}
 ある単体複体$X$に対して\cref{def:local expander}に基づいて局所エクスパンダー性を示すには全ての面に対して$\lambda_2(P_\sigma)$を上から抑える必要がある.

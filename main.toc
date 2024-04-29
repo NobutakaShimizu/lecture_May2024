@@ -32,12 +32,12 @@
 \contentsline {section}{\numberline {3.2}大域エクスパンダー性}{40}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}下降ウォークと定常分布}{40}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}上昇ウォーク}{41}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}各次元の内積空間}{42}{subsection.3.2.3}%
-\contentsline {section}{\numberline {3.3}局所エクスパンダー性}{43}{section.3.3}%
+\contentsline {subsection}{\numberline {3.2.3}各次元の内積空間}{43}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}局所エクスパンダー性}{44}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}局所的なランダムウォーク}{44}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2}局所エクスパンダー}{45}{subsection.3.3.2}%
 \contentsline {section}{\numberline {3.4}単体複体の局所大域原理}{46}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Oppenheimのトリクルダウン定理}{47}{section.3.5}%
+\contentsline {section}{\numberline {3.5}Oppenheimのトリクルダウン定理}{48}{section.3.5}%
 \contentsline {chapter}{\numberline {4}マトロイド}{49}{chapter.4}%
 \contentsline {section}{\numberline {4.1}定義}{49}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}例1. グラフ的マトロイド}{49}{subsection.4.1.1}%
