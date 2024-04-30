@@ -434,9 +434,6 @@ INPUT ./matroid.tex
 INPUT matroid.tex
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
-INPUT ./appendix.tex
-INPUT ./appendix.tex
-INPUT appendix.tex
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out

@@ -118,10 +118,10 @@ $X_\sigma$の全ての面は辺集合$F$を含むので, $F$に含まれる全�
 上昇ウォークと下降ウォークが互いに随伴の関係になるようにするため, 各$X(i)$上での定常分布を定義し, $X(i)$と$X(i+1)$の間で詳細釣り合い条件が満たされるように定義される.
 
 \subsection{下降ウォークと定常分布}
-まず, \cref{sec:graph up and down walk}で考えた下降ウォークを単体複体に拡張し, $X(d-1)$上では一様分布を定常分布とすることによって帰納的に各$X(i)$上での定常分布を定める.
+まず, \cref{sec:graph up and down walk}で考えた下降ウォークを単体複体に拡張し, $X(d)$上では一様分布を定常分布とすることによって帰納的に各$X(i)$上での定常分布を定める.
 \begin{definition}{下降ウォークと面上の定常分布}{down walk and stationary distribution}
     純粋な$d$次単体複体$X=(V,\F)$を考える.
-    各$i=0,\dots,d-1$に対し
+    各$i=0,\dots,d$に対し
         確率行列$\Pdown_i \in [0,1]^{X(i) \times X(i-1)}$を
         \[
             \Pdown_i(\tau,\sigma) = \begin{cases}
@@ -129,14 +129,13 @@ $X_\sigma$の全ての面は辺集合$F$を含むので, $F$に含まれる全�
                 0 & \totherwise
             \end{cases}
         \]
-        とする.
-    各$i=0,\dots,d-1$に対して, $X(i)$上の分布$\pi_i \in [0,1]^{X(i)}$を
+        とし, $X(i)$上の分布$\pi_i \in [0,1]^{X(i)}$を
         \begin{itemize}
-        \item $i=d-1$のとき: $X$が$\pi \in [0,1]^{X(d-1)}$で重み付けられた単体複体ならば$\pi_{d-1} = \pi$とする. そうでないならば$\pi_{d-1}$は$X(d-1)$上の一様分布. すなわち$\pi_{d-1}(\sigma) = \frac{1}{\abs{X(d-1)}}$.
+        \item $i=d$のとき: $X$が$\pi \in [0,1]^{X(d-1)}$で重み付けられた単体複体ならば$\pi_d = \pi$とする. そうでないならば$\pi_d$は$X(d)$上の一様分布とする.
         \item $\pi_{i+1}$が定義されているとき, $\pi_i = \pi_{i+1}\Pdown_{i+1}$
         \end{itemize}
     で定める.
-    分布$\pi_i$を($i$次の)定常分布と呼ぶ.
+    各$i$に対し分布$\pi_i$を$X(i)$上の\emph{定常分布}と呼ぶ.
 \end{definition}
 面$\tau \in X(i+1)$に対して$\Pdown_{i+1}(\tau,\cdot)$で定まる$X(i)$上の分布は, 面$\tau$に含まれる頂点$u$を一様ランダムに選んだときの$\sigma = \tau \setminus\{u\}$の分布と等しい.
 この分布は, まず一様ランダムに$X(d)$から面を選び, その中から一様ランダムに選ばれた$i+1$個の頂点からなる$X(i)$の面のなす分布である.
@@ -144,6 +143,23 @@ $X_\sigma$の全ての面は辺集合$F$を含むので, $F$に含まれる全�
 これは遅延単純ランダムウォークの定常分布$\pi(u)$が次数$\deg(u)$に比例することの一般化である.
 
 ある面$\tau\in X(i+1)$から分布$\Pdown_{i+1}(\tau,\cdot)$に従ってランダムに選ばれた面$\sigma$に遷移する過程を\emph{下降ウォーク (down walk)}と呼ぶ.
+
+各リンクに対しても同様に定常分布を定義する.
+\begin{definition}{リンク上の定常分布}{link stationary distribution}
+    純粋な$d$次元単体複体$X$の各リンク$X_\sigma$ ($\sigma \in X(i)$)に対して\cref{def:down walk and stationary distribution}によって定まる$j$次の定常分布を$\pi^\sigma_j$とする.
+    すなわち, $(d-i-1)$次元単体複体$X_\sigma$に対し, $\pi^\sigma_{d-i-1}$を$X_\sigma(d-i-1)$上の一様分布とし,
+    $\pi^\sigma_j\in [0,1]^{X_\sigma(j)}$を, $\tau\sim \pi^\sigma_{j+1}$, $u\sim \tau$に対し, 面$\tau\setminus \{u\} \in X_\sigma(j)$の周辺分布とする.
+
+    $X$が重み付きの場合, $\pi^\sigma_{d-i-1}$を$\tau \supseteq \sigma$で条件つけられたときの$\tau\sim\pi_d$の分布として各$\pi_j$は重みなしの場合と同様に定義する.
+\end{definition}
+    面$\sigma\in X(i)$のリンク$X_\sigma$上の定常分布$\pi^\sigma_j \in[0,1]^{X_\sigma(j)}$は
+    \begin{align}
+    \pi^\sigma_j(\alpha) = \Pr_{\tau\sim\pi_{i+j+1}}\sbra*{\tau=\alpha\cup \sigma \condition \tau\supseteq \sigma} \propto \pi_{i+j+1}(\alpha\cup\sigma) \label{eq:pi alpha j}
+    \end{align}
+    を満たす.
+    実際, $\pi^\sigma_j(\alpha)$は$\alpha$を含む$X_\sigma(d-i-1)$の面の個数に比例しており,
+    その個数は$\alpha\cup \sigma$を含む$X(d)$の面の個数に比例するからである.
+    これを正則化すれば等号が得られる.
 
 \subsection{上昇ウォーク}
 \cref{def:down walk and stationary distribution}では次元$i$の面から次元$i-1$に遷移する下降ウォークを与えた.
@@ -220,16 +236,26 @@ $X_\sigma$の全ての面は辺集合$F$を含むので, $F$に含まれる全�
     \end{align*}
     より主張を得る.
 \end{proof}
-\begin{lemma}{成分}{PUD seibun}
-    上昇下降ウォーク$\PUD_i$の各成分は
+\begin{lemma}{}{PUD seibun}
+    上昇下降ウォーク$\PUD_i \in [0,1]^{X(i)\times X(i)}$の各成分は
         \[
             \PUD_i(\sigma,\sigma') = \begin{cases}
-                \frac{\pi_{i+1}(\sigma\cup\sigma')}{(i+1)(i+2)\pi_i(\sigma)}
+                \frac{\pi_{i+1}(\sigma\cup\sigma')}{(i+2)^2\pi_i(\sigma)}
                 & \tif \sigma\cup\sigma'\in X(i+1),\\
                 \frac{1}{i+2} & \tif \sigma=\sigma', \\
                 0 & \totherwise.
             \end{cases}
         \]
+    下降上昇ウォーク$\PDU_i \in [0,1]^{X(i)\times X(i)}$の各成分は
+        \[
+            \PUD_i(\sigma,\sigma') = \begin{cases}
+                \frac{\pi_{i+1}(\sigma\cup\sigma')}{(i+2)^2\pi_i(\sigma)}
+                & \tif \sigma\cup\sigma'\in X(i+1),\\
+                \frac{1}{i+2} & \tif \sigma=\sigma', \\
+                0 & \totherwise.
+            \end{cases}
+        \]
+    
 \end{lemma}
 \begin{exercise}{}{PUD calc}
     \cref{lem:PUD seibun}を示せ.
@@ -317,10 +343,6 @@ $\Pdown_{i+1} \colon \ispace \to \ispace[i+1]$
         P_\sigma(u,v) &= \begin{cases}
             	\frac{\pi_{i+2}(\sigma\cup\{u,v\})}{(i+3)\pi_{i+1}(\sigma\cup\{u\})}& \tif \{u,v\}\in E_\sigma,\\
         0 & \totherwise.
-        \end{cases} \\
-        &= \begin{cases}
-            (i+2)\PUD_{i+1}\rbra*{\sigma\cup\{u\}, \sigma\cup\{v\}}	& \tif \{u,v\}\in E_\sigma,\\
-            0 & \totherwise.
         \end{cases}
     \end{align*}
 \end{lemma}
@@ -400,24 +422,50 @@ $G$辺$\{u,v_1\},\{u,v_2\}\in E$に対し, $\{v_1,v_2\}\in E$のときに三角�
 例えばグラフ上の単純遅延ランダムウォーク(\cref{def:lazy SRW})に対して同様の操作を行うと単純ランダムウォーク(\cref{def:SRW})を得る.
 すなわち, グラフ$G$を$1$次元単体複体とみなしたときの$\nonlazyPUD_0$は$G$上の単純ランダムウォークと等しい.
 
+\begin{remark}{\texorpdfstring{$\nonlazyPUD_i(\sigma,\cdot)$}{非遅延上昇下降ウォーク}のサンプリング}{nonlazyUPD sampling}
+    \cref{lem:PUD seibun,lem:local RW seibun}より, 各成分は以下のように表せる:
+    \begin{align*}
+        \nonlazyPUD_i(\sigma,\sigma') = \begin{cases}
+            \frac{1}{i+1}P_{\sigma\cap \sigma'}(\sigma\setminus\sigma',\sigma'\setminus\sigma)	& \tif \sigma\cup\sigma'\in X(i+1),\\
+            0 & \totherwise.
+        \end{cases}
+    \end{align*}
+    (ここでは$\sigma\setminus\sigma'$と$\sigma'\setminus\sigma$を頂点として扱っている).
+    従って, 分布$\nonlazyPUD_i(\sigma,\cdot)$は以下のようにして生成できる:
+    まず, 頂点$u \sim \sigma$を一様ランダムに選び, $\rho = \sigma\setminus\{u\}$とする.
+    次に$v\sim P_\rho(u,\cdot)$に従って選び,
+    $\rho\cup\{v\}$を出力する.
+    実際, このようにして得られたランダムな面$\rho\cup\{v\}$は, $\sigma\cup\sigma'\in X(i+1)$なる$\sigma'$に対して以下が成り立つ:
+    \begin{align*}
+        \Pr\sbra*{\rho\cup\{v\} = \sigma'} &= \Pr\sbra*{ \rho = \sigma\cap \sigma' \tand v=\sigma'\setminus\sigma } \\
+        &= \Pr\sbra*{ \rho = \sigma\cap \sigma' } \cdot \Pr\sbra*{v = \sigma'\setminus\sigma \condition \rho=\sigma\cap\sigma'} \\
+        &= \frac{1}{i+1}\cdot P_{\rho}(\sigma\setminus\sigma',\sigma'\setminus\sigma).
+    \end{align*}
+\end{remark}
+
 \begin{definition}{}{restriction}
 $f\in \ispace$と面$\sigma\in X(i-1)$に対し$f$の$X_\sigma(0)$への制限を$f_\sigma$とする.
-すなわち, $f_\sigma\colon X_\sigma(0) \to \Real$を
+すなわち, $f_\sigma\colon X_\sigma(0) \to \Real$を以下で定める:
 \[
     f_\sigma (u) = f(\sigma\cup\{u\})
 \]
-で定める.
 \end{definition}
-
-以下の補題は$\ispace$上の内積が各リンク$X_\sigma$上の内積の線形和に分解できることを表す.
-
+$\ispace$上の内積が各リンク$X_\sigma$上の内積の線形和に分解できることを示す.
+%
 \begin{lemma}{}{nonlazyUP decomposition}
     純粋な$d$次元単体複体$X$と任意の$0 \le i\le d,f \in \ispace$に対し
-    \[ \iprod{f, \nonlazyPUD_i f} = \E_{\sigma\sim \pi_{i-1}}\sbra*{\abra*{ f_\sigma, P_\sigma f_\sigma }_{\pi^\sigma_0}}. \]
-    ここで, $\pi^\sigma_0 \in [0,1]^{X_\sigma(0)}$はリンク$X_\sigma$の頂点集合$X_\sigma(0)$上の定常分布である.
+    \[ \iprod{f, \nonlazyPUD_i f} = \E_{\rho\sim \pi_{i-1}}\sbra*{\abra*{ f_\rho, P_\rho f_\rho }_{\pi^\rho_0}}. \]
+    ここで, $\pi^\rho_0 \in [0,1]^{X_\rho(0)}$はリンク$X_\rho$の頂点集合$X_\rho(0)$上の定常分布である.
 \end{lemma}
 \begin{proof}
-...
+\cref{rem:nonlazyUPD sampling}を用いて以下のように左辺を式変形していくと主張を得る:
+\begin{align*}
+    (\text{左辺}) &= \E_{\substack{\sigma\sim\pi_i \\ \sigma'\sim \nonlazyPUD_i(\sigma,\cdot)}}\sbra*{ f(\sigma) f(\sigma')} \\
+    &= \E_{\substack{\sigma\sim\pi_i\\ u\sim \sigma,\\ \rho=\sigma\setminus\{u\} \\ v\sim P_\rho(u,\cdot)}}\sbra*{ f(\rho\cup\{u\}) f(\rho\cup\{v\}) } & & \text{$\because$\cref{rem:nonlazyUPD sampling} ($\sigma'=\rho\cup\{v\}$に対応)}\\
+    &= \E_{\rho \sim \pi_{i-1}}\sbra*{ \E_{\substack{ \sigma \sim \pi_i \text{ such that }\sigma\supseteq \rho \\ \{u\} = \sigma\setminus \rho \\ v \sim P_\rho(u,\cdot)}} \sbra*{ f_\rho(u) f_\rho(v) } } \\
+    &=  \E_{\rho \sim \pi_{i-1}}\sbra*{ \E_{\substack{u\sim \pi^{\rho}_0 \\ v \sim P_\rho(u,\cdot)}}\sbra*{f_\rho(u)f_\rho(v)}} & & \text{$\because$\cref{eq:pi alpha j}}\\
+    &= (\text{右辺}).
+\end{align*}
 \end{proof}
 
 \section{Oppenheimのトリクルダウン定理}
