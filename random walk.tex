@@ -635,6 +635,7 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
     \end{align*}
     より主張を得る.
 \end{proof}
+
 %
 \section{ランダムウォークのスペクトルと混交時間}
 非自明な固有値が絶対値の意味で小さいときに混交時間が上から抑えられることを示す.
@@ -657,6 +658,7 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
          & \Varpi[Pf] \le \lambda(P)^2 \cdot \Varpi [f].
     \end{align*}
 \end{lemma}
+
 証明は演習問題とする.
 \begin{exercise}{}{Epi Pf = f}
     \cref{lem:variance}を証明せよ.
@@ -666,8 +668,11 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
 \begin{corollary}{可逆ランダムウォークに対するエクスパンダー混交補題}{general expander mixing lemma}
     可逆なランダムウォークの遷移確率行列$P$を考える.
     任意の関数$f,g\in\pispace$に対し,
-    \[ \abs*{\piprod{f,Pg} - \Epi f \cdot \Epi g} \le \lambda(P)\cdot \sqrt{\Varpi f \cdot \Varpi g}.  \]
+    \begin{align*}
+      \abs*{\piprod{f,Pg} - \Epi f \cdot \Epi g} \le \lambda(P)\cdot \sqrt{\Varpi f \cdot \Varpi g}.
+    \end{align*}
 \end{corollary}
+
 \begin{comment}
 \begin{proof}
     \cref{thm:eigendecomposition}で得られる空間$\pispace$の正規直交基底$x_1,\dots,x_n$を考え,
@@ -736,3 +741,46 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
     最後の不等式では$\forall x\in \Real,x\le \e^{x-1}$を用いた.
 \end{proof}
 
+\section{Rayleigh商}
+以下の結果は第二固有値の上界を得るときなどに役にたつ.
+\begin{lemma}{レイリー商による固有値の特徴付け}{Rayleigh quotient}
+  定常分布$\pi$をもつ可逆な遷移確率行列$P$に対し, 以下が成り立つ:
+  \begin{align*}
+    &\max_{f \in \pispace\setminus\{0\},\piprod{f,\allone}=0}\frac{\piprod{f,Pf}}{\pinorm{f}^2}=\lambda_2(P),\\
+    &\min_{f \in \pispace\setminus\{0\}}\frac{\piprod{f,Pf}}{\pinorm{f}^2}=\lambda_{|V|}(P).
+  \end{align*}
+\end{lemma}
+\begin{proof}
+  $|V|=n$とする.
+  \cref{thm:eigendecomposition}の正規直交基底$x_1=\allone,x_2,\dots,x_n$を使って
+  \[
+    f = \sum_{i=1}^n f_i x_i
+  \]
+  と表す.
+  ここで$f_i = \piprod{f,x_i}$であり, $\piprod{f,\allone}=0$より$f_1 =0$である.
+  各$x_i$は固有値$\lambda_i(P)$に対応する固有ベクトルなので,
+  \begin{align*}
+    \piprod{f,Pf} = \sum_{i=2}^n\lambda_i f_i^2 \le \lambda_2(P) \sum_{i=2}^n f_i^2 = \lambda_2(P) \pinorm{f}^2
+  \end{align*}
+  より最初の等号を得る.
+  同様に,
+  \begin{align*}
+    \piprod{f,Pf} = \sum_{i=2}^n\lambda_i f_i^2 \ge \lambda_n(P) \sum_{i=2}^n f_i^2 = \lambda_n(P) \pinorm{f}^2
+  \end{align*}
+  より後半の等号も得る.
+\end{proof}
+
+値$\frac{\piprod{f,Pf}}{\pinorm{f}^2}$を\emph{レイリー商 (Rayleigh quotient)}と呼ぶ.
+ある遷移確率行列$P$に対して$\lambda_2(P) \le \lambda$であることを示したいときには,
+任意の$\allone$と直交するベクトル$f\in\pispace$に対しレイリー商が高々$\lambda$であることを示せばよい.
+
+\section{片側の固有値のバウンド}
+\cref{cor:general expander mixing lemma}は$\lambda(P)$が小さいときに二次形式$\piprod{f,g} - \Epi f \cdot \Epi g$を両側から押さえているが,
+同様の証明を考えると$\lambda_2(P)$のみが小さいことが保証されている場合も同様に二次形式の片側のバウンドを得ることができる.
+この事実は\cref{chap:HDX}で用いる.
+\begin{lemma}{}{one side EML}
+  任意の$f,g\in \pispace$に対し,
+  \[
+    \piprod{f,Pg} - \Epi f\cdot \Epi g \le \lambda_2(P)\sqrt{\Varpi f \cdot \Varpi g}.
+  \]
+\end{lemma}

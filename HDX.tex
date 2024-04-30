@@ -1,4 +1,4 @@
-\chapter{高次元エクスパンダー概論}
+\chapter{高次元エクスパンダー概論} \label{chap:HDX}
 高次元エクスパンダーとはグラフのエクスパンダー性を単体複体に拡張した概念である.
 単体複体上では, 大域的なランダムウォークと局所的なランダムウォークの二つのタイプのランダムウォークを自然に考えることができ, これらに基づいてそれぞれ大域的なエクスパンダー性と局所的なエクスパンダー性の概念が定義できる.
 端的に述べると高次元エクスパンダーの理論はこれら二つの概念がほぼ等価であることを明らかにしており, これは単体複体における「局所大域原理」\footnote{局所大域原理(local-global principle)とは整数論などで知られる不定方程式の解の存在性に関して, 局所的な情報が大域的な情報を導くという現象の総称である.}を体現しているといえる.
@@ -283,7 +283,7 @@ $\Pdown_{i+1} \colon \ispace \to \ispace[i+1]$
 単体複体の大域的なエクスパンダー性を下降上昇ウォークのエクスパンダー性で定める.
 \begin{definition}{大域エクスパンダー性}{global expander}
     純粋な$d$次元単体複体$X=(V,\F)$は,
-    任意の$0\le i \le d$に対して$X(i)$上の下降上昇ウォーク$\PDU_i$が$\lambda_i(\PDU_i)\le \lambda_i$を満たすとき,
+    任意の$0\le i \le d$に対して$X(i)$上の下降上昇ウォーク$\PDU_i$が$\lambda_2(\PDU_i)\le \lambda_i$を満たすとき,
     \emph{大域$(\lambda_0,\dots,\lambda_{d})$-エクスパンダー (global $(\lambda_0,\dots,\lambda_{d})$-expander)}であるという.
 %    特に, $\lambda_0=\dots=\lambda_{d-1}=\lambda$のとき, 大域$\lambda$-エクスパンダーという.
 \end{definition}
@@ -465,23 +465,14 @@ $\ispace$上の二次形式が各リンク$X_\sigma$上の内積の線形和に�
 \begin{lemma}{}{DPwalk decomposition}
     純粋な$d$次元単体複体$X$と任意の$0\le i\le d,f,g\in \ispace$に対し,
     \begin{align*}
-        \iprod{f,\PDU_i g} &= \E_{\rho\sim \pi_{i-1}}\sbra*{ \E_{\pi^\rho_0}[f_\rho] \cdot \E_{\pi^\rho_0}[g_\rho] } \\
-        &=  \E_{\rho\sim \pi_{i-1}}\sbra*{ \abra*{ f_\rho, J_\rho g }_{X_\rho(0)} }.
+        \iprod{f,\PDU_i g}&= \E_{\rho\sim \pi_{i-1}}\sbra*{ \E_{\pi^\rho_0}[f_\rho] \cdot \E_{\pi^\rho_0}[g_\rho] }.
+%        &=  \E_{\rho\sim \pi_{i-1}}\sbra*{ \abra*{ f_\rho, J_\rho g }_{X_\rho(0)} }.
     \end{align*}
-    ここで, $J_\rho \in \Real^{X_\rho(0) \times X_\rho(0)}$は全ての行ベクトルが$\pi^\rho_0$に等しい, すなわち
-    $J_\rho(u,v) = \pi^\rho_0(v)$で定まる確率行列である.
+%    ここで, $J_\rho \in \Real^{X_\rho(0) \times X_\rho(0)}$は全ての行ベクトルが$\pi^\rho_0$に等しい, すなわち
+%    $J_\rho(u,v) = \pi^\rho_0(v)$で定まる確率行列である.
 \end{lemma}
 \begin{proof}
-    後半の等号は
-    \begin{align*}
-        \abra*{ f_\rho, J_\rho g }_{X_\rho(0)}
-        &= \abra*{ f_\rho, J_\rho g }_{X_\rho(0)} \\
-        &= \E_{\substack{u\sim \pi^\rho_0 \\ v\sim J_\rho(u,\cdot)}}\sbra*{ f_\rho(u)g_\rho(v) } \\
-        &= \E_{\substack{u\sim \pi^\rho_0 \\ v\sim \pi^\rho_0}}\sbra*{ f_\rho(u)g_\rho(v) } \\
-        &= \E_{\pi^\rho_0}[f_\rho]\cdot \E_{\pi^\rho_0}[g_\rho]
-    \end{align*}
-    から従うので, 前半の等号を示せばよい.
-    前半の等号は, 上昇ウォークと下降ウォークの随伴性\cref{eq:adjoint up and walk}より以下のようにして得られる:
+上昇ウォークと下降ウォークの随伴性\cref{eq:adjoint up and walk}より以下のようにして得られる:
     \begin{align*}
         \iprod{f,\PDU_i g} &= \iprod{f,\Pdown_i \Pup_{i-1} g} \\
         &= \iprod[i-1]{\Pup_{i-1}f, \Pup_{i-1}g } & & \text{$\because$\cref{eq:adjoint up and walk}} \\
@@ -492,7 +483,39 @@ $\ispace$上の二次形式が各リンク$X_\sigma$上の内積の線形和に�
 \end{proof}
 
 \subsection{第二固有値の比較}
+\cref{thm:Kaufman-Oppenheim theorem}を証明するには$\lambda_2(\PDU_i)$を上から抑える必要がある.
+そのためにまず$\lambda_2(\PUD_i)$と$\lambda_2(\nonlazyPUD_i)$を比較する.
+\begin{lemma}{}{eigenvalue compare}
+    純粋な$d$次元単体複体$X$が局所$\gamma$-エクスパンダーであるならば, 任意の$i=0,\dots,d$に対して
+    \[ \lambda_2(\PDU_i) \le \lambda_2(\nonlazyPUD_i) + \gamma \]
+    が成り立つ.
+\end{lemma}
+\begin{proof}
+    $\PDU_i,\nonlazyPUD_i$はどちらも内積$\iprod{\cdot,\cdot}$に関して可逆なので,
+    $\allone$に($\iprod{\cdot,\cdot}$の意味で)直交する任意の$f \in \ispace \setminus\{0\}$に対し,
+    \cref{lem:DPwalk decomposition,lem:nonlazyUP decomposition}より
+    \begin{align*}
+        \iprod{f,\nonlazyPUD_i f} - \iprod{f,\PDU_i f} &= \E_{\rho\sim\pi_{i-1}}\sbra*{ \abra*{f_\rho, P_\rho f_\rho}_{\pi_0^\rho} - \E_{\pi^\rho_0}[f_\rho]^2}  \\
+        & \le \E_{\rho\sim\pi_{i-1}}\sbra*{\gamma \norm{f_\rho - \E_{\pi^\rho_0}[f_\rho]}_{\pi^\rho_0}^2 } & & \text{$\because$\cref{lem:one side EML}} \\
+        &\le \gamma \cdot \E_{\rho\sim\pi_{i-1}}\sbra*{\norm{f_\rho}^2_{\pi^\rho_0}} \\
+        &= \gamma \norm{f}^2_{\pi_i}.
+    \end{align*}
+    最後の等号は演習問題とする.
+    移項して整理すると
+    \begin{align*}
+        \frac{\iprod{f,\nonlazyPUD_i f}}{\norm{f}_{\pi_i}^2} &\le \frac{\iprod{f,\PDU_if}}{\norm{f}^2_{\pi_i}} + \gamma \\
+        & \le \lambda_2(\PDU_i) + \gamma & & \text{$\because$\cref{lem:Rayleigh quotient}}
+    \end{align*}
+    右辺は$f$に関して最大化すると$\lambda_2(\nonlazyPUD)$となるので主張を得る.
+\end{proof}
 
+\begin{proof}[\cref{thm:Kaufman-Oppenheim theorem}の証明.]
+    ...
+\end{proof}
+
+\begin{exercise}{}{pinorm of f}
+    上記の証明で用いた等式$\norm{f}_{\pi_i}^2  = \E_{\rho \sim \pi_{i-1}}\sbra*{\norm{f_\rho}^2_{\pi^\rho_0}}$を示せ.
+\end{exercise}
 
 \subsection{Alev--Lauの定理}
 \cref{thm:Kaufman-Oppenheim theorem}は\citet{AL20}によって改善され以下の結果が示されている:
