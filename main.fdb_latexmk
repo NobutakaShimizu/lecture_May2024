@@ -1,17 +1,17 @@
 # Fdb version 4
-["biber main"] 1714453538.6385 "main.bcf" "main.bbl" "main" 1714453564.96696 0
-  "main.bcf" 1714453563.2445 109926 eb9e15317ace5919ca39faafbfb64a17 "latex"
+["biber main"] 1714458213.31625 "main.bcf" "main.bbl" "main" 1714458231.47196 0
+  "main.bcf" 1714458230.18104 109926 eb9e15317ace5919ca39faafbfb64a17 "latex"
   "ref.bib" 1714382871.49095 4303 fa439850f096731e690716439611fe0d ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["dvipdf"] 1714453563.4321 "main.dvi" "main.pdf" "main" 1714453564.97052 0
-  "main.dvi" 1714453563.24711 544656 20991d2e6ff8743a8550476f8c3f9bec "latex"
+["dvipdf"] 1714458230.32278 "main.dvi" "main.pdf" "main" 1714458231.47499 0
+  "main.dvi" 1714458230.1837 555744 0282be7ef950340bf91d679e2bb310ac "latex"
   (generated)
   "main.pdf"
   (rewritten before read)
-["latex"] 1714453556.29168 "/Users/nobushimi/Documents/GitHub/lecture_May2024/main.tex" "main.dvi" "main" 1714453564.96709 0
+["latex"] 1714458225.663 "/Users/nobushimi/Documents/GitHub/lecture_May2024/main.tex" "main.dvi" "main" 1714458231.47207 0
   "/Users/nobushimi/Documents/GitHub/lecture_May2024/main.tex" 1714453438.76352 1793 0e2b33ce9921f9014257804ed13a6943 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -207,7 +207,7 @@
   "/usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf" 1713064664 41983 7ec6bfd6bf34339a61f0f08f42298e60 ""
   "/usr/local/texlive/2024/texmf-var/web2c/euptex/uplatex.fmt" 1713176327 8157109 fb38fa9a2474a372f2f7612a57f513bd ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "HDX.tex" 1714453495.36176 35010 15edc0a6061742dd138395b6a80ebe56 ""
+  "HDX.tex" 1714458208.16078 37307 7aeb6eb01a4cc25d7f2ab240469122ff ""
   "commands.tex" 1714438711.65326 2367 120c8c8026d11c221230a142c17100ea ""
   "expander graph.tex" 1714405266.22161 39407 5beb68903ae809c5749c72c50470c130 ""
   "images/EML.pdf" 1714039822.87307 95186 2ddc0cab16877e7ffa325c2292d221b0 ""
@@ -216,12 +216,12 @@
   "images/localwalk1.png" 1714274154.79594 36505 2a8f4646b80ef98b1373057b3d972411 ""
   "images/matching.pdf" 1713331279.53596 8093 c6c0037ff239ebd09f3c04addbaf77b7 ""
   "images/tree.pdf" 1714039822.87461 101277 a5264717df78a4f8161cc5d55a7539d3 ""
-  "main.aux" 1714453563.23526 28448 388e1d10f955ff92b6cb521b8f0891cb "latex"
-  "main.bbl" 1714453541.15143 14953 e4511bc343f9ed1a68659e1bedc44ae5 "biber main"
-  "main.out" 1714453563.24079 6256 6dad60082ecc5918d76c5c597879327e "latex"
-  "main.run.xml" 1714453563.24668 2338 1ce6592cf421c3a52a6f5907ed25509b "latex"
+  "main.aux" 1714458230.17314 29179 39a93fd8edb0f663a6fcd29b03285f3a "latex"
+  "main.bbl" 1714458216.00607 14953 e4511bc343f9ed1a68659e1bedc44ae5 "biber main"
+  "main.out" 1714458230.17908 6778 f38ee382534894de74251105c4febbb2 "latex"
+  "main.run.xml" 1714458230.18303 2338 1ce6592cf421c3a52a6f5907ed25509b "latex"
   "main.tex" 1714453438.76352 1793 0e2b33ce9921f9014257804ed13a6943 ""
-  "main.toc" 1714453563.24693 4658 61b748e0c285f553ad0b51c15682c386 "latex"
+  "main.toc" 1714458230.18325 5050 c333d20a971fdb3cc9b923be414c5172 "latex"
   "matroid.tex" 1714392979.16909 1263 5c6fb3b3b84c7011248998a655da04c3 ""
   "preface.tex" 1714102848.47903 3565 609d283f4d38c6a51a47fb9541d86e63 ""
   "random walk.tex" 1714444535.60786 46196 b10bb66015d70f117d22cc9cb3ea12e3 ""
