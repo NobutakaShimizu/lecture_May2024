@@ -389,7 +389,7 @@ $G$辺$\{u,v_1\},\{u,v_2\}\in E$に対し, $\{v_1,v_2\}\in E$のときに三角�
 比較的最近, \citet{KO20}によって証明された.
 \begin{theorem}{Kaufman--Oppenheimの定理}{Kaufman-Oppenheim theorem}
     純粋な$d$-次元単体複体$X = (V,\F)$が局所$\gamma$-エクスパンダーならば,
-    \[ \lambda_i = 1-\frac{1}{i+1} + \gamma i\]
+    \[ \lambda_i = 1-\frac{1}{i+1} + \frac{\gamma i}{2}\]
     で定義された$\lambda_i$ ($i=0,\dots,d$) に対して$X$は大域$(\lambda_0,\dots,\lambda_{d})$-エクスパンダーである.
 \end{theorem}
 本節では\cref{thm:Kaufman-Oppenheim theorem}を証明する.
@@ -514,7 +514,7 @@ $\ispace$上の二次形式が各リンク$X_\sigma$上の内積の線形和に�
 \end{exercise}
 
 \begin{proof}[\cref{thm:Kaufman-Oppenheim theorem}の証明.]
-    全ての$i=0,\dots,d$に対して$\lambda_2(\PDU_i) \le 1-\frac{1}{i+1} + i\gamma$を示せばよい.
+    全ての$i=0,\dots,d$に対して$\lambda_2(\PDU_i) \le 1-\frac{1}{i+1} + \frac{\gamma i}{2}$を示せばよい.
     これを$i$に関する帰納法で示す.
 
     $i=0$のとき, $\PDU_0$を考える.
@@ -522,12 +522,19 @@ $\ispace$上の二次形式が各リンク$X_\sigma$上の内積の線形和に�
     このときの遷移確率は$\pi_0$に従って選ばれる.
     従って$\PDU_0$は全ての行ベクトルが$\pi_0$であり, 特にランク$1$の行列なので, $\lambda_2(\PDU_0)=0$であり主張は正しい.
 
-    $\lambda_2(\PDU_{i-1}) \le 1-\frac{1}{i} + (i-1)\gamma$を仮定する.
-    
+    一般の$i \ge 1$に対して
+    \begin{align*}
+        \lambda_2\rbra*{ \PDU_i } &= \lambda_2\rbra*{ \PUD_{i-1} } & & \text{$\because \lambda_2\rbra*{\Pdown_i\Pup_{i-1}}=\lambda_2\rbra*{\Pup_{i-1}\Pdown_i}$} \\
+        &= \frac{i}{i+1}\lambda_2\rbra*{ \nonlazyPUD_{i-1} } + \frac{1}{i+1} & & \text{$\because$\cref{def:nonlazy updown}} \\
+        &\le \frac{i}{i+1}\lambda_2\rbra*{ \PDU_{i-1}} + \frac{\gamma i + 1}{i+1} & & \text{$\because$\cref{lem:eigenvalue compare}}\\
+        &\le \frac{i}{i+1} \rbra*{1 - \frac{1}{i} + \frac{(i-1)\gamma}{2}} + \frac{\gamma i + 1}{i+1} & & \text{帰納法の仮定} \\
+        &= 1 - \frac{1}{i+1} + \frac{\gamma i}{2}.
+    \end{align*}
+    よって主張を得る.
 \end{proof}
 
 \subsection{Alev--Lauの定理}
-\cref{thm:Kaufman-Oppenheim theorem}では, $\gamma < 1/d^2$でなければ$\lambda_d$に対する非自明な上界が得られなかった.
+\cref{thm:Kaufman-Oppenheim theorem}では, $\gamma < \frac{1}{d^2}$でなければ$\lambda_d$に対する非自明な上界が得られなかった.
 この問題点は\citet{AL20}によって改善され以下の結果が示されている:
 %
 \begin{theorem}{Alev--Lauの定理}{ALev-Lau theorem}
@@ -553,3 +560,4 @@ Oppenheimのトリクルダウン定理は局所エクスパンダー性を確�
 例えば, $\gamma=0$で\cref{thm:Oppenheim trickle-down theorem}を適用すると, $X$は局所$0$-エクスパンダーである.
 実はマトロイドと呼ばれる単体複体はこの定理を使って局所$0$-エクスパンダーであることが示せる.
 
+\cref{thm:Oppenheim trickle-down theorem}の証明は\cref{thm:Kaufman-Oppenheim theorem}と同様に
