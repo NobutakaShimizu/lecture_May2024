@@ -30,7 +30,7 @@
 特に断りのない限り, $X(0)=V$を仮定する
 (そうでなければ$V$として$V=X(0)$とした単体複体を考える).
 
-\item 純粋な$d$-次元単体複体$X$に, $d$次元の面全体$X(d-1)$上の何らかの分布$\pi \in [0,1]^{X(d-1)}$が付随している場合, $X$を\emph{重み付き単体複体 (weighted simplicial complex)} (もしくは$\pi$で重みつけられた単体複体)と呼ぶ. 特に断りのない限りは$\pi$は一様分布とする.
+\item 純粋な$d$-次元単体複体$X$に, $d$次元の面全体$X(d-1)$上の何らかの分布$\pi \in [0,1]^{X(d-1)}$が付随している場合, $X$を\emph{重み付き単体複体 (weighted simplicial complex)} (もしくは$\pi$で重みつけられた単体複体)と呼ぶ.
 \end{itemize}
 \end{definition}
 面の次元の概念は単体複体の幾何的な表現に由来する.
@@ -99,16 +99,21 @@ $\F = \binom{V}{\le k} \defeq \cbra*{ \sigma \subseteq V \colon |\sigma|\le k}$�
         \F_\sigma = \cbra*{ \tau \setminus \sigma \colon \sigma \subseteq \tau \in \F }
     \]
     で与えられるものである.
+    特に, 頂点$v\in X(0)$のリンクは$X_{\{v\}}$の代わりに$X_v$で表す.
+
     次元$k$以下の面の集合
     \[
         \F_k = \cbra*{ \sigma \in \F \colon \dim \sigma \le k}
     \]
     に対し$(V,\F_k)$を\emph{$k$-スケルトン ($k$-skelton)}という.
 \end{definition}
-面$\sigma$のリンクとは, $\sigma$をある意味で「縮約」して得られる単体複体であり, 面$\sigma$の周りの局所的な構造を表している.
+面$\sigma$のリンクとは, $\sigma$を「縮約」して得られる単体複体であり, 面$\sigma$の周りの局所的な構造を表している.
 例えば連結グラフ$G=(V,E)$の森の全体からなる単体複体$X=(E,\F)$を考えよう.
 $\sigma\in \F$を一つ固定したとき, リンク$X_\sigma$はどのような単体複体になっているだろうか?
 $X_\sigma$の全ての面は辺集合$F$を含むので, $F$に含まれる全ての頂点を縮約して得られるより小さなグラフを考え, そこから$F$の辺を除去して得られるグラフ$G'$の森全体からなる単体複体とみなせる.
+
+純粋な$d$次元単体複体$X$の面$\sigma\in X(i)$のリンク$X_\sigma$は純粋な$(d-i-1)$次元単体複体である.
+特に$X_\emptyset = X$である.
 
 %\end{definition}
 \section{大域エクスパンダー性}
@@ -513,7 +518,7 @@ $\ispace$上の二次形式が各リンク$X_\sigma$上の内積の線形和に�
     上記の証明で用いた等式$\norm{f}_{\pi_i}^2  = \E_{\rho \sim \pi_{i-1}}\sbra*{\norm{f_\rho}^2_{\pi^\rho_0}}$を示せ.
 \end{exercise}
 
-\begin{proof}[\cref{thm:Kaufman-Oppenheim theorem}の証明.]
+\begin{proof}[\textbf{\cref{thm:Kaufman-Oppenheim theorem}の証明.}]
     全ての$i=0,\dots,d$に対して$\lambda_2(\PDU_i) \le 1-\frac{1}{i+1} + \frac{\gamma i}{2}$を示せばよい.
     これを$i$に関する帰納法で示す.
 
@@ -550,7 +555,7 @@ $\ispace$上の二次形式が各リンク$X_\sigma$上の内積の線形和に�
 Oppenheimのトリクルダウン定理は局所エクスパンダー性を確認するのに非常に有用な定理である.
 端的に言えば, 次数$d-2$の面$\sigma \in X(d-2)$に対して$\lambda(P_\sigma)$を抑えれば全ての次元の面に対しても第二固有値が上から抑えられるという結果である.
 \begin{theorem}{Oppenheimのトリクルダウン定理}{Oppenheim trickle-down theorem}
-    純粋な$d$-次元単体複体$X = (V,\F)$が以下の二つを満たすとする:
+    純粋な重み付き$d$-次元単体複体$X = (V,\F)$が以下の二つを満たすとする:
     \begin{itemize}
     \item 全ての$i\le d-2$と全ての$\sigma\in X(i)$に対してグラフ$G_\sigma$は連結.
     \item 全ての$(d-2)$-次元の面$\tau \in X(d-2)$に対して$\lambda_2(P_\tau) \le \gamma$.
@@ -560,4 +565,46 @@ Oppenheimのトリクルダウン定理は局所エクスパンダー性を確�
 例えば, $\gamma=0$で\cref{thm:Oppenheim trickle-down theorem}を適用すると, $X$は局所$0$-エクスパンダーである.
 実はマトロイドと呼ばれる単体複体はこの定理を使って局所$0$-エクスパンダーであることが示せる.
 
-\cref{thm:Oppenheim trickle-down theorem}の証明は\cref{thm:Kaufman-Oppenheim theorem}と同様に
+\cref{thm:Oppenheim trickle-down theorem}は, まず$d=2$の特殊ケースで証明し, 一般の$d$についてはこの特殊ケースに帰着する.
+%
+\begin{lemma}{\texorpdfstring{$d=2$}{2次元}におけるトリクルダウン定理}{trickle-down for 3dim}
+    純粋な重み付き$2$次元単体複体$X=(V,\F)$の各頂点$v\in X(0)$における局所ランダムウォーク$P_v$が$\lambda_2(P_v) \le \gamma$を満たし, かつその$1$-スケルトン$G_v$が連結ならば, 面$\emptyset$における局所ランダムウォーク$P_\emptyset$は
+    \[
+        \lambda_2(P_\emptyset) \le \frac{\gamma}{1-\gamma}
+    \]
+    を満たす.
+\end{lemma}
+まずは一般のケースが$d=2$のケースに帰着できることを示す.
+%
+\begin{proof}[\textbf{\cref{lem:trickle-down for 3dim}を仮定した\cref{thm:Oppenheim trickle-down theorem}の証明.}]
+    $X=(V,\F)$を純粋な重み付き$d$次元単体複体とする ($d\ge 3$).
+    面$\sigma \in X(d-3)$のリンク$X_\sigma$の次元は$2$であり,
+    $X_\sigma$の頂点$v\in X_\sigma(0)$に対して
+    $\sigma \cup \{v\} \in X(d-2)$より,
+    $X_\sigma$上の$v$における局所ランダムウォークの遷移確率行列は$P_{\sigma\cup \{v\}}$に等しく, 仮定より$\lambda_2\rbra*{P_{\sigma\cup\{v\}}}\le \gamma$である.
+    さらに, $X$の各リンクの$1$-スケルトンは連結なので, \cref{lem:trickle-down for 3dim}より
+    \[
+        \lambda_2(P_\sigma) \le \frac{\gamma}{1-\gamma}
+    \]
+    を得る.
+    同じ議論を, $X$をその$(d-1)$-スケルトンに置き換えて適用すると,
+    任意の$\sigma' \in X(d-4)$に対し
+    \[
+        \lambda_2(P_{\sigma'}) \le \frac{\frac{\gamma}{1-\gamma}}{1- \frac{\gamma}{1-\gamma}} = \frac{\gamma}{1-2\gamma}
+    \]
+    を得る.
+    これを繰り返すと, ($j$に関する帰納法により)
+    面$\rho \in X(d-2-j)$に対し
+    \[
+        \lambda_2(P_\rho) \le \frac{\gamma}{1-j\gamma}
+    \]
+    を得る.
+\end{proof}
+%
+\cref{lem:trickle-down for 3dim}の証明は,
+\cref{thm:Kaufman-Oppenheim theorem}と同様にランダムウォークを分解することから始まる.
+%
+\begin{proof}[\textbf{\cref{lem:trickle-down for 3dim}の証明.}]
+    ...
+\end{proof}
+%
