@@ -32,13 +32,15 @@
 
 \item 純粋な$d$-次元単体複体$X$に, $d$次元の面全体$X(d-1)$上の何らかの分布$\pi \in [0,1]^{X(d-1)}$が付随している場合, $X$を\emph{重み付き単体複体 (weighted simplicial complex)} (もしくは$\pi$で重みつけられた単体複体)と呼ぶ.
 \end{itemize}
+以後, 単体複体といった場合, 暗に重み付き単体複体を考え, 最大次の面の重みを$\pi$で表す.
 \end{definition}
 面の次元の概念は単体複体の幾何的な表現に由来する.
 このイメージになぞらえて,
 次元$0$の面を\emph{頂点 (vertex)}, 次元$1$の面を\emph{辺 (edge)}と呼ぶことがある.
 次元$2$以上の任意の単体複体$X$に対して$(X(0),X(1))$はグラフである.
-
 重み付き単体複体は重み付きグラフ(\cref{def:weighted random walk})の単体複体への自然な拡張である.
+
+記法の簡単のため, 面$\sigma$と頂点$u\in V$に対し$\sigma \setminus \{u\}$を簡略化して$\sigma \setminus u$と書くこともある.
 
 \paragraph*{例1.}
 グラフ$G=(V,E)$に対し, 空集合, $V$, $E$からなる部分集合族
@@ -91,6 +93,7 @@ $\F = \binom{V}{\le k} \defeq \cbra*{ \sigma \subseteq V \colon |\sigma|\le k}$�
 特に, 単一頂点からなる集合$\{u\}$や$\emptyset$もクリークである.
 クリークの部分集合もまたクリークなので,
 グラフ$G$の全てのクリークからなる頂点集合族を$\F$とすると, $(V,\F)$は単体複体である.
+これをグラフの\emph{クリーク複体 (clique complex)}と呼ぶ.
 
 \begin{definition}{リンクとスケルトン}{link and skelton}
     単体複体$X=(V,\F)$を考える.
@@ -112,6 +115,9 @@ $\F = \binom{V}{\le k} \defeq \cbra*{ \sigma \subseteq V \colon |\sigma|\le k}$�
 $\sigma\in \F$を一つ固定したとき, リンク$X_\sigma$はどのような単体複体になっているだろうか?
 $X_\sigma$の全ての面は辺集合$F$を含むので, $F$に含まれる全ての頂点を縮約して得られるより小さなグラフを考え, そこから$F$の辺を除去して得られるグラフ$G'$の森全体からなる単体複体とみなせる.
 
+単体複体の$1$-スケルトンは, $1$次元の面を辺とみなすことでグラフと同一視できる.
+以後, $1$-スケルトンといった場合はこの同一視によってグラフとして扱う.
+
 純粋な$d$次元単体複体$X$の面$\sigma\in X(i)$のリンク$X_\sigma$は純粋な$(d-i-1)$次元単体複体である.
 特に$X_\emptyset = X$である.
 
@@ -125,7 +131,7 @@ $X_\sigma$の全ての面は辺集合$F$を含むので, $F$に含まれる全�
 \subsection{下降ウォークと定常分布}
 まず, \cref{sec:graph up and down walk}で考えた下降ウォークを単体複体に拡張し, $X(d)$上では一様分布を定常分布とすることによって帰納的に各$X(i)$上での定常分布を定める.
 \begin{definition}{下降ウォークと面上の定常分布}{down walk and stationary distribution}
-    純粋な$d$次単体複体$X=(V,\F)$を考える.
+    $\pi$で重み付けられた純粋な$d$次単体複体$X=(V,\F)$を考える.　
     各$i=0,\dots,d$に対し
         確率行列$\Pdown_i \in [0,1]^{X(i) \times X(i-1)}$を
         \[
@@ -136,14 +142,16 @@ $X_\sigma$の全ての面は辺集合$F$を含むので, $F$に含まれる全�
         \]
         とし, $X(i)$上の分布$\pi_i \in [0,1]^{X(i)}$を
         \begin{itemize}
-        \item $i=d$のとき: $X$が$\pi \in [0,1]^{X(d-1)}$で重み付けられた単体複体ならば$\pi_d = \pi$とする. そうでないならば$\pi_d$は$X(d)$上の一様分布とする.
-        \item $\pi_{i+1}$が定義されているとき, $\pi_i = \pi_{i+1}\Pdown_{i+1}$
+        \item $i=d$のとき, $\pi_d = \pi$とする.
+        \item $i<d$に対しては帰納的に$\pi_i = \pi_{i+1}\Pdown_{i+1}$とする.
         \end{itemize}
-    で定める.
-    各$i$に対し分布$\pi_i$を$X(i)$上の\emph{定常分布}と呼ぶ.
+    各$i$に対し分布$\pi_i$を$X(i)$上の($i$次の)\emph{定常分布}と呼ぶ.
+
+    以後, 面$X(i)$には暗に定常分布$\pi_i$が付随しているとする.
+    すなわち, $u \sim X(i)$と書いた場合は$u\sim \pi_i$を意味する.
 \end{definition}
 面$\tau \in X(i+1)$に対して$\Pdown_{i+1}(\tau,\cdot)$で定まる$X(i)$上の分布は, 面$\tau$に含まれる頂点$u$を一様ランダムに選んだときの$\sigma = \tau \setminus\{u\}$の分布と等しい.
-この分布は, まず一様ランダムに$X(d)$から面を選び, その中から一様ランダムに選ばれた$i+1$個の頂点からなる$X(i)$の面のなす分布である.
+この分布は, まず定常分布に従って$X(d)$から面を選び, その中から一様ランダムに選ばれた$i+1$個の頂点からなる$X(i)$の面のなす分布である.
 従って$\pi_i(\sigma)$は$\sigma$を含む極大な面の個数に比例する.
 これは遅延単純ランダムウォークの定常分布$\pi(u)$が次数$\deg(u)$に比例することの一般化である.
 
@@ -151,20 +159,29 @@ $X_\sigma$の全ての面は辺集合$F$を含むので, $F$に含まれる全�
 
 各リンクに対しても同様に定常分布を定義する.
 \begin{definition}{リンク上の定常分布}{link stationary distribution}
-    純粋な$d$次元単体複体$X$の各リンク$X_\sigma$ ($\sigma \in X(i)$)に対して\cref{def:down walk and stationary distribution}によって定まる$j$次の定常分布を$\pi^\sigma_j$とする.
-    すなわち, $(d-i-1)$次元単体複体$X_\sigma$に対し, $\pi^\sigma_{d-i-1}$を$X_\sigma(d-i-1)$上の一様分布とし,
-    $\pi^\sigma_j\in [0,1]^{X_\sigma(j)}$を, $\tau\sim \pi^\sigma_{j+1}$, $u\sim \tau$に対し, 面$\tau\setminus \{u\} \in X_\sigma(j)$の周辺分布とする.
+    純粋な$d$次元単体複体$X$のリンク$X_\sigma$ ($\sigma \in X(i)$)に対して最大次の定常分布$\pi^{\sigma}_{d-i-1}$を
+    \begin{align*}
+        \pi^\sigma_{d-i-1}(\alpha) &= \Pr_{\tau\sim\pi_{d}}\sbra*{\tau=\alpha\cup \sigma \condition \tau\supseteq \sigma}
+    \end{align*}
+    で定め, それ以下の次元の定常分布$\pi^\sigma_j$は\cref{def:down walk and stationary distribution}によって定める.
 
-    $X$が重み付きの場合, $\pi^\sigma_{d-i-1}$を$\tau \supseteq \sigma$で条件つけられたときの$\tau\sim\pi_d$の分布として各$\pi_j$は重みなしの場合と同様に定義する.
+    以後, $u\sim X_\sigma(j)$と書いたとき, $u \sim \pi^\sigma_j$を意味する.
 \end{definition}
-    面$\sigma\in X(i)$のリンク$X_\sigma$上の定常分布$\pi^\sigma_j \in[0,1]^{X_\sigma(j)}$は
-    \begin{align}
-    \pi^\sigma_j(\alpha) = \Pr_{\tau\sim\pi_{i+j+1}}\sbra*{\tau=\alpha\cup \sigma \condition \tau\supseteq \sigma} \propto \pi_{i+j+1}(\alpha\cup\sigma) \label{eq:pi alpha j}
-    \end{align}
-    を満たす.
-    実際, $\pi^\sigma_j(\alpha)$は$\alpha$を含む$X_\sigma(d-i-1)$の面の個数に比例しており,
-    その個数は$\alpha\cup \sigma$を含む$X(d)$の面の個数に比例するからである.
-    これを正則化すれば等号が得られる.
+リンク上の$j$次の定常分布$\pi^\sigma_j$は
+\begin{align}
+    \pi^\sigma_j(\alpha) = \Pr_{\tau \sim X(i+j+1)}\sbra*{\tau = \alpha \cup \sigma \condition \tau \supseteq \sigma} \propto \pi_{i+j+1}(\alpha\cup\sigma) \label{eq:pi alpha j}
+\end{align}
+を満たす.
+特に$\sigma=\emptyset$とすれば, $i=\dim(\sigma)=-1$より$\pi^\emptyset_j = \pi_j$が成り立つ.
+
+\begin{remark}{}{link of u}
+    定義を咀嚼するために, ここでは頂点$u\in V$のリンク$X_u$に対して$0$次の定常分布を考えてみよう.
+    $X_u(0)=\{v \in V \colon \{u,v\}\in X(1)\}$であり, これは$1$-スケルトンにおける$u$の隣接頂点の集合に等しい.
+    ランダムな辺$e \sim X(1)$に対して端点のどちらか$v \sim e$を一様ランダムに選んだときの$v$の周辺分布が$\pi_0$となる.
+    一方で, 固定した頂点$u$に対し, $u$を含むよう条件つけて$e \sim X(1)$をサンプリングしたとき, $u$でない方の端点$v$の分布が$\pi^u_0$となる.
+    
+    より高次元の面に対しても同様で, \cref{eq:pi alpha j}から分かるように, ある特定の面$\sigma$を含むよう条件つけられた状態で定常分布に従ってサンプリングしたときの$j$次の面の分布が$\pi^\sigma_j$である.
+\end{remark}
 
 \subsection{上昇ウォーク}
 \cref{def:down walk and stationary distribution}では次元$i$の面から次元$i-1$に遷移する下降ウォークを与えた.
@@ -211,11 +228,11 @@ $X_\sigma$の全ての面は辺集合$F$を含むので, $F$に含まれる全�
 
 \begin{remark}{「上昇」「下降」の名称}{up and down}
     非常にややこしいのだが,
-    上昇ウォークと下降ウォークの遷移確率行列と左右どちらから作用させるかによって「上昇」「下降」の意味合いが反転してしまう.
+    上昇ウォークと下降ウォークは遷移確率行列を左右どちらから作用させるかによって「上昇」「下降」の意味合いが反転してしまう.
     確率行列としての上昇ウォークは$\Pup_i \in [0,1]^{X(i)\times X(i+1)}$で表せる.
-    一般によくある左から作用させる作用素の感覚で考えると
+    左から作用させる作用素とみなすと
     $\Pup_i\colon \Real^{X(i+1)} \to \Real^{X(i)}$
-    であるので, 次元を一つ落とすように見えてしまうのである.
+    であるので, 上昇ウォークは次元を一つ落とす作用素に見えてしまうのである.
     下降ウォークについても同様である.
     特に上昇下降ウォーク$\PUD_i=\Pup_i\Pdown_{i+1}$を左から作用させると「次元を下げてから上げる」ものになるので, 下降上昇ウォークと混同しやすい.
     
@@ -223,9 +240,8 @@ $X_\sigma$の全ての面は辺集合$F$を含むので, $F$に含まれる全�
     \cref{def:down walk and stationary distribution}, \ref{def:up walk}の呼称を採用している.
     ランダムウォークの遷移確率行列として扱う場合は右から作用させ, 
     内積空間を考え随伴性などを考える場合(\cref{sec:inaiseki})は左から作用させる (このときの行列$P$をマルコフ作用素と呼ぶことがある).
-    
-%    そもそも, 遷移確率行列$P(u,v)$を「$u$から$v$に遷移する確率」として定義してしまったのが根本的な原因であり, 転置したものを改めて遷移確率行列と定義しなおせば解決できるのだが, ランダムウォークの文化ではもはや\cref{def:random walk}の定義が完全に主流となってしまっておりそれに反するとほとんどの参考文献が読みづらくなってしまうので従った.   
-    なお, 可逆なランダムウォーク(\cref{def:reversible})は内積$\piprod{\cdot,\cdot}$の意味で左右どちらから作用させても本質的に同じであるので左右どちらから作用させるかについてこのような煩雑な話は考えなくて良い.
+
+    なお, 可逆なランダムウォーク(\cref{def:reversible})は自己随伴性より, 内積$\piprod{\cdot,\cdot}$の意味では左右どちらから作用させても本質的に同じであるのでこのような煩雑な話は考えなくて良い.
 \end{remark}
 
 上昇下降ウォークの性質を述べていく.
@@ -260,12 +276,13 @@ $X_\sigma$の全ての面は辺集合$F$を含むので, $F$に含まれる全�
 \subsection{各次元の内積空間} \label{sec:inaiseki}
 各次元$i$に対して$X(i)$とそれに付随する定常分布を定義できたので, \cref{def:naiseki}の特殊ケースの内積空間を考えることができる.
 \begin{definition}{}{naisexi simplicial complex}
-    単体複体$X$を考え, 各次元の定常分布を$\pi_i \in [0,1]^{X(i)}$としたとき, $\ispace = \ell^2_{\pi_i}(X(i))$と表す.
-    すなわち, 各$i=0,\dots,d-1$に対し, $\Real^{X(i)}$に内積$\iprod{\cdot,\cdot}$を
+    重み付き単体複体$X$の各次元の定常分布を$\pi_i \in [0,1]^{X(i)}$としたとき, $\pi_i$で重みつけられた内積を$\iprod{\cdot,\cdot}$で表す.
+    すなわち, 
     \[
         \iprod{f,g} = \sum_{\sigma \in X(i)} \pi_i(\sigma) f(\sigma)g(\sigma)
     \]
-    で定義して得られる内積空間を$\ispace$とする.
+    とする.
+    また, $\Real^{X(i)}$に内積$\iprod{\cdot,\cdot}$を付随して定まる空間を$\ispace$とする.
 \end{definition}
 %
 上昇ウォーク
@@ -284,6 +301,8 @@ $\Pdown_{i+1} \colon \ispace \to \ispace[i+1]$
 \begin{exercise}{}{adjoint check}
 \cref{eq:adjoint up and walk}を確認せよ.
 \end{exercise}
+
+また, リンク$X_\sigma$に対しても\cref{def:link stationary distribution}で定義した定常分布を用いて内積空間$\ispace[X_\sigma(i)]$を定義できる.
 
 単体複体の大域的なエクスパンダー性を下降上昇ウォークのエクスパンダー性で定める.
 \begin{definition}{大域エクスパンダー性}{global expander}
@@ -311,7 +330,7 @@ $\Pdown_{i+1} \colon \ispace \to \ispace[i+1]$
 \begin{figure}
     \begin{center}
     \includegraphics[width=13cm]{images/link.png}
-    \caption{リンク$X_\sigma$の$2$-スケルトンでは, $\sigma\cup\{u,v\}\in \F$のときに$u,v$間に辺を張る. \label{fig:link and skelton}}
+    \caption{リンク$X_\sigma$の$1$-スケルトンでは, $\sigma\cup\{u,v\}\in \F$のときに$u,v$間に辺を張る. \label{fig:link and skelton}}
     \end{center}
 \end{figure}
 各リンク$X_\sigma$の$2$-スケルトン上での局所的な重み付きランダムウォークを考える (\cref{fig:link and skelton}).
@@ -432,6 +451,8 @@ $\PDU_i$と$\PUD_{i-1}$は随伴の関係にあるため非ゼロ固有値は一
         \Pr\sbra*{\rho\cup\{v\} = \sigma'} &= \Pr\sbra*{ \rho = \sigma\cap \sigma' \tand v=\sigma'\setminus\sigma } \\
         &= \frac{1}{i+1}\cdot P_{\rho}(\sigma\setminus\sigma',\sigma'\setminus\sigma).
     \end{align*}
+    
+    また, 面$\emptyset$上の局所ランダムウォークの遷移確率行列$P_\emptyset$と$\nonlazyPUD_0$は一致する.
 \end{remark}
 
 
@@ -441,28 +462,27 @@ $\PDU_i$と$\PUD_{i-1}$は随伴の関係にあるため非ゼロ固有値は一
 非遅延上昇下降ウォーク$\nonlazyPUD_i$と下降上昇ウォーク$\PDU_i$の固有値を比較するために,
 これら二つのランダムウォークから得られる二次形式を局所ランダムウォークの二次形式に分解する.
 
-まず, 二次形式で考えるベクトル(関数)を各リンク上の制限に分解する.
+%まず, 二次形式で考えるベクトル(関数)を各リンク上の制限に分解する.
 \begin{definition}{}{restriction}
-$f\in \ispace$と面$\sigma\in X(i-1)$に対し$f$の$X_\sigma(0)$への制限を$f_\sigma$とする.
-すなわち, $f_\sigma\colon X_\sigma(0) \to \Real$を以下で定める:
+$f\in \ispace$と面$\sigma\in X(i-1)$に対し, $f_\sigma\colon X_\sigma(0) \to \Real$を以下で定める:
 \[
-    f_\sigma (u) = f(\sigma\cup\{u\})
+    f_\sigma (u) = f(\sigma\cup\{u\}).
 \]
 \end{definition}
 $\ispace$上の二次形式が各リンク$X_\sigma$上の内積の線形和に分解できることを示す.
 %
 \begin{lemma}{}{nonlazyUP decomposition}
     純粋な$d$次元単体複体$X$と任意の$0 \le i\le d-1,f,g \in \ispace$に対し
-    \[ \iprod{f, \nonlazyPUD_i g} = \E_{\rho\sim \pi_{i-1}}\sbra*{\abra*{ f_\rho, P_\rho g_\rho }_{\pi^\rho_0}}. \]
-    ここで, $\pi^\rho_0 \in [0,1]^{X_\rho(0)}$はリンク$X_\rho$の頂点集合$X_\rho(0)$上の定常分布である.
+    \[ \iprod{f, \nonlazyPUD_i g} = \E_{\rho\sim X(i-1)}\sbra*{ \iprod[X_\rho(0)]{f_\rho, P_\rho g_\rho} }. \]
+%    ここで, $\pi^\rho_0 \in [0,1]^{X_\rho(0)}$はリンク$X_\rho$の頂点集合$X_\rho(0)$上の定常分布である.
 \end{lemma}
 \begin{proof}
 \cref{rem:nonlazyUPD sampling}を用いて以下のように左辺を式変形していくと主張を得る:
 \begin{align*}
-    (\text{左辺}) &= \E_{\substack{\sigma\sim\pi_i \\ \sigma'\sim \nonlazyPUD_i(\sigma,\cdot)}}\sbra*{ f(\sigma) g(\sigma')} \\
-    &= \E_{\substack{\sigma\sim\pi_i\\ u\sim \sigma,\\ \rho=\sigma\setminus\{u\} \\ v\sim P_\rho(u,\cdot)}}\sbra*{ f(\rho\cup\{u\}) g(\rho\cup\{v\}) } & & \text{$\because$\cref{rem:nonlazyUPD sampling} ($\sigma'=\rho\cup\{v\}$に対応)}\\
-    &= \E_{\rho \sim \pi_{i-1}}\sbra*{ \E_{\substack{ \sigma \sim \pi_i \text{ conditioned on }\sigma\supseteq \rho \\ \{u\} = \sigma\setminus \rho \\ v \sim P_\rho(u,\cdot)}} \sbra*{ f_\rho(u) g_\rho(v) } } \\
-    &=  \E_{\rho \sim \pi_{i-1}}\sbra*{ \E_{\substack{u\sim \pi^{\rho}_0 \\ v \sim P_\rho(u,\cdot)}}\sbra*{f_\rho(u)g_\rho(v)}} & & \text{$\because$\cref{eq:pi alpha j}}\\
+    (\text{左辺}) &= \E_{\substack{\sigma\sim X(i) \\ \sigma'\sim \nonlazyPUD_i(\sigma,\cdot)}}\sbra*{ f(\sigma) g(\sigma')} \\
+    &= \E_{\substack{\sigma\sim X(i)\\ u\sim \sigma,\\ \rho=\sigma\setminus\{u\} \\ v\sim P_\rho(u,\cdot)}}\sbra*{ f(\rho\cup\{u\}) g(\rho\cup\{v\}) } & & \text{$\because$\cref{rem:nonlazyUPD sampling} ($\sigma'=\rho\cup\{v\}$に対応)}\\
+    &= \E_{\rho \sim X(i-1)}\sbra*{ \E_{\substack{ \sigma \sim X(i) \text{ conditioned on }\sigma\supseteq \rho \\ \{u\} = \sigma\setminus \rho \\ v \sim P_\rho(u,\cdot)}} \sbra*{ f_\rho(u) g_\rho(v) } } \\
+    &=  \E_{\rho \sim X(i-1)}\sbra*{ \E_{\substack{u\sim X_\rho(0) \\ v \sim P_\rho(u,\cdot)}}\sbra*{f_\rho(u)g_\rho(v)}} & & \text{$\because$\cref{eq:pi alpha j}}\\
     &= (\text{右辺}).
 \end{align*}
 \end{proof}
@@ -470,7 +490,7 @@ $\ispace$上の二次形式が各リンク$X_\sigma$上の内積の線形和に�
 \begin{lemma}{}{DPwalk decomposition}
     純粋な$d$次元単体複体$X$と任意の$0\le i\le d,f,g\in \ispace$に対し,
     \begin{align*}
-        \iprod{f,\PDU_i g}&= \E_{\rho\sim \pi_{i-1}}\sbra*{ \E_{\pi^\rho_0}[f_\rho] \cdot \E_{\pi^\rho_0}[g_\rho] }.
+        \iprod{f,\PDU_i g}&= \E_{\rho\sim X(i-1)}\sbra*{ \E_{\pi^\rho_0}[f_\rho] \cdot \E_{\pi^\rho_0}[g_\rho] }.
 %        &=  \E_{\rho\sim \pi_{i-1}}\sbra*{ \abra*{ f_\rho, J_\rho g }_{X_\rho(0)} }.
     \end{align*}
 %    ここで, $J_\rho \in \Real^{X_\rho(0) \times X_\rho(0)}$は全ての行ベクトルが$\pi^\rho_0$に等しい, すなわち
@@ -481,9 +501,9 @@ $\ispace$上の二次形式が各リンク$X_\sigma$上の内積の線形和に�
     \begin{align*}
         \iprod{f,\PDU_i g} &= \iprod{f,\Pdown_i \Pup_{i-1} g} \\
         &= \iprod[i-1]{\Pup_{i-1}f, \Pup_{i-1}g } & & \text{$\because$\cref{eq:adjoint up and walk}} \\
-        &= \E_{\rho \sim \pi_{i-1}}\sbra*{ \E_{\substack{ \sigma,\sigma'\sim \pi_i\text{ conditioned on }\sigma,\sigma'\supseteq \rho }}\sbra*{f(\sigma)g(\sigma')} } \\
-        &= \E_{\rho \sim \pi_{i-1}}\sbra*{ \E_{u,v\sim \pi^\rho_0}\sbra*{ f_\rho(u) g_\rho(v)} } \\
-        &= \E_{\rho\sim\pi_{i-1}}\sbra*{ \E_{\pi^\rho_0}[f]\cdot \E_{\pi^\rho_0}[g] }
+        &= \E_{\rho \sim X(i-1)}\sbra*{ \E_{\substack{ \sigma,\sigma'\sim \pi_i\text{ conditioned on }\sigma,\sigma'\supseteq \rho }}\sbra*{f(\sigma)g(\sigma')} } \\
+        &= \E_{\rho \sim X(i-1)}\sbra*{ \E_{u,v\sim X_\rho(0)}\sbra*{ f_\rho(u) g_\rho(v)} } \\
+        &= \E_{\rho\sim X(i-1)}\sbra*{ \E_{\pi^\rho_0}[f]\cdot \E_{\pi^\rho_0}[g] }
     \end{align*}
 \end{proof}
 
@@ -500,9 +520,9 @@ $\ispace$上の二次形式が各リンク$X_\sigma$上の内積の線形和に�
     $\allone$に($\iprod{\cdot,\cdot}$の意味で)直交する任意の$f \in \ispace \setminus\{0\}$に対し,
     \cref{lem:DPwalk decomposition,lem:nonlazyUP decomposition}より
     \begin{align*}
-        \iprod{f,\nonlazyPUD_i f} - \iprod{f,\PDU_i f} &= \E_{\rho\sim\pi_{i-1}}\sbra*{ \abra*{f_\rho, P_\rho f_\rho}_{\pi_0^\rho} - \E_{\pi^\rho_0}[f_\rho]^2}  \\
-        & \le \E_{\rho\sim\pi_{i-1}}\sbra*{\gamma \norm{f_\rho - \E_{\pi^\rho_0}[f_\rho]}_{\pi^\rho_0}^2 } & & \text{$\because$\cref{lem:one side EML}} \\
-        &\le \gamma \cdot \E_{\rho\sim\pi_{i-1}}\sbra*{\norm{f_\rho}^2_{\pi^\rho_0}} \\
+        \iprod{f,\nonlazyPUD_i f} - \iprod{f,\PDU_i f} &= \E_{\rho\sim X(i-1)}\sbra*{ \iprod[X_\rho(0)]{f_\rho, P_\rho f_\rho} - \E_{\pi^\rho_0}[f_\rho]^2}  \\
+        & \le \E_{\rho \sim X(i-1)}\sbra*{\gamma \norm{f_\rho - \E_{\pi^\rho_0}[f_\rho]}_{\pi^\rho_0}^2 } & & \text{$\because$\cref{lem:one side EML}} \\
+        &\le \gamma \cdot \E_{\rho\sim X(i-1)}\sbra*{\norm{f_\rho}^2_{\pi^\rho_0}} \\
         &= \gamma \norm{f}^2_{\pi_i}.
     \end{align*}
     最後の等号は演習問題とする.
@@ -515,7 +535,7 @@ $\ispace$上の二次形式が各リンク$X_\sigma$上の内積の線形和に�
 \end{proof}
 
 \begin{exercise}{}{pinorm of f}
-    上記の証明で用いた等式$\norm{f}_{\pi_i}^2  = \E_{\rho \sim \pi_{i-1}}\sbra*{\norm{f_\rho}^2_{\pi^\rho_0}}$を示せ.
+    上記の証明で用いた等式$\norm{f}_{\pi_i}^2  = \E_{\rho \sim X(i-1)}\sbra*{\norm{f_\rho}^2_{\pi^\rho_0}}$を示せ.
 \end{exercise}
 
 \begin{proof}[\textbf{\cref{thm:Kaufman-Oppenheim theorem}の証明.}]
@@ -547,64 +567,3 @@ $\ispace$上の二次形式が各リンク$X_\sigma$上の内積の線形和に�
     \[ \lambda_i = 1-\frac{1}{i+1}\prod_{j=-1}^{i-2}(1-\gamma_j)\]
     で定義された$\lambda_i$ ($i=0,\dots,d$) に対して$X$は大域$(\lambda_0,\dots,\lambda_{d-1})$-エクスパンダーである.
 \end{theorem}
-
-
-\section{Oppenheimのトリクルダウン定理}
-ある単体複体$X$に対して\cref{def:local expander}に基づいて局所エクスパンダー性を示すには全ての面に対して$\lambda_2(P_\sigma)$を上から抑える必要がある.
-一般にそもそも辺重み$w_\sigma$ (\cref{def:local random walk}) を求めることすら非自明であり, ましてや固有値を抑えるなど非常に大変な作業となる.
-Oppenheimのトリクルダウン定理は局所エクスパンダー性を確認するのに非常に有用な定理である.
-端的に言えば, 次数$d-2$の面$\sigma \in X(d-2)$に対して$\lambda(P_\sigma)$を抑えれば全ての次元の面に対しても第二固有値が上から抑えられるという結果である.
-\begin{theorem}{Oppenheimのトリクルダウン定理}{Oppenheim trickle-down theorem}
-    純粋な重み付き$d$-次元単体複体$X = (V,\F)$が以下の二つを満たすとする:
-    \begin{itemize}
-    \item 全ての$i\le d-2$と全ての$\sigma\in X(i)$に対してグラフ$G_\sigma$は連結.
-    \item 全ての$(d-2)$-次元の面$\tau \in X(d-2)$に対して$\lambda_2(P_\tau) \le \gamma$.
-    \end{itemize}
-    このとき, $\gamma_i \defeq \frac{\gamma}{1-(d-2-i)\gamma}$ ($i=-1,\dots,d-2$)に対して$X$は局所$(\gamma_{-1},\dots,\gamma_{d-2})$-エクスパンダーである.
-\end{theorem}
-例えば, $\gamma=0$で\cref{thm:Oppenheim trickle-down theorem}を適用すると, $X$は局所$0$-エクスパンダーである.
-実はマトロイドと呼ばれる単体複体はこの定理を使って局所$0$-エクスパンダーであることが示せる.
-
-\cref{thm:Oppenheim trickle-down theorem}は, まず$d=2$の特殊ケースで証明し, 一般の$d$についてはこの特殊ケースに帰着する.
-%
-\begin{lemma}{\texorpdfstring{$d=2$}{2次元}におけるトリクルダウン定理}{trickle-down for 3dim}
-    純粋な重み付き$2$次元単体複体$X=(V,\F)$の各頂点$v\in X(0)$における局所ランダムウォーク$P_v$が$\lambda_2(P_v) \le \gamma$を満たし, かつその$1$-スケルトン$G_v$が連結ならば, 面$\emptyset$における局所ランダムウォーク$P_\emptyset$は
-    \[
-        \lambda_2(P_\emptyset) \le \frac{\gamma}{1-\gamma}
-    \]
-    を満たす.
-\end{lemma}
-まずは一般のケースが$d=2$のケースに帰着できることを示す.
-%
-\begin{proof}[\textbf{\cref{lem:trickle-down for 3dim}を仮定した\cref{thm:Oppenheim trickle-down theorem}の証明.}]
-    $X=(V,\F)$を純粋な重み付き$d$次元単体複体とする ($d\ge 3$).
-    面$\sigma \in X(d-3)$のリンク$X_\sigma$の次元は$2$であり,
-    $X_\sigma$の頂点$v\in X_\sigma(0)$に対して
-    $\sigma \cup \{v\} \in X(d-2)$より,
-    $X_\sigma$上の$v$における局所ランダムウォークの遷移確率行列は$P_{\sigma\cup \{v\}}$に等しく, 仮定より$\lambda_2\rbra*{P_{\sigma\cup\{v\}}}\le \gamma$である.
-    さらに, $X$の各リンクの$1$-スケルトンは連結なので, \cref{lem:trickle-down for 3dim}より
-    \[
-        \lambda_2(P_\sigma) \le \frac{\gamma}{1-\gamma}
-    \]
-    を得る.
-    同じ議論を, $X$をその$(d-1)$-スケルトンに置き換えて適用すると,
-    任意の$\sigma' \in X(d-4)$に対し
-    \[
-        \lambda_2(P_{\sigma'}) \le \frac{\frac{\gamma}{1-\gamma}}{1- \frac{\gamma}{1-\gamma}} = \frac{\gamma}{1-2\gamma}
-    \]
-    を得る.
-    これを繰り返すと, ($j$に関する帰納法により)
-    面$\rho \in X(d-2-j)$に対し
-    \[
-        \lambda_2(P_\rho) \le \frac{\gamma}{1-j\gamma}
-    \]
-    を得る.
-\end{proof}
-%
-\cref{lem:trickle-down for 3dim}の証明は,
-\cref{thm:Kaufman-Oppenheim theorem}と同様にランダムウォークを分解することから始まる.
-%
-\begin{proof}[\textbf{\cref{lem:trickle-down for 3dim}の証明.}]
-    ...
-\end{proof}
-%

@@ -10,17 +10,164 @@
     $\sigma \cup \cbra{u} \in \F$.
 \end{definition}
 
-\subsection{例1. グラフ的マトロイド}
-\subsection{例2. 線形マトロイド}
-\subsection{例3. 分割マトロイド}
-\section{モチベーション}
-\subsection{組合せ最適化}
-\subsection{組合せ論}
-\section{基の数え上げ}
-\section{Anari, Liu, Gharan, Vinzantの定理}
-\begin{lemma}{}{ALGV}
-    マトロイド$(V,\F)$は局所$0$-エクスパンダーである.
+\begin{definition}{基}{basis}
+    マトロイドの(包含関係に関して)極大な独立集合を\emph{基 (basis)}といい, 基全体の集合を$\B$で表す.
+    特に断りのない限り, 基上の定常分布は一様分布とする.
+\end{definition}
+マトロイドは純粋な単体複体である.
+実際, もし$\abs{B} < \abs{B'}$なる二つの基$B,B'\in\B$が存在するならば,
+マトロイドの定義(\cref{def:matroid})より,
+ある$u \in B'\setminus B$が存在して$B\cup \{u\} \in \F$とできるが,
+これは$B$の極大性に矛盾する.
+
+\paragraph*{例1. グラフ的マトロイド}
+\paragraph*{例2. 線形マトロイド}
+\paragraph*{例3. 分割マトロイド}
+
+\section{基交換ウォーク}
+\begin{definition}{基交換ウォーク}{basis-exchange walk}
+    マトロイド$(V,\F)$の基上の下降上昇ウォークを\emph{基交換ウォーク (basis-exchange walk)}という.
+\end{definition}
+すなわち, 基$B$から開始し,
+一様ランダムに元$u\sim B$を選び,
+$B\setminus u$を含む基の中から一様ランダムな基$B'\in B'$に遷移するランダムウォークを基交換ウォークという (このとき定常分布は$\B$上の一様分布となる).
+基交換ウォークの混交時間のバウンドは長年の未解決問題であった.
+\begin{conjecture}{Mihail--Vazirani予想}{Mihail-Vazirani}
+    任意のマトロイド$M=(V,\F)$上の基交換ウォークの混交時間は$|V|$に関する多項式で上から抑えられる.
+    すなわち, $M$に依存しないある定数$c>0$が存在して
+    \[
+        \tmix(1/2) \le |V|^c.
+    \]
+\end{conjecture}
+
+\section{マトロイドの局所エクスパンダー性}
+本節では以下の定理を証明する.
+\begin{lemma}{}{local expander matroid}
+    任意のマトロイド$(V,\F)$は局所$0$-エクスパンダーである.
 \end{lemma}
-\section{その他の応用}
-理論計算機科学における(マトロイド以外への)高次元エクスパンダーの応用を簡単にまとめる.
-多くの応用は本質的には高次元エクスパンダーがもつ局所大域原理に基づいている.
+
+
+\subsection{Oppenheimのトリクルダウン定理}
+ある単体複体$X$に対して局所エクスパンダー性(\cref{def:local expander})を示すには全ての面に対して$\lambda_2(P_\sigma)$を上から抑える必要がある.
+一般にそもそも辺重み$w_\sigma$ (\cref{def:local random walk}) を求めることすら非自明であり, ましてや固有値を抑えるなど非常に大変な作業となる.
+Oppenheimのトリクルダウン定理は局所エクスパンダー性を確認するのに非常に有用な定理である.
+\begin{theorem}{Oppenheimのトリクルダウン定理}{Oppenheim trickle-down theorem}
+    純粋な重み付き$d$-次元単体複体$X = (V,\F)$が以下の二つを満たすとする:
+    \begin{itemize}
+    \item 全ての$i\le d-2$と全ての$\sigma\in X(i)$に対してグラフ$G_\sigma$は連結.
+    \item 全ての$(d-2)$-次元の面$\tau \in X(d-2)$に対して$\lambda_2(P_\tau) \le \gamma$.
+    \end{itemize}
+    このとき, $\gamma_i \defeq \frac{\gamma}{1-(d-2-i)\gamma}$ ($i=-1,\dots,d-2$)に対して$X$は局所$(\gamma_{-1},\dots,\gamma_{d-2})$-エクスパンダーである.
+\end{theorem}
+端的に言えば, 次数$d-2$の面$\sigma \in X(d-2)$に対して$\lambda(P_\sigma)$を抑えれば全ての次元の面に対しても第二固有値が上から抑えられるという結果である.
+
+一つ目のグラフ$G_\sigma$の連結性の条件は不可欠である.
+例えば二つの完全グラフからなる非連結グラフ上の三角形複体を考えると,
+空集合以外の全てのリンクは完全グラフ上のランダムウォークとなるため$\gamma=0$に対して二つ目の条件を満たすが, $\sigma=\emptyset$に対して$G_\sigma$は非連結であるため$\gamma_{-1}=0$にはならない.
+
+
+\cref{thm:Oppenheim trickle-down theorem}は, まず$d=2$の特殊ケースで証明し, 一般の$d$についてはこの特殊ケースに帰着する.
+%
+\begin{lemma}{\texorpdfstring{$d=2$}{2次元}におけるトリクルダウン定理}{trickle-down for 3dim}
+    純粋な重み付き$2$次元単体複体$X=(V,\F)$の各頂点$v\in X(0)$における局所ランダムウォーク$P_v$が$\lambda_2(P_v) \le \gamma$を満たし, かつその$1$-スケルトン$G_v$が連結ならば, 面$\emptyset$における局所ランダムウォーク$P_\emptyset$は
+    \[
+        \lambda_2(P_\emptyset) \le \frac{\gamma}{1-\gamma}
+    \]
+    を満たす.
+\end{lemma}
+まずは一般のケースが$d=2$のケースに帰着できることを示す.
+%
+\begin{proof}[\textbf{\cref{lem:trickle-down for 3dim}を仮定した\cref{thm:Oppenheim trickle-down theorem}の証明.}]
+    $X=(V,\F)$を純粋な重み付き$d$次元単体複体とする ($d\ge 3$).
+    面$\sigma \in X(d-3)$のリンク$X_\sigma$の次元は$2$であり,
+    $X_\sigma$の頂点$v\in X_\sigma(0)$に対して
+    $\sigma \cup \{v\} \in X(d-2)$より,
+    $X_\sigma$上の$v$における局所ランダムウォークの遷移確率行列は$P_{\sigma\cup \{v\}}$に等しく, 仮定より$\lambda_2\rbra*{P_{\sigma\cup\{v\}}}\le \gamma$である.
+    さらに, $X$の各リンクの$1$-スケルトンは連結なので, \cref{lem:trickle-down for 3dim}より
+    \[
+        \lambda_2(P_\sigma) \le \frac{\gamma}{1-\gamma}
+    \]
+    を得る.
+    同じ議論を, $X$をその$(d-1)$-スケルトンに置き換えて適用すると,
+    任意の$\sigma' \in X(d-4)$に対し
+    \[
+        \lambda_2(P_{\sigma'}) \le \frac{\frac{\gamma}{1-\gamma}}{1- \frac{\gamma}{1-\gamma}} = \frac{\gamma}{1-2\gamma}
+    \]
+    を得る.
+    これを繰り返すと, ($j$に関する帰納法により)
+    面$\rho \in X(d-2-j)$に対し
+    \[
+        \lambda_2(P_\rho) \le \frac{\gamma}{1-j\gamma}
+    \]
+    を得る.
+\end{proof}
+%
+\subsection{ランダムウォークの分解}
+\cref{lem:trickle-down for 3dim}の証明は,
+\cref{thm:Kaufman-Oppenheim theorem}と同様にランダムウォークを分解することから始まる.
+記法の簡単のため, 頂点$u$のリンクを$X_{\{u\}}$の代わりに$X_u$, 遷移確率行列を$P_{\{u\}}$の代わりに$P_u$と表す.
+\begin{definition}{}{localize}
+    重み付き単体複体$(V,\F)$, 頂点$u\in V$, 関数$f \in \ispace[X(0)]$に対し,
+    関数$f^u \in \ispace[X_u(0)]$を$f$の$X_u(0)$への制限, すなわち
+    \[
+        f^u (v) = f(v)
+    \]
+    とする.
+\end{definition}
+\begin{lemma}{}{decomposition}
+    任意の$f,g\in \ispace[X(0)]$に対して
+    \[
+        \iprod[X(0)]{f,g} = \E_{u\sim X(0)}\sbra*{ \iprod[X_u(0)]{f^u,g^u} }.
+    \]
+    また, 面$\emptyset$上の局所ランダムウォークの遷移確率行列を$P_\emptyset \in [0,1]^{X(0)\times X(0)}$とすると,
+    \[
+        \iprod[X(0)]{P_\emptyset f,g} = \E_{w\sim X(0)}\sbra*{ \iprod[X_u(0)]{P_uf^u,g^u} }.
+    \]
+\end{lemma}
+\begin{proof}
+    最初の等式を示す:
+    \begin{align*}
+        \iprod[X(0)]{f,g} &= \E_{u\sim X(0)} \sbra*{ f(u) g(u) } \\
+        &= \E_{e \sim X(1)}\sbra*{ \E_{v \sim e} \sbra*{f(v)g(v)}} & & \text{$v\sim e$の周辺分布は$\pi_0$}\\
+        &= \E_{u\sim X(0)} \sbra*{ \E_{\substack{e=\{u,v\} \sim X(1) \\ \text{conditioned on }e\ni u} }\sbra*{ f(v)g(v) }} & & \text{$e\sim X(1)$の$v$でない方の端点$u$を先に選ぶ}\\
+        &= \E_{u\sim X(0)}\sbra*{ \E_{v \sim X_u(0)} \sbra*{f^u(v) g^u(v)} } & & \text{\cref{rem:link of u}}\\
+        &= \E_{u\sim X(0)}\sbra*{ \iprod[X_u(0)]{f^u,g^u}}.
+    \end{align*}
+    二つ目の等式を示す:
+\end{proof}
+%
+\begin{proof}[\textbf{\cref{lem:trickle-down for 3dim}の証明.}]
+    ...
+\end{proof}
+%
+
+\section{Anari, Liu, Gharan, Vinzantの定理}
+\cref{lem:local expander matroid,thm:Kaufman-Oppenheim theorem}より以下の結果を得る.
+\begin{theorem}{Anari-Liu-Gharan-Vinzantの定理}{ALGV}
+    任意のマトロイドは,
+    \[ \lambda_i = 1-\frac{1}{i+1}\]
+    に対して大域$(\lambda_0,\dots,\lambda_d)$-エクスパンダーである.
+\end{theorem}
+\begin{proof}
+    \cref{lem:local expander matroid}よりマトロイドは局所$0$-エクスパンダーであり, さらに$\gamma=0$として\cref{thm:Kaufman-Oppenheim theorem}を適用すると主張を得る.
+\end{proof}
+\begin{corollary}{マトロイド上のランダムウォークの混交時間}{}
+    ある定数$c>0$が存在して任意のマトロイド$(V,\F)$上の基交換ウォークの混交時間は
+    \[
+        \tmix(\varepsilon) = c\cdot n(n+\log(\varepsilon)).
+    \]
+    特に, \cref{conj:Mihail-Vazirani}は真である.
+\end{corollary}
+\begin{proof}
+    マトロイド$(V,\F)$の次元を$d$とする.
+    \cref{thm:ALGV}および$\PDU_d$の半正定値性より$\lambda(\PDU_d) \le 1-\frac{1}{d+1}$であり, $\PDU_d$のスペクトルギャップ(\cref{def:second eigenvalue})は少なくとも$\frac{1}{d+1} \ge \frac{1}{n+1}$である.
+    また, 基上の定常分布$\pi=\pi_d$は基上の一様分布であり, 特に$\pimin \ge 1/2^n$が成り立つので, \cref{lem:mixing time and spectral gap}より, ある定数$c>0$が存在して
+    \[
+        \tmix(\varepsilon) \le \frac{\log\rbra*{\frac{1}{2\pimin\varepsilon}}}{\log(1/\lambda(P))} \le c\cdot  n(n+\log(\varepsilon))
+    \]
+    が成り立つ.
+\end{proof}
+
+\subsection{応用: 基の近似数え上げ}
+
+

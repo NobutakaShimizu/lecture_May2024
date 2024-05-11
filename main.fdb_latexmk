@@ -1,17 +1,17 @@
 # Fdb version 4
-["biber main"] 1715166794.47791 "main.bcf" "main.bbl" "main" 1715166812.80289 0
-  "main.bcf" 1715166811.38314 109926 eb9e15317ace5919ca39faafbfb64a17 "latex"
+["biber main"] 1715438479.25498 "main.bcf" "main.bbl" "main" 1715438492.7133 0
+  "main.bcf" 1715438491.39586 109926 eb9e15317ace5919ca39faafbfb64a17 "latex"
   "ref.bib" 1714382871.49095 4303 fa439850f096731e690716439611fe0d ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["dvipdf"] 1715166811.52474 "main.dvi" "main.pdf" "main" 1715166812.80646 0
-  "main.dvi" 1715166811.38467 592608 0a3ce1816f163a1db6f5ee09316ca763 "latex"
+["dvipdf"] 1715438491.5287 "main.dvi" "main.pdf" "main" 1715438492.7172 0
+  "main.dvi" 1715438491.3974 624488 8e68311c822660471f04013d4f56b031 "latex"
   (generated)
   "main.pdf"
   (rewritten before read)
-["latex"] 1715166806.46145 "/Users/nobushimi/Documents/GitHub/lecture_May2024/main.tex" "main.dvi" "main" 1715166812.80302 0
+["latex"] 1715438486.74018 "/Users/nobushimi/Documents/GitHub/lecture_May2024/main.tex" "main.dvi" "main" 1715438492.71342 0
   "/Users/nobushimi/Documents/GitHub/lecture_May2024/main.tex" 1714453438.76352 1793 0e2b33ce9921f9014257804ed13a6943 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -207,25 +207,25 @@
   "/usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf" 1713064664 41983 7ec6bfd6bf34339a61f0f08f42298e60 ""
   "/usr/local/texlive/2024/texmf-var/web2c/euptex/uplatex.fmt" 1713176327 8157109 fb38fa9a2474a372f2f7612a57f513bd ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "HDX.tex" 1715166765.9055 42619 2d1dcc2e9b297239f9bae8291812dc3b ""
-  "commands.tex" 1714438711.65326 2367 120c8c8026d11c221230a142c17100ea ""
-  "expander graph.tex" 1714405266.22161 39407 5beb68903ae809c5749c72c50470c130 ""
+  "HDX.tex" 1715437305.95359 39565 fa06b0a4380abb5a3b1405aa6afb3f18 ""
+  "commands.tex" 1715432947.4534 2404 76231304c0689f2e3a752248f64d9972 ""
+  "expander graph.tex" 1715422211.04479 36999 400ba15b76f252b855ac32d973c36c4e ""
   "images/EML.pdf" 1714039822.87307 95186 2ddc0cab16877e7ffa325c2292d221b0 ""
   "images/face.png" 1714400384.2039 48883 541ab2439df8d162f3bb9accef4ce54a ""
   "images/link.png" 1714401176.87482 55473 e96acc76063748c8284b75ccd6212532 ""
   "images/localwalk1.png" 1714274154.79594 36505 2a8f4646b80ef98b1373057b3d972411 ""
   "images/matching.pdf" 1713331279.53596 8093 c6c0037ff239ebd09f3c04addbaf77b7 ""
   "images/tree.pdf" 1714039822.87461 101277 a5264717df78a4f8161cc5d55a7539d3 ""
-  "main.aux" 1715166811.37474 30426 81fe73cdbea559d79f993f311e475115 "latex"
-  "main.bbl" 1715166797.04739 14953 e4511bc343f9ed1a68659e1bedc44ae5 "biber main"
-  "main.out" 1715166811.38131 7012 59ba8e668e0377a8450666c3ae1d420c "latex"
-  "main.run.xml" 1715166811.38433 2338 1ce6592cf421c3a52a6f5907ed25509b "latex"
+  "main.aux" 1715438491.38801 31063 4759460c50786d83edad0b6dfb7ea147 "latex"
+  "main.bbl" 1715438481.75426 14953 e4511bc343f9ed1a68659e1bedc44ae5 "biber main"
+  "main.out" 1715438491.39404 6406 3ececbf209e9ce41da3916fc7e46721b "latex"
+  "main.run.xml" 1715438491.39706 2338 1ce6592cf421c3a52a6f5907ed25509b "latex"
   "main.tex" 1714453438.76352 1793 0e2b33ce9921f9014257804ed13a6943 ""
-  "main.toc" 1715166811.38446 5216 b13e26499e3d7706cc1914f1559b8fbb "latex"
-  "matroid.tex" 1715165830.59077 1263 5c6fb3b3b84c7011248998a655da04c3 ""
+  "main.toc" 1715438491.39716 4729 765536821967fc8ee5536d42a06f8050 "latex"
+  "matroid.tex" 1715438473.93311 9805 e1308038f0a0628e36100b5c1a14f778 ""
   "preface.tex" 1714102848.47903 3565 609d283f4d38c6a51a47fb9541d86e63 ""
-  "random walk.tex" 1714483869.04334 48431 a2fdb7bfba772653d0cbdb8e623b73a2 ""
-  "theorems.tex" 1714039822.88862 2133 69db9d75d724de86fdd49146e3a3f747 ""
+  "random walk.tex" 1715434355.15047 48507 566067229b0b9bdbe4454e25fc5129f0 ""
+  "theorems.tex" 1715431967.46868 2409 8dac21378902c52272b661a5defea9eb ""
   (generated)
   "main.aux"
   "main.bcf"
