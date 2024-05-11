@@ -421,10 +421,14 @@ INPUT ./images/matching.pdf
 INPUT ./images/matching.pdf
 INPUT ./images/matching.pdf
 INPUT extractbb -B cropbox -O images/matching.pdf
-INPUT ./images/link.png
-INPUT ./images/link.png
-INPUT ./images/link.png
-INPUT extractbb -B cropbox -O images/link.png
+INPUT ./images/stationary_distribution.png
+INPUT ./images/stationary_distribution.png
+INPUT ./images/stationary_distribution.png
+INPUT extractbb -B cropbox -O images/stationary_distribution.png
+INPUT ./images/walks.png
+INPUT ./images/walks.png
+INPUT ./images/walks.png
+INPUT extractbb -B cropbox -O images/walks.png
 INPUT ./images/localwalk1.png
 INPUT ./images/localwalk1.png
 INPUT ./images/localwalk1.png
@@ -432,6 +436,10 @@ INPUT extractbb -B cropbox -O images/localwalk1.png
 INPUT ./matroid.tex
 INPUT ./matroid.tex
 INPUT matroid.tex
+INPUT ./images/graphicmatroid.png
+INPUT ./images/graphicmatroid.png
+INPUT ./images/graphicmatroid.png
+INPUT extractbb -B cropbox -O images/graphicmatroid.png
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
 INPUT main.aux

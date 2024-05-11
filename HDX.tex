@@ -49,7 +49,10 @@ $(V,\F)$は単体複体である.
 
 \paragraph*{例2.}
 有限集合$V$に対し,
-$\F = \binom{V}{\le k} \defeq \cbra*{ \sigma \subseteq V \colon |\sigma|\le k}$としたとき, $(V,\mathcal{F})$は純粋な$(k+1)$-次元の単体複体である.
+\begin{align}
+    \F = \binom{V}{\le k} \defeq \cbra*{ \sigma \subseteq V \colon |\sigma|\le k} \label{eq:uniform matroid}
+\end{align}
+としたとき, $(V,\mathcal{F})$は純粋な$(k+1)$-次元の単体複体である.
 
 \paragraph*{例3.}
 閉路を含まないグラフを\emph{森 (forest)}といい, 連結な森を\emph{木 (tree)}という.
@@ -57,9 +60,9 @@ $\F = \binom{V}{\le k} \defeq \cbra*{ \sigma \subseteq V \colon |\sigma|\le k}$�
 グラフ$G=(V,E)$に対し,
 森であるような部分グラフの辺集合からなる集合族$\F\subseteq 2^E$は単体複体である.
 すなわち,
-\begin{align*}
-    \F = \cbra*{ F \subseteq E \colon \text{部分グラフ$(V,F)$は森}}
-\end{align*}
+\begin{align}
+    \F = \cbra*{ F \subseteq E \colon \text{部分グラフ$(V,F)$は森}} \label{eq:graphic matroid}
+\end{align}
 に対して$(E,\F)$は単体複体である.
 簡単のため$G$を連結グラフであるとすると, $(E,\F)$の極大面は$G$の全域木に対応し, その次元は$n-2$に等しい.
 すなわち$(E,\F)$は純粋な$(n-2)$-次元単体複体である.
@@ -70,9 +73,9 @@ $\F = \binom{V}{\le k} \defeq \cbra*{ \sigma \subseteq V \colon |\sigma|\le k}$�
 実行列$A\in \Real^{n\times m}$ (ただし$m\ge n$) の行ベクトルを$\vec{a}_1,\dots,\vec{a}_n$とする.
 集合$V=\{1,\dots,n\}$の部分集合族であって, 線形独立な行ベクトル集合のインデックスとなるものの全体を$\F$とする.
 すなわち
-\[
-    \F = \cbra*{ I \subseteq V\colon (\vec{a}_i)_{i\in I}\text{は線形独立}}
-\]
+\begin{align}
+    \F = \cbra*{ I \subseteq V\colon (\vec{a}_i)_{i\in I}\text{は線形独立}} \label{eq:linear matroid}
+\end{align}
 とすると, $(V,\F)$は純粋な単体複体であり, その次元は$A$のランク$\mathrm{rank}(A)$に対し$\mathrm{rank}(A)-1$となる.
 
 \paragraph*{例5.}
@@ -150,10 +153,18 @@ $X_\sigma$の全ての面は辺集合$F$を含むので, $F$に含まれる全�
     以後, 面$X(i)$には暗に定常分布$\pi_i$が付随しているとする.
     すなわち, $u \sim X(i)$と書いた場合は$u\sim \pi_i$を意味する.
 \end{definition}
-面$\tau \in X(i+1)$に対して$\Pdown_{i+1}(\tau,\cdot)$で定まる$X(i)$上の分布は, 面$\tau$に含まれる頂点$u$を一様ランダムに選んだときの$\sigma = \tau \setminus\{u\}$の分布と等しい.
-この分布は, まず定常分布に従って$X(d)$から面を選び, その中から一様ランダムに選ばれた$i+1$個の頂点からなる$X(i)$の面のなす分布である.
-従って$\pi_i(\sigma)$は$\sigma$を含む極大な面の個数に比例する.
+面$\tau \in X(i+1)$に対して$\Pdown_{i+1}(\tau,\cdot)$で定まる$X(i)$上の分布は, 面$\tau$に含まれる頂点$u$を一様ランダムに選んだときの$\sigma = \tau \setminus\{u\}$の分布と等しい (\cref{fig:stationary_distribution}).
+この分布は, まず定常分布に従って$X(d)$から面を選び, その中から一様ランダムに選ばれた$i+1$個の頂点からなる$X(i)$の面のなす分布でもある.
+例えば$\pi$が一様分布のとき, $\pi_i(\sigma)$は$\sigma$を含む極大な面の個数に比例する.
 これは遅延単純ランダムウォークの定常分布$\pi(u)$が次数$\deg(u)$に比例することの一般化である.
+
+\begin{figure}[htbp]
+    \begin{center}
+    \includegraphics[width=\linewidth]{images/stationary_distribution.png}
+    \caption{最大次の面を重み$\pi$に従ってランダムに選び, そこから一様ランダムな頂点を一つずつ消していくときの各次元での周辺分布が$\pi_i$となる. この仮定が下降ウォークである. \label{fig:stationary_distribution}}
+    \end{center}
+\end{figure}
+
 
 ある面$\tau\in X(i+1)$から分布$\Pdown_{i+1}(\tau,\cdot)$に従ってランダムに選ばれた面$\sigma$に遷移する過程を\emph{下降ウォーク (down walk)}と呼ぶ.
 
@@ -214,7 +225,13 @@ $X_\sigma$の全ての面は辺集合$F$を含むので, $F$に含まれる全�
 なお, 下降ウォーク$\Pdown_{i}$と上昇ウォーク$\Pup_i$の添字$i$は遷移の開始地点の面の次元としている.
 %
 
-最後に, 上昇ウォークと下降ウォークを組み合わせることによって面$X(i)$上の2種類のランダムウォークが定義できる:
+\begin{figure}
+    \begin{center}
+    \includegraphics[width=10cm]{images/walks.png}
+    \caption{上昇下降ウォーク$\PDU_i$と下降上昇ウォーク$\PUD_i$ \label{fig:walks}}
+    \end{center}
+\end{figure}
+最後に, 上昇ウォークと下降ウォークを組み合わせることによって面$X(i)$上の二種類のランダムウォークを定義する (\cref{fig:walks}).
 \begin{definition}{上昇下降と下降上昇ウォーク}{UD and DU walk}
     \cref{def:down walk and stationary distribution}, \ref{def:up walk}と同じ設定を考える.
     \begin{align*}
@@ -282,7 +299,8 @@ $X_\sigma$の全ての面は辺集合$F$を含むので, $F$に含まれる全�
         \iprod{f,g} = \sum_{\sigma \in X(i)} \pi_i(\sigma) f(\sigma)g(\sigma)
     \]
     とする.
-    また, $\Real^{X(i)}$に内積$\iprod{\cdot,\cdot}$を付随して定まる空間を$\ispace$とする.
+    また, $\Real^{X(i)}$に内積$\iprod{\cdot,\cdot}$を付随して定まる空間を$\ispace$とし,
+    この内積が誘導するノルムを$\inorm{\cdot}$と表す.
 \end{definition}
 %
 上昇ウォーク
@@ -292,7 +310,7 @@ $\Pdown_{i+1} \colon \ispace \to \ispace[i+1]$
 は互いに随伴の関係にある.
 すなわち, 任意の$f\in \ispace[i+1]$と$g\in \ispace$に対して
 \begin{align}
-    \iprod[i+1]{\Pdown_{i+1} f,g} =
+    \iprod[X(i+1)]{\Pdown_{i+1} f,g} =
     \iprod{f,\Pup_{i}g}
     \label{eq:adjoint up and walk}
 \end{align}
@@ -317,7 +335,7 @@ $\Pdown_{i+1} \colon \ispace \to \ispace[i+1]$
 なお, 二つの行列$A,B$に対し, $AB$の非ゼロ固有値と$BA$の非ゼロ固有値は同じなので, \cref{def:global expander}において上昇下降ウォークを考えても等価な定義になる.
 
 本講義の目標は単体複体の大域エクスパンダー性を証明することである.
-特にマトロイドと呼ばれる単体複体の大域エクスパンダー性はMihail--Vazirani予想\cite{balanced_matroids}と呼ばれる30年来の未解決問題であった\footnote{\cite{balanced_matroids}にはこの予想はMicalliとVaziraniが立てたものらしいのだが, この予想を陽に述べた最初の文献は私が調べた限りでは\citet{balanced_matroids}であった.}
+特にマトロイドと呼ばれる単体複体の大域エクスパンダー性はMihail--Vazirani予想\cite{balanced_matroids}と呼ばれる30年来の未解決問題であった\footnote{\cite{balanced_matroids}にはこの予想はMihailとVaziraniが立てたものらしいのだが, この予想を陽に述べた最初の文献は私が調べた限りでは\citet{balanced_matroids}であった.}
 が, 2019年に\citet{ALOV24}に解決された.
 詳細は\cref{chap:matroid}にて解説する.
 
@@ -327,13 +345,7 @@ $\Pdown_{i+1} \colon \ispace \to \ispace[i+1]$
 また, 局所エクスパンダー性を確認するための非常に強力な定理としてOppenheimのトリクルダウン定理を証明する.
 
 \subsection{局所的なランダムウォーク}
-\begin{figure}
-    \begin{center}
-    \includegraphics[width=13cm]{images/link.png}
-    \caption{リンク$X_\sigma$の$1$-スケルトンでは, $\sigma\cup\{u,v\}\in \F$のときに$u,v$間に辺を張る. \label{fig:link and skelton}}
-    \end{center}
-\end{figure}
-各リンク$X_\sigma$の$2$-スケルトン上での局所的な重み付きランダムウォークを考える (\cref{fig:link and skelton}).
+各リンク$X_\sigma$の$2$-スケルトン上での局所的な重み付きランダムウォークを考える.
 重み付きランダムウォークについては\cref{def:weighted random walk}を参照されたい.
 %
 \begin{definition}{局所ランダムウォーク}{local random walk}
@@ -342,7 +354,8 @@ $\Pdown_{i+1} \colon \ispace \to \ispace[i+1]$
         リンク$X_\sigma$の$2$-スケルトンを$G_\sigma = (V_\sigma,E_\sigma)$とする.
     このグラフの辺重み$w_\sigma\colon E_\sigma \to [0,1]$を
     \[ w_\sigma(e) = \pi_{i+2}(\sigma\cup e) \]
-    で定め, これによって定まる$V_\sigma$上の重み付きランダムウォークを面$\sigma$に関する\emph{局所ランダムウォーク (local random walk)}と呼び\footnote{このランダムウォークの概念は高次元エクスパンダーの文脈ではほぼ必ず登場するが, 特に標準的な用語が与えられてはいないので、「局所ランダムウォーク」という用語は本講義だけの局所的なものとする.}, 遷移確率行列を$P_\sigma\in [0,1]^{V_\sigma\times V_\sigma}$とする.
+    で定め, これによって定まる$V_\sigma$上の重み付きランダムウォークを面$\sigma$に関する\emph{局所ランダムウォーク (local random walk)}と呼び%\footnote{このランダムウォークの概念は高次元エクスパンダーの文脈ではほぼ必ず登場するが, 特に標準的な用語が与えられてはいないので、「局所ランダムウォーク」という用語は本講義だけの局所的なものとする.}
+    , 遷移確率行列を$P_\sigma\in [0,1]^{V_\sigma\times V_\sigma}$とする.
 \end{definition}
 %
 必ずしも局所ランダムウォークが既約性や非周期性を持つとは限らない(すなわち, グラフ$G_\sigma$が非連結だったり二部グラフになりうる)が,
@@ -469,7 +482,7 @@ $f\in \ispace$と面$\sigma\in X(i-1)$に対し, $f_\sigma\colon X_\sigma(0) \to
     f_\sigma (u) = f(\sigma\cup\{u\}).
 \]
 \end{definition}
-$\ispace$上の二次形式が各リンク$X_\sigma$上の内積の線形和に分解できることを示す.
+$\ispace$上の「大域的な」二次形式が各リンク$X_\sigma$上の「局所的な」二次形式の線形和で表せることを示す.
 %
 \begin{lemma}{}{nonlazyUP decomposition}
     純粋な$d$次元単体複体$X$と任意の$0 \le i\le d-1,f,g \in \ispace$に対し
@@ -500,7 +513,7 @@ $\ispace$上の二次形式が各リンク$X_\sigma$上の内積の線形和に�
 上昇ウォークと下降ウォークの随伴性\cref{eq:adjoint up and walk}より以下のようにして得られる:
     \begin{align*}
         \iprod{f,\PDU_i g} &= \iprod{f,\Pdown_i \Pup_{i-1} g} \\
-        &= \iprod[i-1]{\Pup_{i-1}f, \Pup_{i-1}g } & & \text{$\because$\cref{eq:adjoint up and walk}} \\
+        &= \iprod[X(i-1)]{\Pup_{i-1}f, \Pup_{i-1}g } & & \text{$\because$\cref{eq:adjoint up and walk}} \\
         &= \E_{\rho \sim X(i-1)}\sbra*{ \E_{\substack{ \sigma,\sigma'\sim \pi_i\text{ conditioned on }\sigma,\sigma'\supseteq \rho }}\sbra*{f(\sigma)g(\sigma')} } \\
         &= \E_{\rho \sim X(i-1)}\sbra*{ \E_{u,v\sim X_\rho(0)}\sbra*{ f_\rho(u) g_\rho(v)} } \\
         &= \E_{\rho\sim X(i-1)}\sbra*{ \E_{\pi^\rho_0}[f]\cdot \E_{\pi^\rho_0}[g] }
@@ -517,25 +530,25 @@ $\ispace$上の二次形式が各リンク$X_\sigma$上の内積の線形和に�
 \end{lemma}
 \begin{proof}
     $\PDU_i,\nonlazyPUD_i$はどちらも内積$\iprod{\cdot,\cdot}$に関して可逆なので,
-    $\allone$に($\iprod{\cdot,\cdot}$の意味で)直交する任意の$f \in \ispace \setminus\{0\}$に対し,
+    $\allone$に直交する任意の非ゼロの$f \in \ispace$に対し,
     \cref{lem:DPwalk decomposition,lem:nonlazyUP decomposition}より
     \begin{align*}
         \iprod{f,\nonlazyPUD_i f} - \iprod{f,\PDU_i f} &= \E_{\rho\sim X(i-1)}\sbra*{ \iprod[X_\rho(0)]{f_\rho, P_\rho f_\rho} - \E_{\pi^\rho_0}[f_\rho]^2}  \\
-        & \le \E_{\rho \sim X(i-1)}\sbra*{\gamma \norm{f_\rho - \E_{\pi^\rho_0}[f_\rho]}_{\pi^\rho_0}^2 } & & \text{$\because$\cref{lem:one side EML}} \\
-        &\le \gamma \cdot \E_{\rho\sim X(i-1)}\sbra*{\norm{f_\rho}^2_{\pi^\rho_0}} \\
-        &= \gamma \norm{f}^2_{\pi_i}.
+        & \le \E_{\rho \sim X(i-1)}\sbra*{\gamma \inorm[X_\rho(0)]{f_\rho - \E_{\pi^\rho_0}[f_\rho]}^2 } & & \text{$\because$\cref{lem:one side EML}} \\
+        &\le \gamma \cdot \E_{\rho\sim X(i-1)}\sbra*{\inorm[X_\rho(0)]{f_\rho}^2} \\
+        &= \gamma \inorm{f}^2.
     \end{align*}
     最後の等号は演習問題とする.
     移項して整理すると
     \begin{align*}
-        \frac{\iprod{f,\nonlazyPUD_i f}}{\norm{f}_{\pi_i}^2} &\le \frac{\iprod{f,\PDU_if}}{\norm{f}^2_{\pi_i}} + \gamma \\
+        \frac{\iprod{f,\nonlazyPUD_i f}}{\inorm{f}^2} &\le \frac{\iprod{f,\PDU_if}}{\inorm{f}^2} + \gamma \\
         & \le \lambda_2(\PDU_i) + \gamma & & \text{$\because$\cref{lem:Rayleigh quotient}}
     \end{align*}
     右辺は$f$に関して最大化すると$\lambda_2(\nonlazyPUD)$となるので主張を得る.
 \end{proof}
 
 \begin{exercise}{}{pinorm of f}
-    上記の証明で用いた等式$\norm{f}_{\pi_i}^2  = \E_{\rho \sim X(i-1)}\sbra*{\norm{f_\rho}^2_{\pi^\rho_0}}$を示せ.
+    上記の証明で用いた等式$\inorm{f}^2  = \E_{\rho \sim X(i-1)}\sbra*{\inorm[X_\rho(0)]{f_\rho}^2}$を示せ.
 \end{exercise}
 
 \begin{proof}[\textbf{\cref{thm:Kaufman-Oppenheim theorem}の証明.}]
