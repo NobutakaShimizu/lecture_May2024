@@ -265,22 +265,18 @@ Oppenheimのトリクルダウン定理は局所エクスパンダー性を確�
     \cref{lem:local expander matroid}よりマトロイドは局所$0$-エクスパンダーであり, さらに$\gamma=0$として\cref{thm:Kaufman-Oppenheim theorem}を適用すると主張を得る.
 \end{proof}
 \begin{corollary}{マトロイド上のランダムウォークの混交時間}{}
-    ある定数$c>0$が存在して任意のマトロイド$(V,\F)$上の基交換ウォークの混交時間は
+    次元$d$の任意のマトロイド$(V,\F)$上の基交換ウォークの混交時間は
     \[
-        \tmix(\varepsilon) = c\cdot d\log\rbra*{\frac{|V|}{\varepsilon}}.
+        \tmix(\varepsilon) = (d+1)|V|\log\rbra*{\frac{1}{\varepsilon}}.
     \]
     特に, \cref{conj:Mihail-Vazirani}は真である.
 \end{corollary}
 \begin{proof}
-    マトロイド$(V,\F)$の次元を$d$とする.
-    \cref{thm:ALGV}および$\PDU_d$の半正定値性より$\lambda(\PDU_d) \le 1-\frac{1}{d+1}$であり, $\PDU_d$のスペクトルギャップ(\cref{def:second eigenvalue})は少なくとも$\frac{1}{d+1} \ge \frac{1}{|V|+1}$である.
-    また, 基上の定常分布$\pi=\pi_d$は基上の一様分布であり, 特に$\pimin \ge 1/2^{|V|}$が成り立つので, \cref{lem:mixing time and spectral gap}より, ある定数$c>0$が存在して
+    \cref{thm:ALGV}および$\PDU_d$の半正定値性より$\lambda(\PDU_d) \le 1-\frac{1}{d+1}$ であり, $\PDU_d$のスペクトルギャップ(\cref{def:second eigenvalue})は少なくとも$\frac{1}{d+1}$である.
+    また, 基上の定常分布$\pi=\pi_d$は基上の一様分布であり, 特に$\pimin \ge 1/2^{|V|}$が成り立つので, \cref{lem:mixing time and spectral gap}より, 
     \[
-        \tmix(\varepsilon) \le \frac{\log\rbra*{\frac{1}{2\pimin\varepsilon}}}{\log(1/\lambda(P))} \le c\cdot d\log\rbra*{\frac{|V|}{\varepsilon}}.
+        \tmix(\varepsilon) \le \frac{\log\rbra*{\frac{1}{2\pimin\varepsilon}}}{\log(1/\lambda(P))} \le (d+1)|V|\log\rbra*{\frac{1}{\varepsilon}}.
     \]
-    が成り立つ.
 \end{proof}
 
 \subsection{応用: 基の近似数え上げ}
-
-

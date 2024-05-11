@@ -56,6 +56,37 @@ $n\to\infty$の漸近を考えると$n$のスペクトルギャップは$\Theta(
 では, 疎でありかつエクスパンダー性をもつグラフは存在するだろうか?
 また, 陽に構成できるだろうか?
 %
+\subsection{Margulisの構成}
+定数$\lambda<1$に対し$\lambda$-エクスパンダーの族は\citet{Margulis1973}によって初めて与えられ,
+そのスペクトルギャップの陽な値は\citet{GG81}により初めて与えられた.
+より詳細な背景や定理の証明は\cite{HLW06}を参照されたい.
+\begin{theorem}{Margulisの構成}{Margulis construction}
+    グラフ族$(G_m)_{m\in\Nat}$を以下で定義する:
+    頂点集合$V_m$は$V_m=\mathbb{Z}_m \times \mathbb{Z}_m$とし,
+    \begin{align*}
+        T_1 = \begin{bmatrix}
+            1 & 2 \\
+            0 & 1
+        \end{bmatrix},& &
+        T_2 = \begin{bmatrix}
+            1 & 0 \\
+            2 & 1
+        \end{bmatrix},& &
+        e_1 = \begin{bmatrix}
+            1 \\
+            0
+        \end{bmatrix}, & &
+        e_2 = \begin{bmatrix}
+            0 \\
+            1
+        \end{bmatrix}
+    \end{align*}
+    とする.
+    各頂点$v=(x,y)\in V_m$を$T_1v,T_2v,T_1v+e_1,T_2v+e_2$およびこれらの逆変換で与えられる八つの頂点と接続させて得られるグラフを$G_m$とする (多重辺や自己ループも含みうる).
+
+    このとき, 任意の$m\in\Nat$に対して$\lambda(G_m) \le \frac{5\sqrt{2}}{8} < 0.9$.
+\end{theorem}
+
 \subsection{ケイリーグラフ}
 エクスパンダーグラフを陽に構成する最も重要なアプローチの一つとして幾何学的群論におけるケイリーグラフと呼ばれる概念が知られている.
 %
@@ -268,8 +299,6 @@ $\calG_{n,d}$から一様ランダムに選ばれたグラフ$G\sim\calG_{n,d}$�
 グラフ理論的に非常に興味深い多くの性質を有する.
 %\todo[inline]{Cheeger, chromatic number, diameter}
 
-\subsection{ランダムウォークの性質}
-%\todo[inline]{hitting time, cover time}
 
 \subsection{擬似ランダム性(*)} \label{sec:expander pseudorandom}
 この節は高次元エクスパンダーの本筋から少し外れるが,
@@ -320,6 +349,11 @@ Green--Taoの定理の証明においても重要な役割を果たしている
     \[
         \abs*{e(S,T) - \frac{d}{n}|S||T|} \le d\lambda\sqrt{|S||T|\rbra*{1-\frac{|S|}{n}}\rbra*{1-\frac{|T|}{n}}}.
     \]
+
+    同様に, $G$が片側$\lambda$-エクスパンダーならば,
+    \[
+        e(S,T) - \frac{d}{n}|S||T| \le d\lambda\sqrt{|S||T|\rbra*{1-\frac{|S|}{n}}\rbra*{1-\frac{|T|}{n}}}.
+    \]
 \end{lemma}
 %
 グラフ$G$の隣接行列$A$を考えるとイメージしやすい.
@@ -346,11 +380,44 @@ Green--Taoの定理の証明においても重要な役割を果たしている
          & \Varpi g = \frac{|T|}{n}\rbra*{1-\frac{|T|}{n}}
     \end{align*}
     より整理すると主張を得る.
+
+    グラフ$G$が片側エクスパンダーである場合は\cref{cor:general expander mixing lemma}の代わりに\cref{lem:one side EML}を適用すればよい.
 \end{proof}
 \begin{exercise}{}{check}
     \cref{lem:expander mixing lemma}の証明で表した五つの等式を実際に確認せよ.
 \end{exercise}
 「エクスパンダー混交補題」と言うと聞こえが良いが, \cref{cor:general expander mixing lemma}を見るとその実は単なるCauchy--Schwarzの不等式とレイリー商の議論を適用しただけであることがわかる.
+
+エクスパンダー混交補題の応用として, エクスパンダーグラフ上のランダムウォークはずっと同じ頂点部分集合にとどまらないことを示せる.
+\begin{proposition}{}{expander walk hitting}
+    グラフ$G=(V,E)$を$n$頂点$d$-正則片側$\lambda$-エクスパンダーとし,
+    $(X_t)_{t\ge 0}$を$G$上の単純ランダムウォークで初期頂点$X_0$が$V$上一様ランダムに選ばれたものとする.
+    任意の$\ell\in\Nat$と頂点部分集合$B\subseteq V$に対し, $\mu = \frac{|B|}{n}$とすると, 以下が成り立つ:
+    \[
+        \Pr\sbra*{\text{全ての$t=0,\dots,\ell$に対し}X_t \in B} \le \rbra*{ \mu + \lambda(1-\mu)}^\ell.
+    \]
+\end{proposition}
+\begin{proof}
+    $\ell\ge 0$に対し$\mathcal{E}_\ell$を「全ての$t=0,\dots,\ell$に対し$X_t\in B$」という事象とする.
+    初期頂点$X_0$が定常分布($=$一様分布)に従って選ばれているため, 各$t$に対し$X_t$の周辺分布もまた一様分布である.
+    特に, \cref{lem:expander mixing lemma}より, 任意の$t\ge 0$に対し
+    \begin{align}
+        \Pr\sbra*{ X_{t+1} \in B \text{ かつ }X_t \in B} &= \frac{e(B,B)}{nd} \nonumber\\
+        &\le \mu^2 + \lambda\mu(1-\mu) \label{eq:eml bound}
+    \end{align}
+    を得る.
+    従って
+    \begin{align*}
+        \Pr\sbra*{\mathcal{E}_\ell} &= \Pr\sbra*{ X_\ell \in B \condition \mathcal{E}_{\ell-1} }\cdot \Pr\sbra*{\mathcal{E}_{\ell-1}} \\
+        &= \Pr\sbra*{X_\ell \in B \condition X_{\ell-1} \in B}\cdot \Pr\sbra*{\mathcal{E}_{\ell-1}} \\
+        &= \frac{\Pr\sbra*{ X_{t+1} \in B \text{ かつ }X_t \in B}}{\mu} \cdot \Pr\sbra*{\mathcal{E}_{\ell-1}} \\
+        &\le \rbra*{\mu + \lambda(1-\mu)}\cdot \Pr\sbra*{\mathcal{E}_{\ell-1}} & & \text{$\because$\cref{eq:eml bound}} \\
+        &\dots \\
+        &\le \rbra*{\mu + \lambda(1-\mu)}^\ell\cdot \Pr[\mathcal{E}_0] \\
+        &\le \rbra*{\mu + \lambda(1-\mu)}^\ell
+    \end{align*}
+    より主張を得る.
+\end{proof}
 
 \section{エクスパンダーグラフの応用} \label{sec:expander graph application}
 グラフのエクスパンダー性は組合せ論的な興味だけでなく,
@@ -362,11 +429,52 @@ Green--Taoの定理の証明においても重要な役割を果たしている
 乱択は計算能力を真に向上させるかという問いは計算量理論において今なお重要な未解決問題であり,
 暗号の計算量理論的安全性などにも応用される.
 この分野の中心的なリーダーの一人Avi Wigdersonは2021年にAbel賞, 2023年にTuring賞を受賞している.
-ここではエクスパンダーグラフを使って「少ないサイコロで多くのサイコロの出目をhitting性の意味で模倣できる」
-という結果を紹介する.
+興味深いことに計算量理論では「乱択計算を決定的に模倣できる」\footnote{この文は非常に大雑把であり, 考える問題設定に大きく依存する. 専門用語を使うと「確率的多項式時間チューリング機械で解ける判定問題は決定的多項式時間で解けるか？」という未解決問題($\mathsf{P}=\mathsf{BPP}$予想)は真であろうと専門家に信じられている.}という見解が主流を占めている.
+すなわち, 乱択計算に用いるコイントスをなくせるというのである!
+ここではエクスパンダーグラフを使って乱択計算に用いるコイントスの「回数」を減らす手法\cite{AKS87}を紹介する.
+
+本来ならば乱択計算を定義するためにチューリング機械の定義から始める必要があるのだが,
+それらは本講義のトピックから大きく逸脱してしまうので,
+ここでは大きく簡略化した次の設定を考えよう:
+集合$\{0,1\}^n$の各元に$0$または$1$のどちらかの数字が割り当てられており, $1$が割り当てられたものを「あたり」とみなしたくじ引きを行う.
+「あたり」の個数は少なくとも$\varepsilon\cdot 2^n$個ある.
+確率$1/2$以上で「あたり」を引く方法のうち, ランダムネスをできるだけ少なくしたい.
 
 
-\subsection{誤り訂正符号}
+
+愚直に考えると, 適当なパラメータ$k$に対し,
+独立一様ランダムに$k$個の文字列$r_1,\dots,r_k\sim\binset^n$を選び, その中に「あたり」があるかどうかを確認すればよい.
+これらの中に「あたり」が一つ以上含まれる確率は$1-(1-\varepsilon)^k \ge 1-\exp(-k\varepsilon)$なので, 成功確率$1/2$を達成するには$k=O(1/\varepsilon)$とすればよい.
+各$r_i$を選ぶにはそれぞれで$n$ビットのランダムネスを要するので, 全体で$kn = O(n/\varepsilon)$ビットのランダムネスが必要である.
+
+\begin{proposition}{}{expander derandomize}
+    $n + O\rbra*{1/\varepsilon}$ビットのランダムネスを用いて確率$1/2$以上で「あたり」を引く方法がある.
+\end{proposition}
+\begin{proof}[\textbf{証明の概要.}]
+    あとで定まる適切なパラメータ$\ell\in\Nat$に対し
+    頂点数$2^n$の$8$-正則$0.9$-エクスパンダーグラフ$G=(V,E)$を\cref{thm:Margulis construction}を用いて決定的に構成し, 適当な全単射を用いて$V$を$\binset^n$と同一視する (ここで用いる全単射は何でもよい).
+    初期頂点を一様ランダムにした
+    $G$上の$\ell$ステップの単純ランダムウォーク$(X_t)_{t=0,\dots,\ell}$を考え,
+    訪問した頂点$X_0,\dots,X_\ell$の中に「あたり」があるかどうかを調べる.
+    初期頂点の選択で$n$ビットのランダムネスを用いるが,
+    グラフ$G$は$8$-正則グラフなのでランダムウォークの各遷移では$\log_2 8=3$ビットのランダムネスを使用する.
+    従って, この方法で用いるランダムネスは全体で$n + 3\ell$ビットである.
+
+    「あたり」以外の頂点からなる集合を$B$とすると, $\frac{|B|}{2^n} = 1-\varepsilon$なので,
+    $\mu = 1-\varepsilon, \lambda=0.9$として\cref{prop:expander walk hitting}を適用すると,
+    $\ell=10/\varepsilon$に対して
+    少なくとも確率$1-(1-0.1\varepsilon)^\ell \ge 1-\e^{-1} \ge 1/2$で
+    ランダムウォークは「あたり」の頂点を一回以上は訪問する.
+    すなわち確率$1/2$以上でこの方法は「あたり」を引く.
+\end{proof}
+
+乱択計算の文脈では, 一回のくじ引きが乱択計算のシミュレーションに対応しており,
+「あたり」を引くということはその乱択計算が正しい計算結果を出力したことを意味する.
+独立なランダムネスを用いて繰り返すとその繰り返し回数に比例したランダムネスを要するが,
+独立性の代わりにランダムウォークのエクスパンダー性を用いれば, 要するランダムネスの量を減らせるのである.
+
+
+\subsection{誤り訂正符号} \label{sec:error correcting code}
 \emph{誤り訂正符号(error-correcting code)}または単に\emph{符号(code)}とは文字列に冗長性を持たせることでノイズに対する頑健性を与える手法である.
 数学的には符号はビット列の集合$\Code\subseteq\mathbb{F}_2^n$であり, その元$f\in\Code$を\emph{符号語(codeword)}と呼ぶ\footnote{文脈によってはビット列の代わりに有限集合$\Sigma$に対して$\Code\subseteq\Sigma^n$を符号と定義することもある. 実際には計算機上では$\Sigma$の元を$\lceil\log_2 |\Sigma|\rceil$ ビットで表すため$\Sigma=\mathbb{F}_2$とすることが多い.}.
 ここで$n$を符号$\Code$の\emph{符号長(code length}と呼ぶ.

@@ -410,6 +410,12 @@ INPUT ./images/EML.pdf
 INPUT ./images/EML.pdf
 INPUT ./images/EML.pdf
 INPUT extractbb -B cropbox -O images/EML.pdf
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT ./HDX.tex
 INPUT ./HDX.tex
 INPUT HDX.tex
@@ -440,6 +446,9 @@ INPUT ./images/graphicmatroid.png
 INPUT ./images/graphicmatroid.png
 INPUT ./images/graphicmatroid.png
 INPUT extractbb -B cropbox -O images/graphicmatroid.png
+INPUT ./conclusion.tex
+INPUT ./conclusion.tex
+INPUT conclusion.tex
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
 INPUT main.aux
