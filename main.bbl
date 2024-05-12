@@ -19,6 +19,45 @@
 
 \refsection{0}
   \datalist[entry]{anyt/global//global/global/global}
+    \entry{AC88}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=3edac4372c25a87046c920ed898db8f6}{%
+           family={Alon},
+           familyi={A\bibinitperiod},
+           given={N},
+           giveni={N\bibinitperiod}}}%
+        {{hash=90065feb93420498c8f4e42f80b1c616}{%
+           family={Chung},
+           familyi={C\bibinitperiod},
+           given={F\bibnamedelima R\bibnamedelima K},
+           giveni={F\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \strng{namehash}{c914f6033c095f965579830250be4fb8}
+      \strng{fullhash}{c914f6033c095f965579830250be4fb8}
+      \strng{fullhashraw}{c914f6033c095f965579830250be4fb8}
+      \strng{bibnamehash}{c914f6033c095f965579830250be4fb8}
+      \strng{authorbibnamehash}{c914f6033c095f965579830250be4fb8}
+      \strng{authornamehash}{c914f6033c095f965579830250be4fb8}
+      \strng{authorfullhash}{c914f6033c095f965579830250be4fb8}
+      \strng{authorfullhashraw}{c914f6033c095f965579830250be4fb8}
+      \field{labelalpha}{AC88}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0012-365X}
+      \field{journaltitle}{Discrete Math.}
+      \field{month}{12}
+      \field{number}{1}
+      \field{title}{Explicit construction of linear sized tolerant networks}
+      \field{volume}{72}
+      \field{year}{1988}
+      \field{pages}{15\bibrangedash 19}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1016/0012-365X(88)90189-6
+      \endverb
+    \endentry
     \entry{AKS87}{inproceedings}{}{}
       \name{author}{3}{}{%
         {{hash=b7e2ae2ab12b5713e81730f00bb755f2}{%
@@ -166,6 +205,40 @@
       \verb{doi}
       \verb 10.4007/annals.2024.199.1.4
       \endverb
+    \endentry
+    \entry{Cheeger70}{incollection}{}{}
+      \name{author}{1}{}{%
+        {{hash=9d4dec812f0a7bc29f16736af5d41024}{%
+           family={Cheeger},
+           familyi={C\bibinitperiod},
+           given={Jeff},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {Princeton University Press}%
+      }
+      \strng{namehash}{9d4dec812f0a7bc29f16736af5d41024}
+      \strng{fullhash}{9d4dec812f0a7bc29f16736af5d41024}
+      \strng{fullhashraw}{9d4dec812f0a7bc29f16736af5d41024}
+      \strng{bibnamehash}{9d4dec812f0a7bc29f16736af5d41024}
+      \strng{authorbibnamehash}{9d4dec812f0a7bc29f16736af5d41024}
+      \strng{authornamehash}{9d4dec812f0a7bc29f16736af5d41024}
+      \strng{authorfullhash}{9d4dec812f0a7bc29f16736af5d41024}
+      \strng{authorfullhashraw}{9d4dec812f0a7bc29f16736af5d41024}
+      \field{labelalpha}{Che70}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Problems in Analysis}
+      \field{isbn}{9781400869312}
+      \field{title}{A Lower Bound for the Smallest Eigenvalue of the Laplacian}
+      \field{year}{1970}
+      \field{pages}{195\bibrangedash 200}
+      \range{pages}{6}
     \endentry
     \entry{DELLM22}{inproceedings}{}{}
       \name{author}{5}{}{%
@@ -334,6 +407,36 @@
       \verb 10.1016/0022-0000(81)90040-4
       \endverb
     \endentry
+    \entry{Gharan_Lecture}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=b81623ed388dadde4f70a0357d57b49c}{%
+           family={Gharan},
+           familyi={G\bibinitperiod},
+           given={Shayan\bibnamedelima Oveis},
+           giveni={S\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+      }
+      \strng{namehash}{b81623ed388dadde4f70a0357d57b49c}
+      \strng{fullhash}{b81623ed388dadde4f70a0357d57b49c}
+      \strng{fullhashraw}{b81623ed388dadde4f70a0357d57b49c}
+      \strng{bibnamehash}{b81623ed388dadde4f70a0357d57b49c}
+      \strng{authorbibnamehash}{b81623ed388dadde4f70a0357d57b49c}
+      \strng{authornamehash}{b81623ed388dadde4f70a0357d57b49c}
+      \strng{authorfullhash}{b81623ed388dadde4f70a0357d57b49c}
+      \strng{authorfullhashraw}{b81623ed388dadde4f70a0357d57b49c}
+      \field{labelalpha}{Gha20}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{CSE 599: Polynomial Paradigm in Algorithm Design}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://homes.cs.washington.edu/~shayan/courses/polynomials/
+      \endverb
+      \verb{url}
+      \verb https://homes.cs.washington.edu/~shayan/courses/polynomials/
+      \endverb
+    \endentry
     \entry{GS06}{article}{}{}
       \name{author}{2}{}{%
         {{hash=66aba379c7d3adb8af5b662a65c4c140}{%
@@ -377,6 +480,41 @@
       \range{pages}{98}
       \verb{doi}
       \verb 10.1145/1162349.1162351
+      \endverb
+    \endentry
+    \entry{MaxHopkins_Lecture}{online}{}{}
+      \name{author}{2}{}{%
+        {{hash=b776138563e2356b8a7c5378200d5113}{%
+           family={Hopkins},
+           familyi={H\bibinitperiod},
+           given={Max},
+           giveni={M\bibinitperiod}}}%
+        {{hash=8f54cfe313362d53cf0715d5cf0b38e2}{%
+           family={Lovett},
+           familyi={L\bibinitperiod},
+           given={Shachar},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{225104692f56c4002f9fa032b9946140}
+      \strng{fullhash}{225104692f56c4002f9fa032b9946140}
+      \strng{fullhashraw}{225104692f56c4002f9fa032b9946140}
+      \strng{bibnamehash}{225104692f56c4002f9fa032b9946140}
+      \strng{authorbibnamehash}{225104692f56c4002f9fa032b9946140}
+      \strng{authornamehash}{225104692f56c4002f9fa032b9946140}
+      \strng{authorfullhash}{225104692f56c4002f9fa032b9946140}
+      \strng{authorfullhashraw}{225104692f56c4002f9fa032b9946140}
+      \field{labelalpha}{HL21}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{CSE 291 - Expander graphs and High-Dimensional Expanders (Lecture Note)}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://cseweb.ucsd.edu/classes/sp21/cse291-g/
+      \endverb
+      \verb{url}
+      \verb https://cseweb.ucsd.edu/classes/sp21/cse291-g/
       \endverb
     \endentry
     \entry{HLW06}{article}{}{}
@@ -464,6 +602,36 @@
       \verb 10.1007/s00493-019-3847-0
       \endverb
     \endentry
+    \entry{LapChiLau_Lecture}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=94fd8646f31398db5725e7a7006e5b34}{%
+           family={Lau},
+           familyi={L\bibinitperiod},
+           given={Lap\bibnamedelima Chi},
+           giveni={L\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{94fd8646f31398db5725e7a7006e5b34}
+      \strng{fullhash}{94fd8646f31398db5725e7a7006e5b34}
+      \strng{fullhashraw}{94fd8646f31398db5725e7a7006e5b34}
+      \strng{bibnamehash}{94fd8646f31398db5725e7a7006e5b34}
+      \strng{authorbibnamehash}{94fd8646f31398db5725e7a7006e5b34}
+      \strng{authornamehash}{94fd8646f31398db5725e7a7006e5b34}
+      \strng{authorfullhash}{94fd8646f31398db5725e7a7006e5b34}
+      \strng{authorfullhashraw}{94fd8646f31398db5725e7a7006e5b34}
+      \field{labelalpha}{Lau22}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{CS 860: Eigenvalues and Polynomials (Lecture Note)}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://cs.uwaterloo.ca/~lapchi/cs860/notes.html
+      \endverb
+      \verb{url}
+      \verb https://cs.uwaterloo.ca/~lapchi/cs860/notes.html
+      \endverb
+    \endentry
     \entry{LH22}{inproceedings}{}{}
       \name{author}{2}{}{%
         {{hash=99e74aa18ceae927174b3cf3971bc3eb}{%
@@ -499,6 +667,47 @@
       \range{pages}{6}
       \verb{doi}
       \verb 10.1109/ISIT50566.2022.9834679
+      \endverb
+    \endentry
+    \entry{LP17}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=32ad21054f07b38c5fef8dcf472ca73c}{%
+           family={Levin},
+           familyi={L\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=be791fcf2bac698f7a6b715cdf5d5d51}{%
+           family={Peres},
+           familyi={P\bibinitperiod},
+           given={Yuval},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Providence, Rhode Island}%
+      }
+      \list{publisher}{1}{%
+        {American Mathematical Society}%
+      }
+      \strng{namehash}{8202b22adac9a1a16e73501c278aade3}
+      \strng{fullhash}{8202b22adac9a1a16e73501c278aade3}
+      \strng{fullhashraw}{8202b22adac9a1a16e73501c278aade3}
+      \strng{bibnamehash}{8202b22adac9a1a16e73501c278aade3}
+      \strng{authorbibnamehash}{8202b22adac9a1a16e73501c278aade3}
+      \strng{authornamehash}{8202b22adac9a1a16e73501c278aade3}
+      \strng{authorfullhash}{8202b22adac9a1a16e73501c278aade3}
+      \strng{authorfullhashraw}{8202b22adac9a1a16e73501c278aade3}
+      \field{labelalpha}{LP17}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2nd}
+      \field{isbn}{9781470429621}
+      \field{month}{10}
+      \field{title}{Markov Chains and Mixing Times}
+      \field{year}{2017}
+      \verb{doi}
+      \verb 10.1090/mbk/107
       \endverb
     \endentry
     \entry{LPS88}{article}{}{}
