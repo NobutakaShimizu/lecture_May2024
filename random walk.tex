@@ -143,7 +143,7 @@
 すなわち, 既約性とは定常分布の一意性を保証する性質であり,
 非周期性は収束性を保証する性質である.
 ここでは\cref{thm:random walk convergence}の最後の主張(既約的かつ非周期的なランダムウォークの一意収束性)の証明を与える.
-まず, 以下の二つの補題を証明する.
+まず, 以下の三つの補題を証明する.
 \begin{lemma}{Shurの補題}{Schur lemma}
   $S\subseteq \Nat$が$\gcd(S)=1$ならば, ある$N\in\Nat$が存在して任意の自然数$M\ge N$は$S$の要素の非負結合で表せる.
 \end{lemma}
@@ -192,9 +192,56 @@
   既約性の仮定より$\vG$は途中で$w$を経由する長さ$\ell \le 2|V|$の$uv$-有向路$p$を持つ.
   この有向路$p$に沿って$u$から$w$に進み, そこから長さ$L - \ell \ge N$の閉路に沿って進み, さらに再び$p$に沿って$w$から$v$に進む有向路を考えると, その長さはちょうど$L$であり, すなわち$P^L(u,v)>0$を意味する.
 \end{proof}
-\begin{proof}[\textbf{既約的かつ非周期的なランダムウォークに対する\cref{thm:random walk convergence}の証明.}]
+\begin{lemma}{}{infinity norm}
+  任意の確率行列$P\in[0,1]^{V\times V}$とベクトル$x\in\Real^V$に対し,
+  $\norm{xP}_{\infty} \le \norm{x}_{\infty}$.
+\end{lemma}
+\begin{proof}
+  任意の$u\in V$に対し
+  \[
+    \abs{xP(u)} \le \sum_{v\in V}\abs{x(v)}P(u,v) \le \norm{x}_{\infty}\cdot \sum_{v\in V}P(u,v) = \norm{x}_{\infty}.
+  \]
+\end{proof}
+\begin{proof}[\textbf{\cref{thm:random walk convergence}の証明.}]
   考えるランダムウォークの遷移確率行列を$P$とする.
 
+  一つ目の主張を示す.
+  $P$が既約として, 定常分布の一つを$\pi \in [0,1]^V$とし,
+  ある頂点$u\in V$に対し$\pi(u)=0$が成り立つとする.
+  $\pi$は分布なのである$v\in V$に対し$\pi(v)>0$となる.
+  既約性より, この$v$に対してある$\ell\in\Nat$が存在して$P^\ell(u,v)>0$となる.
+  $\pi =\pi P^\ell$より,
+  \[
+    0 = \pi(u) = \sum_{w\in V}\pi(w)P^\ell(w,u) \ge \pi(v)P^\ell(v,u)>0
+  \]
+  となり矛盾を得る.
+
+  二つ目の主張を示す.
+  ランダムウォークが既約であるとして一般性を失わない(既約でない場合, それぞれの既約な成分を考えればよい).
+  $P$は非周期的なので, \cref{lem:P bekijou}より, ある$L\ge 1$に対して$Q\defeq P^L$の全ての成分は正である.
+  従って, ある$\delta>0$, 全成分が$1$の行列$J$, 確率行列$R$を用いて
+  \[
+    Q = \delta J + (1-\delta)R
+  \]
+  と表せる.
+  従って, $\allone$に直交する任意のベクトルに対し$xQ^t = \sum_{i=0}^t \delta^i(1-\delta)^{t-i} x J^iR^{t-i} = (1-\delta)^t x R^t$が成り立つ.
+  初期分布$p_0\in[0,1]^V$に対し, $x\defeq p_0 - \pi$とすると
+  \begin{align*}
+    \norm{p_t - \pi}_{\infty} &= \norm{(p_0-\pi)P^t}_{\infty} \\
+    &\le \norm{xQ^{\floor{t/L}}}_{\infty} & & \text{$\because$\cref{lem:infinity norm}}\\
+    &= (1-\delta)^t\norm{x R^{\floor{t/L}}}_\infty \\
+    & \le (1-\delta)^{\floor{t/L}} \norm{x}_{\infty} & & \text{$\because$\cref{lem:infinity norm}} \\
+    &\le (1-\delta)^{\floor{t/L}} \to 0
+  \end{align*}
+  を得る.
+  よって, 確かにランダムウォークの分布$(p_t)$は定常分布$\pi$に収束する.
+
+  最後に$P$が既約かつ非周期性を仮定して定常分布$\pi$の一意性を示す.
+  二つの相異なる定常分布$\pi\neq \pi'$が存在すると仮定すると
+  \[
+    0<\norm{\pi - \pi'}_{\infty} = \norm{(\pi - \pi')P^L}_{\infty} = (1-\delta)\norm{(\pi - \pi')R}_{\infty} \le (1-\delta)\norm{\pi - \pi'}_{\infty}
+  \]
+  より矛盾を得る.
 \end{proof}
 
 \subsection{混交時間}
