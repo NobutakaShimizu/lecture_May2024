@@ -120,7 +120,7 @@
 任意のランダムウォークは必ず定常分布をもつ.
 (有限集合上の分布を考えているので)分布全体から分布全体への連続関数$x \mapsto xP$に対しブラウアーの不動点定理を適用すればすぐに示せる.
 \begin{theorem}{ブラウアーの不動点定理}{Brouwer fixed point}
-  Euclid空間のコンパクト凸部分集合$K$からそれ自身への任意の連続関数は不動点をもつ.
+  Euclid空間の非空なコンパクト凸部分集合$K$からそれ自身への任意の連続関数は不動点をもつ.
 \end{theorem}
 また, 詳細は省くがこれは以下の議論からも証明できる:
 \begin{itemize}
@@ -135,15 +135,11 @@
   さらに,
   \begin{itemize}
     \item ランダムウォークが既約的ならば, 定常分布$\pi$は一意に存在し, 全ての頂点$v\in V$に対し$\pi(v)>0$である.
-    \item ランダムウォークが非周期的ならば, 任意の初期分布$p_0$に対してある定常分布$\pi$が存在して$\dtv(p_t,\pi)\to 0$ ($t\to\infty$)が成り立つ.
+    \item ランダムウォークが既約的かつ非周期的ならば, 定常分布$\pi$が一意に存在して$\dtv(p_t,\pi)\to 0$ ($t\to\infty$)が成り立つ.
   \end{itemize}
-
-  特に, 既約的かつ非周期的なランダムウォークの分布は一意に定まる定常分布に$\dtv$の意味で収束する.
 \end{theorem}
-すなわち, 既約性とは定常分布の一意性を保証する性質であり,
-非周期性は収束性を保証する性質である.
-ここでは\cref{thm:random walk convergence}の最後の主張(既約的かつ非周期的なランダムウォークの一意収束性)の証明を与える.
-まず, 以下の三つの補題を証明する.
+\cref{thm:random walk convergence}は一つ目の主張は定常分布の定義を使えば簡単に示せるが二つ目の主張の証明は難しい.
+そのためにまず, 以下の三つの補題を証明する.
 \begin{lemma}{Shurの補題}{Schur lemma}
   $S\subseteq \Nat$が$\gcd(S)=1$ならば, ある$N\in\Nat$が存在して任意の自然数$M\ge N$は$S$の要素の非負結合で表せる.
 \end{lemma}
@@ -156,7 +152,7 @@
   一般の$S$の場合も同様に証明できる.
   $\gcd(a,b,c)=1$より,
   任意の$M\in\Nat$に対し
-  ある整数$x,y,z\in \Int$が存在して$ax+by+cz=1$を満たす.
+  ある整数$x,y,z\in \Int$が存在して$ax+by+cz=M$を満たす.
   このような$x,y,z$は一意ではなく,
   $i+j+k=0$を満たす任意の$i,j,k\in\Int$に対して
   \[
@@ -192,15 +188,19 @@
   既約性の仮定より$\vG$は途中で$w$を経由する長さ$\ell \le 2|V|$の$uv$-有向路$p$を持つ.
   この有向路$p$に沿って$u$から$w$に進み, そこから長さ$L - \ell \ge N$の閉路に沿って進み, さらに再び$p$に沿って$w$から$v$に進む有向路を考えると, その長さはちょうど$L$であり, すなわち$P^L(u,v)>0$を意味する.
 \end{proof}
-\begin{lemma}{}{infinity norm}
+\begin{lemma}{}{ellone norm}
   任意の確率行列$P\in[0,1]^{V\times V}$とベクトル$x\in\Real^V$に対し,
-  $\norm{xP}_{\infty} \le \norm{x}_{\infty}$.
+  $\norm{xP}_{1} \le \norm{x}_{1}$.
 \end{lemma}
 \begin{proof}
   任意の$u\in V$に対し
-  \[
-    \abs{xP(u)} \le \sum_{v\in V}\abs{x(v)}P(u,v) \le \norm{x}_{\infty}\cdot \sum_{v\in V}P(u,v) = \norm{x}_{\infty}.
-  \]
+  \begin{align*}
+    \norm{xP}_1 &= \sum_{u\in V} \abs*{(xP)(u)} \\
+    &= \sum_{u\in V} \abs*{ \sum_{v\in V} x(v) P(v,u) } \\
+    &\le \sum_{u,v\in V}\abs{x(v)}\cdot P(v,u) \\
+    &= \sum_{v\in V}\abs{x(v)}\cdot \sum_{u\in V}P(v,u) \\
+    &= \norm{x}_1.
+  \end{align*}
 \end{proof}
 \begin{proof}[\textbf{\cref{thm:random walk convergence}の証明.}]
   考えるランダムウォークの遷移確率行列を$P$とする.
@@ -219,19 +219,19 @@
   二つ目の主張を示す.
   ランダムウォークが既約であるとして一般性を失わない(既約でない場合, それぞれの既約な成分を考えればよい).
   $P$は非周期的なので, \cref{lem:P bekijou}より, ある$L\ge 1$に対して$Q\defeq P^L$の全ての成分は正である.
-  従って, ある$\delta>0$, 全成分が$1$の行列$J$, 確率行列$R$を用いて
+  従って, ある$\delta>0$, 全成分が$1/|V|$の確率行列$J$, 適当な確率行列$R$を用いて
   \[
     Q = \delta J + (1-\delta)R
   \]
   と表せる.
-  従って, $\allone$に直交する任意のベクトルに対し$xQ^t = \sum_{i=0}^t \delta^i(1-\delta)^{t-i} x J^iR^{t-i} = (1-\delta)^t x R^t$が成り立つ.
+  従って, $\allone$に直交する任意のベクトルに対し$xQ^t = \sum_{i=0}^t \delta^i(1-\delta)^{t-i} x J^iR^{t-i} = (1-\delta)^t x R^t$が成り立つ ($i\ge 1$に対して$xJ^i=0$となることに留意せよ).
   初期分布$p_0\in[0,1]^V$に対し, $x\defeq p_0 - \pi$とすると
   \begin{align*}
-    \norm{p_t - \pi}_{\infty} &= \norm{(p_0-\pi)P^t}_{\infty} \\
-    &\le \norm{xQ^{\floor{t/L}}}_{\infty} & & \text{$\because$\cref{lem:infinity norm}}\\
-    &= (1-\delta)^t\norm{x R^{\floor{t/L}}}_\infty \\
-    & \le (1-\delta)^{\floor{t/L}} \norm{x}_{\infty} & & \text{$\because$\cref{lem:infinity norm}} \\
-    &\le (1-\delta)^{\floor{t/L}} \to 0
+    \norm{p_t - \pi}_{1} &= \norm{(p_0-\pi)P^t}_{1} \\
+    &\le \norm{xQ^{\floor{t/L}}}_{1} & & \text{$\because$\cref{lem:ellone norm}}\\
+    &= (1-\delta)^{\floor{t/L}}\cdot \norm{x R^{\floor{t/L}}}_1 \\
+    & \le (1-\delta)^{\floor{t/L}} \norm{x}_{1} & & \text{$\because$\cref{lem:ellone norm}} \\
+    & \to 0
   \end{align*}
   を得る.
   よって, 確かにランダムウォークの分布$(p_t)$は定常分布$\pi$に収束する.
@@ -480,14 +480,50 @@ $G$の全ての辺が$L$と$R$の間を跨いでいることを意味する.
 \footnote{本講義では左固有値, すなわち$Px=\lambda x$を満たす$\lambda\in \Comp$を考える.}
 $\lambda_1,\dots,\lambda_n$について考える.
 全ての成分が$1$であるベクトル$\allone\in \Real^n$を考えると$P\allone = \allone$であるから
-$P$は固有値$1$を持つことがわかる.
-また, 以下の結果が知られている (Perron--Frobeniusの定理やGershgorinの定理から従う):
-\begin{lemma}{遷移確率行列の固有値}{random walk eigenvalue}
-    既約的かつ非周期的なランダムウォークの
-    遷移確率行列$P\in [0,1]^{n\times n}$の固有値を$\lambda_1,\dots,\lambda_n$とすると,
+$P$は固有値$1$を持つ.
+さらに, 以下が成り立つ:
+\begin{theorem}{遷移確率行列の固有値}{random walk eigenvalue}
+    任意の遷移確率行列$P\in [0,1]^{n\times n}$の固有値を$\lambda_1,\dots,\lambda_n$とすると,
     全ての$i\in\{1,\dots,n\}$に対して$\abs{\lambda_i} \le 1$を満たす.
-    さらに,固有値$1$の多重度は$1$であり (つまり固有値$1$に対応する固有空間は$\{c\allone \colon c \in \Real\}$となる), 他の固有値は全て絶対値が真に$1$より小さい.
-\end{lemma}
+
+    さらに, $P$が既約的かつ非周期的なランダムウォークの遷移確率行列とすると,
+    固有値$1$の多重度は$1$であり, 他の固有値は全て絶対値が真に$1$より小さい.
+\end{theorem}
+\begin{proof}
+  まず一つ目の主張を示す.
+  $P$の任意の固有値$\lambda \in \Comp$を考え, 対応する固有ベクトルを$f \in \Comp^V$とする.
+  頂点$u\in V$を, $\abs{f(u)}$が最大となる頂点とすると
+  \begin{align*}
+    \abs{\lambda} \abs{f(u)} &= \abs*{(Pf)(u)} \\
+    &\le \sum_{v\in V} P(u,v) \abs*{f(v)} \\
+    &\le \abs{f(u)}\cdot \sum_{v\in V} P(u,v) \\
+    &= \abs{f(u)}
+  \end{align*}
+  より, 両辺を$\abs{f(u)}>0$で割ると$\abs{\lambda}\le 1$を得る.
+
+  二つ目の主張を示す.
+  $P$を既約的かつ非周期的なランダムウォークの遷移確率行列とする.
+  $J\in\Real^{V\times V}$を全成分が$1/n$の行列とする.
+  \cref{lem:P bekijou}より, ある$L\in\Nat,\delta>0$および確率行列$R\in[0,1]^{V\times V}$が存在して, $Q\defeq P^L$は
+  \[
+    Q = \delta J + (1 - \delta) R
+  \]
+  と表せる (ここで$J$は全成分が$1/|V|$の確率行列).
+  $f\in \Comp^V$を$P$の第一以外の任意の固有値$\lambda$に対する固有ベクトルとする.
+  すなわち, $f$は何らかの定数$c\in\Comp$に対し$f=c\allone$の形になって\emph{いない}固有ベクトルである.
+  二頂点$u,v\in V$を$\abs{f(u) - f(v)}$が最大となるようにとる.
+  $f$の取り方の仮定から$\abs{f(u) - f(v)} > 0$である.
+  すると, $f$は$Q$の固有値$\lambda^L$に対応する固有ベクトルなので
+  \begin{align*}
+    \abs{\lambda^L}\abs{f(u) - f(v)} &= \abs*{(Qf)(u) - (Qf)(v)} \\
+    &= (1-\delta)\abs*{(Rf)(u) - (Rf)(v)} \\
+    &= (1-\delta) \abs*{ \sum_{w\in V}R(u,w)f(w) - \sum_{w\in V} R(v,w)f(w)} \\
+    &\le (1-\delta)\max_{w,w'\in V}\abs*{f(w) - f(w')} \\
+    &=(1-\delta)\abs{f(u) - f(v)}.
+  \end{align*}
+  四行目の不等号では$\sum_{w\in V}R(u,w)f(w)$が各$f(w)$の凸結合で表せることを用いた.
+  両辺を$\abs{f(u) - f(v)} > 0$で割って整理すれば$\abs{\lambda^L}<1$を得る.
+\end{proof}
 %
 
 ランダムウォークの固有値の議論の土台となるのが可逆性という概念である.
@@ -526,6 +562,8 @@ $(X_T,\dots,X_0)$はランダムウォークから得られた系列と見做せ
 すなわち, ランダムウォークの可逆性とはそのランダムウォークが時間反転に関して対称性を持つことを意味する.
 なお, \cref{eq:reversal chain}で得られる遷移確率行列に従って生成されるランダムウォークを\emph{時間反転ランダムウォーク (time-reversal random walk)}と呼ぶ.
 
+なお, 後の節(\cref{sec:Rayleigh quotient})で可逆なランダムウォークに対する\cref{thm:random walk eigenvalue}を証明する.
+
 \paragraph*{例1.単純ランダムウォーク}
 連結グラフ$G=(V,E)$上の単純ランダムウォークを考えよう.
 \cref{eq:SRW stationary distribution}で与えられる定常分布を$\pi$とすると
@@ -556,12 +594,11 @@ $(X_T,\dots,X_0)$はランダムウォークから得られた系列と見做せ
 \end{align*}
 より$\pi=0$となってしまい, 分布であることに矛盾.
 
-\begin{exercise}{easy}{prob2}
+\begin{exercise}{}{prob2}
     可逆なランダムウォークの遷移確率行列を$P$とする.
     \cref{eq:reversible}を満たす分布$\pi$は定常分布であることを示せ.
 \end{exercise}
 
-%
 
 
 \section{定常分布から定まる内積とノルム}
@@ -637,6 +674,7 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
     \end{align*}
     $A$は対称なので全ての固有値は実数である.
 
+    $A$と$P$は相似なので多重度も含めて同じ固有値をもつ. 実際,
     $A$の固有値$\lambda$に対する固有ベクトルを$x$とし, ベクトル$y\defeq \sqrt{\Pi}^{-1}x$を考える.
     固有ベクトルの式
     \begin{align*}
@@ -659,7 +697,7 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
     既約的かつ可逆なランダムウォークの遷移確率行列を$P$とし, その定常分布を$\pi$とする.
     $|V|=n$とする.
     $P$の固有値を$1=\lambda_1\ge \dots \ge \lambda_n \ge -1$とする.
-    空間$\pispace$の正規直交基底$x,\dots,x_n$が存在して任意の$t\ge 1$に対して
+    空間$\pispace$の正規直交基底$x_1,\dots,x_n$が存在して任意の$t\ge 1$に対して
     \[ P^t\Pi^{-1} = \sum_{i=1}^n \lambda_i^t x_i x_i^{\top}  \]
     と表せ, さらに各$x_i$は$P$の固有値$\lambda_i$に対応する固有ベクトルとなる.
 
@@ -700,7 +738,7 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
     特に, $\lambda_1=1$に対応する$A$の固有ベクトルは$y_1 = (\sqrt{\pi(u)})_{u \in V}$なので,
     対応する$P$の固有ベクトルは$x_1 = \allone$となる.
 \end{proof}
-
+%
 空間$\pispace$上での期待値と分散を以下のように定義する:
 \begin{definition}{期待値と分散}{expectation and variance}
     \cref{thm:eigendecomposition}と同じ仮定の下で,
@@ -708,7 +746,7 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
     期待値と分散を
     \begin{align}
          & \Epi[f] \defeq \piprod{f,\allone} = \sum_{u\in V}\pi(u) f(u), \label{eq:mean}                       \\
-         & \Varpi[f] \defeq \pinorm{f - \E_\pi[\allone]}^2 = \E_\pi [f^2] - (\E_\pi [f])^2 \label{eq:variance}
+         & \Varpi[f] \defeq \pinorm{f - \Epi[\allone]}^2 = \Epi [f^2] - (\Epi [f])^2 \label{eq:variance}
     \end{align}
     とする.
 \end{definition}
@@ -754,7 +792,7 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
     $\lambda(P) \defeq \max\cbra{\abs{\lambda_2},\abs{\lambda_n}}$とする.
     特に, $\gamma\defeq 1-\lambda(P)$を\emph{スペクトルギャップ (spectral gap)}と呼ぶ.
 \end{definition}
-先確率行列$P$を作用させると分散が減少する.
+遷移確率行列$P$を作用させると分散が減少する.
 \begin{lemma}{}{variance}
     遷移確率行列$P$と関数$f \in \pispace$に対し
     \[
@@ -834,7 +872,7 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
     ここで, \cref{thm:eigendecomposition}より, $P^t\Pi^{-1} - J$の第$(u,v)$成分に着目すると
     \begin{align*}
         \abs*{\frac{P^t(u,v)}{\pi(v)} - 1} & \le \sum_{i=2}^n \abs{\lambda_i}^t \abs{x_i(u)x_i(v)}                                                                           \\
-                                           & \le \lambda^t \sum_{i=2}^n  \sqrt{\sum_{i=2}^n x_i(u)^2} \sqrt{\sum_{i=2}^n x_i(v)^2} &  & \text{$\because$Cauchy--Schwarzの不等式} \\
+                                           & \le \lambda^t  \sqrt{\sum_{i=2}^n x_i(u)^2} \sqrt{\sum_{i=2}^n x_i(v)^2} &  & \text{$\because$Cauchy--Schwarzの不等式} \\
                                            & \le \frac{\lambda^t}{\sqrt{\pi(u)\pi(v)}}                                                                                       \\
                                            & \le \frac{\lambda^t}{\pimin}
     \end{align*}
@@ -850,7 +888,7 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
     最後の不等式では$\forall x\in \Real,x\le \e^{x-1}$を用いた.
 \end{proof}
 
-\section{Rayleigh商}
+\section{Rayleigh商} \label{sec:Rayleigh quotient}
 以下の結果は第二固有値の上界を得るときなどに役にたつ.
 \begin{lemma}{レイリー商による固有値の特徴付け}{Rayleigh quotient}
   定常分布$\pi$をもつ可逆な遷移確率行列$P$に対し, 以下が成り立つ:
@@ -882,6 +920,7 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
 値$\frac{\piprod{f,Pf}}{\pinorm{f}^2}$を\emph{レイリー商 (Rayleigh quotient)}と呼ぶ.
 ある遷移確率行列$P$に対して$\lambda_2(P) \le \lambda$であることを示したいときには,
 任意の$\allone$と直交するベクトル$f\in\pispace$に対しレイリー商が高々$\lambda$であることを示せばよい.
+
 
 \section{片側の固有値のバウンド}
 \cref{cor:general expander mixing lemma}は$\lambda(P)$が小さいときに二次形式$\piprod{f,g} - \Epi f \cdot \Epi g$を両側から押さえているが,

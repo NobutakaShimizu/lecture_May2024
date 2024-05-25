@@ -88,7 +88,9 @@ $n\to\infty$の漸近を考えると$n$のスペクトルギャップは$\Theta(
 \end{theorem}
 
 \subsection{ケイリーグラフ}
-エクスパンダーグラフを陽に構成する最も重要なアプローチの一つとして幾何学的群論におけるケイリーグラフと呼ばれる概念が知られている.
+エクスパンダーグラフを陽に構成する最も重要なアプローチの一つとして
+ケイリーグラフ\cite{Cayley1878}と呼ばれる概念が知られている.
+
 %
 \begin{definition}{ケイリーグラフ}{Cayley graph}
     $G$を有限群, $A\subseteq G$を$G$の生成系\footnote{任意の$g\in G$に対してある有限個の$a_1,\dots,a_m\in A$を用いて$g=\prod_{i=1}^ma_i$と表せるとき, $A\subseteq G$は生成系であるという.}であって単位元を含まず, 逆元で閉じている(i.e., $A^{-1}=\{a^{-1}\colon a\in A\}=A$)ものとする.
@@ -96,7 +98,7 @@ $n\to\infty$の漸近を考えると$n$のスペクトルギャップは$\Theta(
     頂点$g\in G$に対し, $E_g=\{\{g,ag\}\colon a\in A\}$を$g$を含む辺の集合とする.
 \end{definition}
 %
-ケイリーグラフは生成系$A$の幾何学的な性質を調べる幾何学的群論における重要な研究対象の一つである.
+ケイリーグラフは群の幾何学的な性質を調べる幾何学的群論における重要な研究対象の一つである.
 $A$は単位元を含まないため自己ループは存在しない.
 また, $A^{-1}=A$より$\{ag,a^{-1}(ag)\}\in E$となるため$\Cay(A,G)$は無向グラフとなっている.
 同様にケイリーグラフ$\Cay(G,A)$も考えることができるが, 写像$x\mapsto x^{-1}$を考えると$\Cay(A,G)$と$\Cay(G,A)$が同型になっているので本質的には同じである.
@@ -150,8 +152,9 @@ $\ell^2(V) = \cbra*{ f \colon V \to \Real\colon \sum_{u\in V}f(u)^2 < \infty }$�
 \begin{proof}
     頂点$u\in V$を固定すると, $u$から$\ell$本以下の辺を辿って辿り着ける頂点は高々
     \[ 1 + d + d(d-1) + \dots + d(d-1)^{\ell-1} \le 1 + d(d-1)^{\ell-1}\sum_{i=0}^{\ell-1}\rbra*{\frac{1}{d-1}}^i \le 1+\frac{d(d-1)^\ell}{d-2}  \]
-    この値が$n$より真に大きいとき, $u$から$\ell$本以下の辺を辿って辿り着けない頂点が存在し, これは$\diam(G) \ge \ell$を意味する.
-    これを解くと$\ell > \log_{d-1}\frac{(d-2)(n-1)}{d}$を得る.
+    この最右辺が$n$より真に小さいとき, $u$から$\ell$本以下の辺を辿って辿り着けない頂点が存在する.
+    従って, $\ell=\diam(G)$を代入したときの最右辺は$n$以上でなければならないため,
+    不等式$1+\frac{d(d-1)^{\diam(G)}}{d-2}\ge n$を解くと主張を得る.
 \end{proof}
 
 \begin{theorem}{Alon--Boppanaの定理}{Alon Boppana}
@@ -303,7 +306,7 @@ $\calG_{n,d}$から一様ランダムに選ばれたグラフ$G\sim\calG_{n,d}$�
 
 加法的組合せ論や計算量理論では\emph{擬似ランダム性 (pseudorandomness)}と呼ばれる概念が非常に重要な役割を果たしている.
 \begin{definition}{分布の擬似ランダム性}{pseudorandomness}
-    有限集合$\Omega$上のある分布$\mu$と関数族$\mathcal{F}=\{f\colon \Omega \to \binset\}$を考える.
+    有限集合$\Omega$上のある分布$\mu$と関数族$\mathcal{F} \subseteq \{f\colon \Omega \to \binset\}$を考える.
     分布$\mu$は,
     任意の$f\in \mathcal{F}$に対して
     \[ \abs*{\E_{x\sim \mu} [f(x)] - \E_{y\sim U_{\Omega}}[f(y)]} \le \varepsilon\]
@@ -425,23 +428,24 @@ Green--Taoの定理の証明においても重要な役割を果たしている
 本節では主に正則グラフに対する組合せ論的な性質について述べる.
 
 \begin{proposition}{低直径性}{small diameter}
-    $n$頂点$(1-\gamma)$-エクスパンダーの直径は高々$100\log n$.
+    $n$頂点$(1-\gamma)$-エクスパンダーの直径は高々$\ceil*{\frac{12\log n}{\gamma}}$.
 \end{proposition}
 \begin{proof}
     二頂点$u,v$を任意に固定し,
     $u$を始点とした単純ランダムウォーク$(X_t)_{t\ge 0}$を考える.
-    定常分布$\pi$は$\pimin \ge \frac{1}{n^2}$を満たす.
-    従って\cref{lem:mixing time and spectral gap}を$\varepsilon=n^{-10}$に対して適用すると,
+    定常分布$\pi$は$\pimin \ge \frac{1}{2|E|} \ge n^{-2}$を満たす.
+    従って\cref{lem:mixing time and spectral gap}を$\varepsilon=n^{-2}/2$に対して適用すると,
     \[
-        \tmix(n^{-10}) \le \frac{1}{\gamma}\log \frac{1}{2n^{12}} \le \frac{13\log n}{\gamma}.
+        \tmix(n^{-10}) \le \frac{4\log n}{\gamma}.
     \]
-    $\ell=\ceil*{\frac{1}{\gamma}\log \frac{1}{2n^{12}} \le \frac{13\log n}{\gamma}}$とする.
-    混交時間の定義(\cref{def:mixing time})より$\dtv(X_{\ell}, \pi) \le n^{-10}$であり,
+    $\ell=\ceil*{\frac{4\log n}{\gamma}}$とする.
+    混交時間の定義(\cref{def:mixing time})より$\dtv(X_{\ell}, \pi) \le n^{-2}/2$であり, 任意の頂点$v\in V$に対し
     $\pi(v) \ge n^{-2}$なので,
     \[
         \Pr[X_\ell = v] \ge \pi(v) - \dtv(X_\ell,\pi) >0
     \]
-    すなわち, 正の確率で$X_\ell = v$となるので, $\dist(u,v) \le \ell$となる.
+    すなわち, 正の確率で$X_\ell = v$となるので, 特に$\dist(u,v) \le \ell$を得る.
+    これが任意の$u,v$に対して成り立つので主張を得る.
 \end{proof}
 %\todo[inline]{Cheeger, chromatic number, diameter}
 
