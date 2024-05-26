@@ -366,10 +366,13 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm1
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 OUTPUT main.toc
+INPUT ./preface.tex
+INPUT ./preface.tex
+INPUT preface.tex
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmsl12.tfm
 INPUT ./random walk.tex
 INPUT ./random walk.tex
 INPUT random walk.tex
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmsl12.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
@@ -399,10 +402,10 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
 INPUT ./expander graph.tex
 INPUT ./expander graph.tex
 INPUT expander graph.tex
-INPUT ./images/tree.pdf
-INPUT ./images/tree.pdf
-INPUT ./images/tree.pdf
-INPUT extractbb -B cropbox -O images/tree.pdf
+INPUT ./images/tree.png
+INPUT ./images/tree.png
+INPUT ./images/tree.png
+INPUT extractbb -B cropbox -O images/tree.png
 INPUT ./images/EML.pdf
 INPUT ./images/EML.pdf
 INPUT ./images/EML.pdf
@@ -424,6 +427,10 @@ INPUT ./images/matching.pdf
 INPUT ./images/matching.pdf
 INPUT ./images/matching.pdf
 INPUT extractbb -B cropbox -O images/matching.pdf
+INPUT ./images/forest_link_shirnk.png
+INPUT ./images/forest_link_shirnk.png
+INPUT ./images/forest_link_shirnk.png
+INPUT extractbb -B cropbox -O images/forest_link_shirnk.png
 INPUT ./images/stationary_distribution.png
 INPUT ./images/stationary_distribution.png
 INPUT ./images/stationary_distribution.png
@@ -436,6 +443,10 @@ INPUT ./images/localwalk1.png
 INPUT ./images/localwalk1.png
 INPUT ./images/localwalk1.png
 INPUT extractbb -B cropbox -O images/localwalk1.png
+INPUT ./images/forest_link.png
+INPUT ./images/forest_link.png
+INPUT ./images/forest_link.png
+INPUT extractbb -B cropbox -O images/forest_link.png
 INPUT ./matroid.tex
 INPUT ./matroid.tex
 INPUT matroid.tex

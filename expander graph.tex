@@ -111,7 +111,7 @@ $A$は単位元を含まないため自己ループは存在しない.
 
 あとの節(\cref{sec:expander graph application})で詳しく述べるが,
 応用上は正則なエクスパンダーグラフが重要である.
-正則グラフ上のランダムウォークの遷移確率行列は単に隣接固有値を次数で割ったものであり定常分布も一様分布なので
+正則グラフ上のランダムウォークの遷移確率行列は単に隣接行列を次数で割ったものであり定常分布も一様分布なので
 単に隣接行列の固有値を考えれば良いことがわかる.\footnote{これらの理由からエクスパンダーグラフの理論は多くの教科書では正則グラフ上でのみ展開されている.}
 
 固定した自然数$d\ge 3$に対して最もエクスパンダー性の強い(つまり$\lambda$が最小となる)$d$-正則グラフはどのようなグラフだろうか?
@@ -121,7 +121,7 @@ $A$は単位元を含まないため自己ループは存在しない.
 直感的な議論だが, 短い閉路があるとそれに沿って同じ頂点を訪れてしまうので, そのような閉路はない方が良いと思われる.
 従ってそのグラフを虫眼鏡でズームすると局所的には木構造になっているべきであろう.
 そこで「理想的な」グラフとして$d$-正則で頂点数が無限の木$T$を考える.
-頂点集合$V$は加算無限であるため, 有限グラフに対する隣接行列や固有値の概念を無限グラフに拡張したものが必要である.
+頂点集合$V$は可算無限であるため, 有限グラフに対する隣接行列や固有値の概念を無限グラフに拡張したものが必要である.
 集合$\ell^2(V) \subseteq \Real^V$を
 $\ell^2(V) = \cbra*{ f \colon V \to \Real\colon \sum_{u\in V}f(u)^2 < \infty }$とする.
 隣接作用素$A\colon \ell^2(V) \to \ell^2(V)$を
@@ -132,7 +132,7 @@ $\ell^2(V) = \cbra*{ f \colon V \to \Real\colon \sum_{u\in V}f(u)^2 < \infty }$�
 有限集合である.
 作用素$A$のスペクトルを
 \[
-    \mathrm{spec}(A) = \cbra*{ \lambda \in \Real \colon A - \lambda I\text{ は可逆でない}}
+    \mathrm{spec}(A) = \cbra*{ \lambda \in \Real \colon A - \lambda I\text{ は逆行列を持たない}}
 \]
 とする.
 \begin{theorem}{}{infinite d-regular tree spectral}
@@ -221,14 +221,14 @@ $\ell^2(V) = \cbra*{ f \colon V \to \Real\colon \sum_{u\in V}f(u)^2 < \infty }$�
 
     \begin{figure}
         \begin{center}
-            \includegraphics[width=8cm]{images/tree.pdf}
-            \caption{$3$正則木$T$上の長さ$10$の閉路. 親から子への遷移と子から親への遷移を$5$回ずつ行う.}
+            \includegraphics[width=12cm]{images/tree.png}
+            \caption{$3$正則木$T$上の長さ$10$の閉路. 親から子への遷移と子から親への遷移を$5$回ずつ行う. 右図は深さ$d_i$の遷移を表す.}
         \end{center}
     \end{figure}
 
     木$T$において根を始点とする長さ$2k$の閉路$(v_0,\dots,v_{2k})$を考える (ここで$v_0=v_{2k}$).
     各$i$に対して$d_i = \mathrm{depth}(v_i)$とし, 列$(d_0,\dots,d_{2k})$を考える.
-    まず$d_0=0$であり, その後は$d_{i+1} \in \cbra{d_i \pm 1}$であり, 常に非負性を保ちながら最後に$d_{2k}=0$となる.
+    まず$d_0=0$であり, その後は$d_{i+1} \in \cbra{d_i \pm 1}$であり, 常に非負を保ちながら最後に$d_{2k}=0$となる.
     このような列$(d_0,\dots,d_{2k})$の総数はカタラン数と等しく, $\frac{1}{k+1}\binom{2k}{k}$に等しい.
     特に, 各$d_i - d_{i-1}$の符号を見ると$d_0 = d_{2k} = 0$より正と負がそれぞれ$k$個ずつ含まれている.
 
@@ -345,18 +345,20 @@ Green--Taoの定理の証明においても重要な役割を果たしている
 以下の結果は\citet{AC88}によるものである.
 %
 \begin{lemma}{エクスパンダー混交補題}{expander mixing lemma}
-    グラフ$G$が$n$頂点$d$-正則$\lambda$-エクスパンダーであるとき, \cref{eq:expander mu}で定義された分布$\mu$は\cref{eq:expander F}で定義された関数族$\mathcal{F}$に関して$\varepsilon$-擬似ランダムである.
-    すなわち, 任意の頂点部分集合$S,T\subseteq V$に対して,
+    任意の頂点部分集合$S,T\subseteq V$に対して,
     $e(S,T) = \sum_{s\in S,t\in T} \indicator{\{s,t\} \in E}$を$S,T$間の辺の本数($S\cap T$内の辺は2回数える)とすると,
     \[
         \abs*{e(S,T) - \frac{d}{n}|S||T|} \le d\lambda\sqrt{|S||T|\rbra*{1-\frac{|S|}{n}}\rbra*{1-\frac{|T|}{n}}}.
     \]
-
     同様に, $G$が片側$\lambda$-エクスパンダーならば,
     \[
         e(S,T) - \frac{d}{n}|S||T| \le d\lambda\sqrt{|S||T|\rbra*{1-\frac{|S|}{n}}\rbra*{1-\frac{|T|}{n}}}.
     \]
 \end{lemma}
+
+\begin{corollary}{擬似ランダム性}{pseudorandomness expander}
+    グラフ$G$が$n$頂点$d$-正則$\lambda$-エクスパンダーであるとき, \cref{eq:expander mu}で定義された分布$\mu$は\cref{eq:expander F}で定義された関数族$\mathcal{F}$に関して$\frac{\lambda}{4}$-擬似ランダムである.
+\end{corollary}
 %
 グラフ$G$の隣接行列$A$を考えるとイメージしやすい.
 この行列は全部で$nd$個の$1$を持っているため, 全成分の中で$1$の密度は$\frac{d}{n}$である.
@@ -522,8 +524,8 @@ $\phi(S)$の分母の値$d|S|  =\sum_{v\in S}\deg(v)$は$S$に接続している
     $n + O\rbra*{1/\varepsilon}$ビットのランダムネスを用いて確率$1/2$以上で「あたり」を引く方法がある.
 \end{proposition}
 \begin{proof}[\textbf{証明の概要.}]
-    あとで定まる適切なパラメータ$\ell\in\Nat$に対し
     頂点数$2^n$の$8$-正則$0.9$-エクスパンダーグラフ$G=(V,E)$を\cref{thm:Margulis construction}を用いて決定的に構成し, 適当な全単射を用いて$V$を$\binset^n$と同一視する (ここで用いる全単射は何でもよい).
+    あとで定まる適切なパラメータ$\ell\in\Nat$に対し,
     初期頂点を一様ランダムにした
     $G$上の$\ell$ステップの単純ランダムウォーク$(X_t)_{t=0,\dots,\ell}$を考え,
     訪問した頂点$X_0,\dots,X_\ell$の中に「あたり」があるかどうかを調べる.
