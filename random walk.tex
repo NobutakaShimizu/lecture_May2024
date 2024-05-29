@@ -217,15 +217,28 @@
   となり矛盾を得る.
 
   二つ目の主張を示す.
-  ランダムウォークが既約であるとして一般性を失わない(既約でない場合, それぞれの既約な成分を考えればよい).
   $P$は非周期的なので, \cref{lem:P bekijou}より, ある$L\ge 1$に対して$Q\defeq P^L$の全ての成分は正である.
   従って, ある$0<\delta<1$, 全成分が$1/|V|$の確率行列$J$, 適当な確率行列$R$を用いて
   \[
     Q = \delta J + (1-\delta)R
   \]
   と表せる.
-  従って, $\allone$に直交する任意のベクトルに対し$xQ^t = \sum_{i=0}^t \delta^i(1-\delta)^{t-i} x J^iR^{t-i} = (1-\delta)^t x R^t$が成り立つ ($i\ge 1$に対して$xJ^i=0$となることに留意せよ).
-  初期分布$p_0\in[0,1]^V$に対し, $x\defeq p_0 - \pi$とすると
+  まず定常分布の一意性を示す.
+  二つの相異なる定常分布$\pi,\pi'$が存在すると仮定すると
+  \begin{align*}
+    \norm{\pi - \pi'}_1 = \norm{\pi Q -  \pi' Q}_1 = (1-\delta)\norm{(\pi - \pi')R}_1 \le  (1-\delta)\norm{\pi - \pi'}_1
+  \end{align*}
+  となるが, これは$\norm{\pi - \pi'}_1>0$に矛盾する (最後の不等号で\cref{lem:ellone norm}を用いた).
+  以上より一意性が示された.
+
+  次に収束性を示す.
+  $\allone$に直交する任意のベクトルに対し$xQ^t$を考える.
+  まず, $t=1$のときは$xQ = (1-\delta) xR$となり, このベクトルもまた$\allone$に直交している.
+  実際, $\abra{xR,\allone} = x^\top R \allone = x^\top \allone = 0$である.
+  このことから
+  $t=2$のときは$xQ^2 = (1-\delta)xR \cdot (\delta J + (1-\delta) R) =(1-\delta)^2 xR^2$を得る.
+  これを繰り返していくと, 一般の$t$に対して$xQ^t = (1-\delta)^txR^t$を得る.
+  初期分布$p_0\in[0,1]^V$に対し, $x\defeq p_0 - \pi$は$\allone$に直交するので
   \begin{align*}
     \norm{p_t - \pi}_{1} &= \norm{(p_0-\pi)P^t}_{1} \\
     &\le \norm{xQ^{\floor{t/L}}}_{1} & & \text{$\because$\cref{lem:ellone norm}}\\
@@ -235,13 +248,6 @@
   \end{align*}
   を得る.
   よって, 確かにランダムウォークの分布$(p_t)$は定常分布$\pi$に収束する.
-
-  最後に$P$が既約かつ非周期性を仮定して定常分布$\pi$の一意性を示す.
-  二つの相異なる定常分布$\pi\neq \pi'$が存在すると仮定すると
-  \[
-    0<\norm{\pi - \pi'}_{\infty} = \norm{(\pi - \pi')P^L}_{\infty} = (1-\delta)\norm{(\pi - \pi')R}_{\infty} \le (1-\delta)\norm{\pi - \pi'}_{\infty}
-  \]
-  より矛盾を得る.
 \end{proof}
 
 \subsection{混交時間}
@@ -633,7 +639,7 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
 が成り立っていたが,
 可逆なランダムウォークの遷移確率行列$P$は内積$\piprod{\cdot,\cdot}$に関して同様の性質を持つ.
 \begin{lemma}{}{reversible adjoint}
-    定常分布$\pi$をもつ可逆なランダムウォークの遷移確率行列$P$は,
+    定常分布$\pi$をもつ既約的かつ可逆なランダムウォークの遷移確率行列$P$は,
     任意の$f,g\in\Real^V$に対して
     \[ \piprod{f,Pg} = \piprod{Pf,g} \]
     を満たす.
@@ -795,6 +801,7 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
 \end{definition}
 遷移確率行列$P$を作用させると分散が減少する.
 \begin{lemma}{}{variance}
+    既約的かつ可逆なランダムウォークの
     遷移確率行列$P$と関数$f \in \pispace$に対し
     \[
         (Pf)(u) \defeq \sum_{v\in V} P(u,v)f(v)
@@ -850,7 +857,7 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
     定常分布$\pi$に対し$\pimin = \min_{u\in V} \pi(u)$とすると,
     任意の初期分布に対して
     \[ \tmix(\varepsilon) \le\frac{\log\rbra*{\frac{1}{2\pimin\varepsilon}}}{\log(1/\lambda(P))}. \]
-    特に, スペクトルギャップが$\gamma>0$のとき,
+    特に, スペクトルギャップ$\gamma>0$に対し
     $\tmix(\varepsilon) \le \frac{1}{\gamma}\log\rbra*{\frac{1}{2\pimin\varepsilon}}$.
     \footnote{ここでは自然対数を考える.}
 \end{lemma}
@@ -892,7 +899,8 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
 \section{Rayleigh商} \label{sec:Rayleigh quotient}
 以下の結果は第二固有値の上界を得るときなどに役にたつ.
 \begin{lemma}{レイリー商による固有値の特徴付け}{Rayleigh quotient}
-  定常分布$\pi$をもつ可逆な遷移確率行列$P$に対し, 以下が成り立つ:
+
+  定常分布$\pi$をもつ既約的かつ可逆なランダムウォークの遷移確率行列$P$に対し, 以下が成り立つ:
   \begin{align*}
     &\max_{f \in \pispace\setminus\{0\},\piprod{f,\allone}=0}\frac{\piprod{f,Pf}}{\pinorm{f}^2}=\lambda_2(P),\\
     &\min_{f \in \pispace\setminus\{0\}}\frac{\piprod{f,Pf}}{\pinorm{f}^2}=\lambda_{|V|}(P).

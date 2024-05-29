@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2024.4.15)  26 MAY 2024 22:14
+This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2024.4.15)  29 MAY 2024 22:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -997,168 +997,172 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 205.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 252.
+(Font)              No change on input line 258.
  [12]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 267.
+(Font)              No change on input line 273.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 6.73553pt on input line 267.
+(Font)              scaled to size 6.73553pt on input line 273.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 6.73553pt on input line 267.
+(Font)              scaled to size 6.73553pt on input line 273.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 267.
+(Font)              No change on input line 273.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 333.
+(Font)              No change on input line 339.
  [13]
 Underfull \vbox (badness 4739) has occurred while \output is active []
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 341.
+(Font)              No change on input line 347.
  [14]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 348.
+(Font)              No change on input line 354.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 396.
+(Font)              No change on input line 402.
  [15]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 440.
+(Font)              No change on input line 446.
  [16] Excluding 'comment' comment.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 492.
+(Font)              No change on input line 498.
  [17]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 494.
+(Font)              No change on input line 500.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 543.
+(Font)              No change on input line 549.
  [18]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 595.
+(Font)              No change on input line 601.
  [19]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 640.
+(Font)              No change on input line 646.
  [20]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 642.
+(Font)              No change on input line 648.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 667.
+(Font)              No change on input line 673.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 695.
+(Font)              No change on input line 701.
  [21]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 711.
+(Font)              No change on input line 717.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 753.
+(Font)              No change on input line 759.
  [22]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 767.
+(Font)              No change on input line 773.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 795.
+(Font)              No change on input line 801.
  [23] Excluding 'comment' comment.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 855.
+(Font)              No change on input line 862.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 855.
+(Font)              No change on input line 862.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 856.
+(Font)              No change on input line 863.
  [24]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 859.
+(Font)              No change on input line 866.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 900.
+(Font)              No change on input line 908.
  [25]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 902.
-) (./expander graph.tex
+(Font)              No change on input line 910.
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
+(Font)              No change on input line 943.
+ [26]) (./expander graph.tex
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 1.
- [26]
-Chapter 2.
-[27
+ [27] [28
 
 ]
+Chapter 2.
+[29]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 96.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 96.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 99.
- [28]
+ [30]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 136.
- [29]
+ [31]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 153.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 171.
- [30]
+ [32]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 173.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 209.
- [31]
+(Font)              No change on input line 210.
+ [33]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 214.
+(Font)              No change on input line 212.
 File: images/tree.png Graphic file (type bmp)
 <images/tree.png>
 LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT2/gt/m/n' tried instead on input line 246.
+(Font)              Font shape `JT2/gt/m/n' tried instead on input line 243.
 LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 9.6222pt on input line 246.
+(Font)              scaled to size 9.6222pt on input line 243.
 LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY2/gt/m/n' tried instead on input line 246.
+(Font)              Font shape `JY2/gt/m/n' tried instead on input line 243.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 9.6222pt on input line 246.
+(Font)              scaled to size 9.6222pt on input line 243.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 249.
- [32]
+(Font)              No change on input line 251.
+ [34]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 294.
- [33]
+(Font)              No change on input line 291.
+ [35]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 326.
- [34]
+ [36]
 File: images/EML.pdf Graphic file (type pdf)
 <images/EML.pdf>
-LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 374.
- [35]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 374.
+(Font)              No change on input line 371.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 403.
- [36]
-LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 405.
-LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 436.
-LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 446.
+(Font)              No change on input line 382.
  [37]
-LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 460.
+Underfull \vbox (badness 1910) has occurred while \output is active []
+
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 492.
+(Font)              No change on input line 400.
  [38]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 526.
+(Font)              No change on input line 402.
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
+(Font)              No change on input line 433.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 535.
+(Font)              No change on input line 445.
  [39]
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
+(Font)              No change on input line 457.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 584.
+(Font)              No change on input line 498.
  [40]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 593.
-LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 612.
-LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
-(Font)              No change on input line 620.
+(Font)              No change on input line 523.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
-(Font)              No change on input line 636.
- [41]) (./HDX.tex
+(Font)              No change on input line 545.
+ [41]
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
+(Font)              No change on input line 588.
+ [42]
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
+(Font)              No change on input line 590.
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
+(Font)              No change on input line 609.
+LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
+(Font)              No change on input line 617.
+) (./HDX.tex
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 1.
- [42]
+ [43] [44
+
+]
 Chapter 3.
 File: images/face.png Graphic file (type bmp)
 <images/face.png>
@@ -1166,17 +1170,15 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 26.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 26.
-[43
-
-]
+[45]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 63.
- [44]
+ [46]
 File: images/matching.pdf Graphic file (type pdf)
 <images/matching.pdf>
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 115.
- [45]
+ [47]
 File: images/forest_link_shirnk.png Graphic file (type bmp)
 <images/forest_link_shirnk.png>
 
@@ -1184,7 +1186,7 @@ Underfull \vbox (badness 1248) has occurred while \output is active []
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 164.
- [46]
+ [48]
 File: images/stationary_distribution.png Graphic file (type bmp)
 <images/stationary_distribution.png>
 
@@ -1192,40 +1194,40 @@ Underfull \vbox (badness 1603) has occurred while \output is active []
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 189.
- [47]
+ [49]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 221.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 223.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 229.
- [48]
+ [50]
 File: images/walks.png Graphic file (type bmp)
 <images/walks.png>
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 271.
- [49]
+ [51]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 278.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 313.
- [50]
+ [52]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 355.
- [51]
+ [53]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 403.
- [52]
+ [54]
 File: images/localwalk1.png Graphic file (type bmp)
 <images/localwalk1.png>
 File: images/forest_link.png Graphic file (type bmp)
 <images/forest_link.png>
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 446.
- [53]
+ [55]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 484.
- [54]
+ [56]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 508.
 
@@ -1233,12 +1235,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 515.
- [55]
+ [57]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 528.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 545.
- [56]
+ [58]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 547.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
@@ -1248,44 +1250,44 @@ Underfull \vbox (badness 1888) has occurred while \output is active []
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 585.
- [57]) (./matroid.tex
+ [59]) (./matroid.tex
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 1.
- [58]
+ [60]
 Chapter 4.
 File: images/graphicmatroid.png Graphic file (type bmp)
 <images/graphicmatroid.png>
-[59
+[61
 
 ]
 Underfull \vbox (badness 5607) has occurred while \output is active []
 
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 75.
- [60]
+ [62]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 111.
- [61]
+ [63]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 150.
- [62]
+ [64]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 152.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 170.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 192.
- [63]
+ [65]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 232.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 239.
- [64]
+ [66]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 266.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 290.
- [65]
+ [67]
 
 LaTeX Warning: Reference `thm:thm:Oppenheim trickle-down theorem' on page 1 undefined on input line 313.
 
@@ -1293,17 +1295,17 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 329.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 331.
-[66]) (./conclusion.tex
+[68]) (./conclusion.tex
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 1.
- [67] [68
+ [69] [70
 
 ]
 Chapter 5.
-) [69]
+) [71]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 62.
- [70]
+ [72]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 62.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
@@ -1345,7 +1347,7 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 62.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
 (Font)              No change on input line 62.
-[71
+[73
 
 ]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
@@ -1412,7 +1414,7 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
 (Font)              No change on input line 62.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 62.
-[72]
+[74]
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/it' undefined
 (Font)              No change on input line 62.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
@@ -1428,7 +1430,7 @@ LaTeX Font Info:    Kanji font shape `JY2/mc/m/sc' undefined
 (Font)              No change on input line 62.
 LaTeX Font Info:    Kanji font shape `JY2/mc/m/sl' undefined
 (Font)              No change on input line 65.
-[73] (./main.aux)
+[75] (./main.aux)
  ***********
 pLaTeX2e <2023-02-14u04>+1, based on
 LaTeX2e <2023-11-01> patch level 1
@@ -1453,4 +1455,4 @@ Here is how much of TeX's memory you used:
  929 hyphenation exceptions out of 8191
  83i,22n,93p,739b,1621s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.dvi (73 pages, 757028 bytes).
+Output written on main.dvi (75 pages, 757544 bytes).
