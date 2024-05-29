@@ -410,3 +410,57 @@ INPUT ./images/EML.pdf
 INPUT ./images/EML.pdf
 INPUT ./images/EML.pdf
 INPUT extractbb -B cropbox -O images/EML.pdf
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
+INPUT ./HDX.tex
+INPUT ./HDX.tex
+INPUT HDX.tex
+INPUT ./images/face.png
+INPUT ./images/face.png
+INPUT ./images/face.png
+INPUT extractbb -B cropbox -O images/face.png
+INPUT ./images/matching.pdf
+INPUT ./images/matching.pdf
+INPUT ./images/matching.pdf
+INPUT extractbb -B cropbox -O images/matching.pdf
+INPUT ./images/forest_link_shirnk.png
+INPUT ./images/forest_link_shirnk.png
+INPUT ./images/forest_link_shirnk.png
+INPUT extractbb -B cropbox -O images/forest_link_shirnk.png
+INPUT ./images/stationary_distribution.png
+INPUT ./images/stationary_distribution.png
+INPUT ./images/stationary_distribution.png
+INPUT extractbb -B cropbox -O images/stationary_distribution.png
+INPUT ./images/walks.png
+INPUT ./images/walks.png
+INPUT ./images/walks.png
+INPUT extractbb -B cropbox -O images/walks.png
+INPUT ./images/localwalk1.png
+INPUT ./images/localwalk1.png
+INPUT ./images/localwalk1.png
+INPUT extractbb -B cropbox -O images/localwalk1.png
+INPUT ./images/forest_link.png
+INPUT ./images/forest_link.png
+INPUT ./images/forest_link.png
+INPUT extractbb -B cropbox -O images/forest_link.png
+INPUT ./matroid.tex
+INPUT ./matroid.tex
+INPUT matroid.tex
+INPUT ./images/graphicmatroid.png
+INPUT ./images/graphicmatroid.png
+INPUT ./images/graphicmatroid.png
+INPUT extractbb -B cropbox -O images/graphicmatroid.png
+INPUT ./conclusion.tex
+INPUT ./conclusion.tex
+INPUT conclusion.tex
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
+INPUT main.aux
+INPUT ./main.out
+INPUT ./main.out
+INPUT main.run.xml
+OUTPUT main.run.xml
