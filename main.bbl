@@ -1029,6 +1029,42 @@
       \verb 10.1109/18.556667
       \endverb
     \endentry
+    \entry{Whitney1935}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=14cb77dee3837480e61347c808ea6416}{%
+           family={Whitney},
+           familyi={W\bibinitperiod},
+           given={Hassler},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Johns Hopkins University Press}%
+      }
+      \strng{namehash}{14cb77dee3837480e61347c808ea6416}
+      \strng{fullhash}{14cb77dee3837480e61347c808ea6416}
+      \strng{fullhashraw}{14cb77dee3837480e61347c808ea6416}
+      \strng{bibnamehash}{14cb77dee3837480e61347c808ea6416}
+      \strng{authorbibnamehash}{14cb77dee3837480e61347c808ea6416}
+      \strng{authornamehash}{14cb77dee3837480e61347c808ea6416}
+      \strng{authorfullhash}{14cb77dee3837480e61347c808ea6416}
+      \strng{authorfullhashraw}{14cb77dee3837480e61347c808ea6416}
+      \field{labelalpha}{Whi35}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0002-9327, 1080-6377}
+      \field{journaltitle}{Amer. J. Math.}
+      \field{number}{3}
+      \field{title}{On the Abstract Properties of Linear Dependence}
+      \field{volume}{57}
+      \field{year}{1935}
+      \field{pages}{509\bibrangedash 533}
+      \range{pages}{25}
+      \verb{doi}
+      \verb 10.2307/2371182
+      \endverb
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

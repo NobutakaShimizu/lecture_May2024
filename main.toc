@@ -35,11 +35,11 @@
 \contentsline {subsection}{\numberline {3.2.3}各次元の内積空間}{52}{subsection.3.2.3}%
 \contentsline {section}{\numberline {3.3}局所エクスパンダー性}{54}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}局所的なランダムウォーク}{54}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}局所エクスパンダー}{54}{subsection.3.3.2}%
-\contentsline {section}{\numberline {3.4}単体複体の局所大域原理}{55}{section.3.4}%
+\contentsline {subsection}{\numberline {3.3.2}局所エクスパンダー}{55}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}単体複体の局所大域原理}{56}{section.3.4}%
 \contentsline {subsection}{\numberline {3.4.1}非遅延上昇下降ウォーク}{56}{subsection.3.4.1}%
 \contentsline {subsection}{\numberline {3.4.2}ランダムウォークの分解}{57}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}第二固有値の比較}{58}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.3}第二固有値の比較}{59}{subsection.3.4.3}%
 \contentsline {subsection}{\numberline {3.4.4}Alev--Lauの定理}{60}{subsection.3.4.4}%
 \contentsline {chapter}{\numberline {4}マトロイド}{61}{chapter.4}%
 \contentsline {section}{\numberline {4.1}定義}{61}{section.4.1}%

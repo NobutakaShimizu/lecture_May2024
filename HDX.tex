@@ -127,6 +127,7 @@ $\sigma\in \F$を一つ固定したとき, リンク$X_\sigma$はどのような
 $X_\sigma$の全ての面は辺集合$\sigma$を含むので, $\sigma$に含まれる全ての頂点を縮約して得られるより小さなグラフを考え, そこから$\sigma$の辺を除去して得られるグラフ$G'$の森全体からなる単体複体とみなせる (\cref{fig:forest_link_shrink}).
 マトロイドの文脈では縮約と呼ばれる操作と同じである.
 
+本講義では基本的に$1$-スケルトンのみ扱う.
 単体複体の$1$-スケルトンは, $1$次元の面を辺とみなすことでグラフと同一視できる.
 以後, $1$-スケルトンといった場合はこの同一視によってグラフとして扱う.
 
@@ -209,20 +210,22 @@ $X_\sigma$の全ての面は辺集合$\sigma$を含むので, $\sigma$に含ま�
 %
 \begin{definition}{上昇ウォーク}{up walk}
     純粋な$d$次単体複体$X=(V,\F)$を考える.
-    各$i=-1,\dots,d-2$に対し
+    各$i=-1,\dots,d-1$に対し
         確率行列$\Pup_i \in [0,1]^{X(i) \times X(i+1)}$を
     \begin{align*}
         \Pup_i(\sigma,\tau) &= \frac{\pi_{i+1}(\tau)}{\pi_i(\sigma)}\Pdown_{i+1}(\tau,\sigma) \\
         &= \begin{cases}
-            \frac{\pi_{i+1}(\tau)}{(i+1)\pi_i(\sigma)}	& \tif \sigma\subseteq \tau,\\
+            \frac{\pi_{i+1}(\tau)}{(i+2)\pi_i(\sigma)}	& \tif \sigma\subseteq \tau,\\
             0 & \totherwise
         \end{cases}
     \end{align*}
     で定める\footnote{全ての$\sigma\in X(i)$に対し$\pi_i(\sigma)>0$である
-    (そうでなければ, $\pi_d$が一様分布であることに反する).
+    (そうでなければ, $\pi$の全成分が正であることに反する).
     }.
 \end{definition}
 %
+簡単な計算により行列$\Pup_i$は確かに確率行列であることが確認できる.
+
 二つの面集合$X(i)$と$X(i+1)$を部集合とする二部グラフを考えればわかりやすい.
 それぞれの部集合には$\pi_i,\pi_{i+1}$が定常分布として付随しており,
 上昇ウォーク$\Pup_i$と下降ウォーク$\Pdown_{i+1}$は詳細釣り合い条件
@@ -329,6 +332,18 @@ $\Pdown_{i+1} \colon \ispace \to \ispace[i+1]$
 \cref{eq:adjoint up and walk}を確認せよ.
 \end{exercise}
 
+\begin{lemma}{半正定値性}{psd}
+    各$i$に対して上昇下降ウォーク$\PDU_i$と下降上昇ウォーク$\PUD_i$は半正定値である.
+\end{lemma}
+\begin{proof}
+    $\PDU_i$と$\PUD_{i-1}$は同じスペクトルを持つので$\PDU_i$についてのみ示せばよい.
+    任意の$f\in\ispace$に対し,
+    \begin{align*}
+        \iprod{f,\PDU_i f} = \iprod{f,\Pdown_i \Pup_{i-1} f} = \iprod[X(i-1)]{\Pup_{i-1}f,\Pup_{i-1}f}\ge 0.
+    \end{align*}
+\end{proof};
+
+
 また, リンク$X_\sigma$に対しても\cref{def:link stationary distribution}で定義した定常分布を用いて内積空間$\ispace[X_\sigma(i)]$を定義できる.
 
 単体複体の大域的なエクスパンダー性を下降上昇ウォークのエクスパンダー性で定める.
@@ -338,10 +353,7 @@ $\Pdown_{i+1} \colon \ispace \to \ispace[i+1]$
     \emph{大域$(\lambda_0,\dots,\lambda_{d})$-エクスパンダー (global $(\lambda_0,\dots,\lambda_{d})$-expander)}であるという.
 %    特に, $\lambda_0=\dots=\lambda_{d-1}=\lambda$のとき, 大域$\lambda$-エクスパンダーという.
 \end{definition}
-エクスパンダーグラフ(\cref{def:expander})と比較すると, 片側(第二固有値)だけの上界だけでエクスパンダー性を定義している.
-これは, 単体複体上の上昇下降ウォークがグラフ上の遅延単純ランダムウォークに対応しており, 常にその遷移確率行列が半正定値行列であるため$\lambda_2$だけがバウンドされてあればよい.
-
-なお, 二つの行列$A,B$に対し, $AB$の非ゼロ固有値と$BA$の非ゼロ固有値は同じなので, \cref{def:global expander}において上昇下降ウォークを考えても等価な定義になる.
+エクスパンダーグラフ(\cref{def:expander})と比較すると, 片側(第二固有値)だけの上界だけでエクスパンダー性を定義しているが, \cref{lem:psd}より下からのバウンドがあるので上界だけの保証で十分だらかである.
 
 本講義の目標は単体複体の大域エクスパンダー性を証明することである.
 特にマトロイドと呼ばれる単体複体の大域エクスパンダー性はMihail--Vazirani予想\cite{balanced_matroids}と呼ばれる30年来の未解決問題であった\footnote{\cite{balanced_matroids}にはこの予想はMihailとVaziraniが立てたものらしいのだが, この予想を陽に述べた最初の文献は私が調べた限りでは\citet{balanced_matroids}であった.}

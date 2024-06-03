@@ -2409,23 +2409,25 @@
     <bcf:citekey order="31" intorder="1">KO20</bcf:citekey>
     <bcf:citekey order="32" intorder="1">AL20</bcf:citekey>
     <bcf:citekey order="33" intorder="1">AL20</bcf:citekey>
-    <bcf:citekey order="34" intorder="1">balanced_matroids</bcf:citekey>
-    <bcf:citekey order="35" intorder="1">Oppenheim_tricling_down</bcf:citekey>
-    <bcf:citekey order="36" intorder="1">GS06</bcf:citekey>
-    <bcf:citekey order="37" intorder="1">GS06</bcf:citekey>
-    <bcf:citekey order="38" intorder="1">DELLM22</bcf:citekey>
-    <bcf:citekey order="39" intorder="1">DELLM22</bcf:citekey>
-    <bcf:citekey order="40" intorder="1">SS96</bcf:citekey>
+    <bcf:citekey order="34" intorder="1">Whitney1935</bcf:citekey>
+    <bcf:citekey order="35" intorder="1">Whitney1935</bcf:citekey>
+    <bcf:citekey order="36" intorder="1">balanced_matroids</bcf:citekey>
+    <bcf:citekey order="37" intorder="1">Oppenheim_tricling_down</bcf:citekey>
+    <bcf:citekey order="38" intorder="1">GS06</bcf:citekey>
+    <bcf:citekey order="39" intorder="1">GS06</bcf:citekey>
+    <bcf:citekey order="40" intorder="1">DELLM22</bcf:citekey>
     <bcf:citekey order="41" intorder="1">DELLM22</bcf:citekey>
-    <bcf:citekey order="42" intorder="1">DELLM22</bcf:citekey>
+    <bcf:citekey order="42" intorder="1">SS96</bcf:citekey>
     <bcf:citekey order="43" intorder="1">DELLM22</bcf:citekey>
-    <bcf:citekey order="44" intorder="1">LH22</bcf:citekey>
-    <bcf:citekey order="44" intorder="2">PK22</bcf:citekey>
-    <bcf:citekey order="45" intorder="1">LH22</bcf:citekey>
-    <bcf:citekey order="45" intorder="2">PK22</bcf:citekey>
+    <bcf:citekey order="44" intorder="1">DELLM22</bcf:citekey>
+    <bcf:citekey order="45" intorder="1">DELLM22</bcf:citekey>
     <bcf:citekey order="46" intorder="1">LH22</bcf:citekey>
     <bcf:citekey order="46" intorder="2">PK22</bcf:citekey>
-    <bcf:citekey order="47" intorder="1">LZ22</bcf:citekey>
+    <bcf:citekey order="47" intorder="1">LH22</bcf:citekey>
+    <bcf:citekey order="47" intorder="2">PK22</bcf:citekey>
+    <bcf:citekey order="48" intorder="1">LH22</bcf:citekey>
+    <bcf:citekey order="48" intorder="2">PK22</bcf:citekey>
+    <bcf:citekey order="49" intorder="1">LZ22</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="anyt">

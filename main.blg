@@ -1,20 +1,20 @@
 [0] Config.pm:308> INFO - This is Biber 2.20
-[0] Config.pm:311> INFO - Logfile is 'main.blg'
-[73] biber-darwin:340> INFO - === Wed May 29, 2024, 22:31:05
-[114] Biber.pm:420> INFO - Reading 'main.bcf'
-[214] Biber.pm:994> INFO - Found 26 citekeys in bib section 0
-[227] Biber.pm:4463> INFO - Processing section 0
-[237] Biber.pm:4654> INFO - Looking for bibtex file 'ref.bib' for section 0
-[239] bibtex.pm:1713> INFO - LaTeX decoding ...
-[273] bibtex.pm:1519> INFO - Found BibTeX data source 'ref.bib'
-[449] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[449] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[449] Biber.pm:4283> INFO - Sorting list 'anyt/global//global/global/global' of type 'entry' with template 'anyt' and locale 'en-US'
-[449] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
-[477] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[477] bbl.pm:677> INFO - Converting UTF-8 to TeX macros on output to .bbl
-[505] bbl.pm:779> INFO - Output to main.bbl
-[505] Biber.pm:131> WARN - BibTeX subsystem: /var/folders/rg/ddt5bhvn33q8x21j0g8t7gwr0000gn/T/biber_tmp_1Nwd/e800e2552f53b910154f366d4c3730d7_45260.utf8, line 30, warning: 1 characters of junk seen at toplevel
-[505] Biber.pm:131> WARN - BibTeX subsystem: /var/folders/rg/ddt5bhvn33q8x21j0g8t7gwr0000gn/T/biber_tmp_1Nwd/e800e2552f53b910154f366d4c3730d7_45260.utf8, line 41, warning: 1 characters of junk seen at toplevel
-[505] Biber.pm:131> WARN - BibTeX subsystem: /var/folders/rg/ddt5bhvn33q8x21j0g8t7gwr0000gn/T/biber_tmp_1Nwd/e800e2552f53b910154f366d4c3730d7_45260.utf8, line 85, warning: 1 characters of junk seen at toplevel
-[505] Biber.pm:133> INFO - WARNINGS: 3
+[1] Config.pm:311> INFO - Logfile is 'main.blg'
+[99] biber-darwin:340> INFO - === Fri May 31, 2024, 21:58:17
+[120] Biber.pm:420> INFO - Reading 'main.bcf'
+[237] Biber.pm:994> INFO - Found 27 citekeys in bib section 0
+[251] Biber.pm:4463> INFO - Processing section 0
+[269] Biber.pm:4654> INFO - Looking for bibtex file 'ref.bib' for section 0
+[271] bibtex.pm:1713> INFO - LaTeX decoding ...
+[310] bibtex.pm:1519> INFO - Found BibTeX data source 'ref.bib'
+[528] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[528] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[528] Biber.pm:4283> INFO - Sorting list 'anyt/global//global/global/global' of type 'entry' with template 'anyt' and locale 'en-US'
+[528] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[566] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[566] bbl.pm:677> INFO - Converting UTF-8 to TeX macros on output to .bbl
+[598] bbl.pm:779> INFO - Output to main.bbl
+[598] Biber.pm:131> WARN - BibTeX subsystem: /var/folders/rg/ddt5bhvn33q8x21j0g8t7gwr0000gn/T/biber_tmp_OiAy/e800e2552f53b910154f366d4c3730d7_8267.utf8, line 30, warning: 1 characters of junk seen at toplevel
+[598] Biber.pm:131> WARN - BibTeX subsystem: /var/folders/rg/ddt5bhvn33q8x21j0g8t7gwr0000gn/T/biber_tmp_OiAy/e800e2552f53b910154f366d4c3730d7_8267.utf8, line 41, warning: 1 characters of junk seen at toplevel
+[598] Biber.pm:131> WARN - BibTeX subsystem: /var/folders/rg/ddt5bhvn33q8x21j0g8t7gwr0000gn/T/biber_tmp_OiAy/e800e2552f53b910154f366d4c3730d7_8267.utf8, line 85, warning: 1 characters of junk seen at toplevel
+[599] Biber.pm:133> INFO - WARNINGS: 3

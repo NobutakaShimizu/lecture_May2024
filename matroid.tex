@@ -1,6 +1,6 @@
 \chapter{マトロイド} \label{chap:matroid}
 マトロイド(matroid)は「行列(matrix)のようなもの(-oid)」という名を冠するが,
-線形代数における線型独立性をグラフの全域木などに拡張した概念である.
+ベクトルの線型独立性を拡張した独立性の概念として\citet{Whitney1935}によって定義された.
 
 \section{定義}
 \begin{definition}{マトロイド}{matroid}
@@ -52,6 +52,8 @@
 %
 \paragraph*{例3. 線形マトロイド}
 \cref{eq:linear matroid}で定まる単体複体$(V,\F)$は\emph{線形マトロイド (linear matroid)}と呼ばれるマトロイドである.
+$\sigma,\tau\in \F$であって$\abs{\sigma} < \abs{\tau}$であるとする.
+全てのベクトル$x\in \tau$が$x\in \mathrm{span}(\sigma)$に属するならば, $\tau$の線型独立性に矛盾するのであるベクトル$x\in \tau$が存在して$\{x\}\cup\sigma\in\F$となる.
 
 \paragraph*{例4. 分割マトロイド}
 有限集合$V$の分割$V=W_1\sqcup \dots \sqcup W_k$と非負整数$d_1,\dots,d_k\ge 0$を固定する.
@@ -73,9 +75,16 @@
 \begin{definition}{基交換ウォーク}{basis-exchange walk}
     マトロイド$(V,\F)$の基上の下降上昇ウォークを\emph{基交換ウォーク (basis-exchange walk)}という.
 \end{definition}
-すなわち, 基$B$から開始し,
+$X(d-1)$から$X(d)$への上昇ウォークを考えてみよう.
+$\pi_{d-1}(\sigma)=\sum_{\tau\in\B} \pi_d(\tau) \cdot \Pdown_d(\tau,\sigma)$は, $\pi_d$が一様分布であり$\Pdown_d(\tau,\sigma)$は$\allone_{\tau\supset \sigma}$に比例するため, $\sigma$を含む基の個数に比例する.
+従って
+\begin{align*}
+    \Pup_{d-1}(\sigma,\tau) = \frac{\pi_d(\tau)\Pdown_d(\tau,\sigma)}{\pi_{d-1}(\sigma)} \propto \allone_{\tau\supset \sigma}
+\end{align*}
+を得る.
+すなわち, 基$B$から開始する基交換ウォークは,
 一様ランダムに元$u\sim B$を選び,
-$B\setminus u$を含む基の中から一様ランダムな基$B'\in B'$に遷移するランダムウォークを基交換ウォークという (このとき定常分布は$\B$上の一様分布となる).
+$B\setminus u$を含む基の中から一様ランダムな基$B'\in B'$に遷移するランダムウォークであり, その定常分布は一様分布である.
 基交換ウォークの混交時間のバウンドは長年の未解決問題であった.
 \begin{conjecture}{Mihail--Vazirani予想}{Mihail-Vazirani}
     任意のマトロイド$M=(V,\F)$上の基交換ウォークの混交時間は$|V|$に関する多項式で上から抑えられる.
@@ -110,6 +119,7 @@ Oppenheimのトリクルダウン定理\cite{Oppenheim_tricling_down}は局所�
     このとき, $\gamma_i \defeq \frac{\gamma}{1-(d-2-i)\gamma}$ ($i=-1,\dots,d-2$)に対して$X$は局所$(\gamma_{-1},\dots,\gamma_{d-2})$-エクスパンダーである.
 \end{theorem}
 端的に言えば, 次数$d-2$の面$\sigma \in X(d-2)$に対して$\lambda(P_\sigma)$を抑えれば全ての次元の面に対しても第二固有値が上から抑えられるという結果である.
+最上次元の面のエクスパンダー性が下次元の面に波及していくという意味ではまさに「トリクルダウン(浸透)」といえよう.
 
 一つ目のグラフ$G_\sigma$の連結性の条件は不可欠である.
 例えば二つの完全グラフからなる非連結グラフ上の三角形複体を考えると,
@@ -125,6 +135,7 @@ Oppenheimのトリクルダウン定理\cite{Oppenheim_tricling_down}は局所�
     \]
     を満たす.
 \end{lemma}
+この補題は本質的に$\gamma<1/2$のときに意味をなす.
 \subsection{ランダムウォークの分解}
 \cref{lem:trickle-down for 2dim}の証明は,
 \cref{thm:Kaufman-Oppenheim theorem}と同様にランダムウォークを分解することから始まる.
@@ -159,10 +170,11 @@ Oppenheimのトリクルダウン定理\cite{Oppenheim_tricling_down}は局所�
     \end{align*}
     二つ目の等式を示す.
     \begin{align*}
-        (\text{左辺}) &= \E_{\{u,v\} \sim X(1)}\sbra*{f(u)g(v)} \\
-        &= \E_{t \sim X(1)}\sbra*{ \E_{\substack{w \sim t \\ \{u,v\} = t\setminus w}} \sbra*{f(u)g(v)} } \\
-        &= \E_{w\sim X(0)}\sbra*{ \E_{\substack{t \sim X(2) \\ \text{conditioned on }t \ni w \\ \{u,v\}= t \setminus w}} \sbra*{f(u)g(v)} } & & \text{前式の$w$の周辺分布は$X(0)$}\\
-        &= \E_{w\sim X(0)}\sbra*{ \E_{\{u,v\}\sim X_w(1)}\sbra*{f(u)g(v)} } \\
+        (\text{左辺}) &= 
+        \E_{\substack{u\sim X(0)\\ v\sim P_\emptyset(u,\cdot)}} \sbra*{ f(u)g(v)}\\
+        &= \E_{t \sim X(2)}\sbra*{ \E_{\substack{w \sim t \\ u \sim t\setminus \{w\}, \\ \{v\}=t\setminus\{u,w\}}} \sbra*{f(u)g(v)} } \\
+        &= \E_{w\sim X(0)}\sbra*{ \E_{\substack{t \sim X(2) \\ \text{conditioned on }t \ni w \\ u \sim t \setminus w \\ \{v\}=t\setminus\{u,w\}}} \sbra*{f(u)g(v)} } & & \text{前式の$w$の周辺分布は$X(0)$}\\
+        &= \E_{w\sim X(0)}\sbra*{ \E_{\substack{u\sim X_w(0) \\ v\sim P_w(u,\cdot)}}\sbra*{f(u)g(v)} } \\
         &= (\text{右辺}).
     \end{align*}
 \end{proof}
