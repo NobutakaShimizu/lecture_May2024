@@ -1,4 +1,4 @@
-\chapter{エクスパンダーグラフ} \label{chap:expander graph}
+\chapter{エクスパンダーグラフ概論} \label{chap:expander graph}
 \section{定義}
 グラフ$G=(V,E)$は, 単純ランダムウォークの非自明な第二固有値$\lambda(P)$が小さいときにエクスパンダーであるという.
 多くの文脈では通常, 正則グラフに対してのみエクスパンダー性が定義されるが
@@ -105,7 +105,7 @@ $A$は単位元を含まないため自己ループは存在しない.
 ケイリーグラフ$\Cay(A,G)$は$|A|$-正則グラフである.
 
 
-\subsection{エクスパンダー性の限界とラマヌジャングラフ(*)}
+\subsection{Alon-Boppanaの定理}
 グラフの辺数を固定したとき, エクスパンダー性のパラメータ$\lambda$はどこまで小さくできるだろうか?
 ここでは厳密な証明は与えずに直感的な議論によって正則グラフに絞ってエクスパンダー性の限界を説明する.
 
@@ -117,7 +117,6 @@ $A$は単位元を含まないため自己ループは存在しない.
 固定した自然数$d\ge 3$に対して最もエクスパンダー性の強い(つまり$\lambda$が最小となる)$d$-正則グラフはどのようなグラフだろうか?
 問題を言い換えればランダムウォークがより多くの頂点を訪れやすくするにはグラフをどのように構成すれば良いだろうか?
 
-\paragraph*{理想的なグラフ: $d$-正則無限木.}
 直感的な議論だが, 短い閉路があるとそれに沿って同じ頂点を訪れてしまうので, そのような閉路はない方が良いと思われる.
 従ってそのグラフを虫眼鏡でズームすると局所的には木構造になっているべきであろう.
 そこで「理想的な」グラフとして$d$-正則で頂点数が無限の木$T$を考える.
@@ -145,7 +144,7 @@ $\ell^2(V) = \cbra*{ f \colon V \to \Real\colon \sum_{u\in V}f(u)^2 < \infty }$�
 (第一固有ベクトル$\allone$に対応する関数は$\ell^2(V)$に属さない).
 よって任意の$d$-正則グラフは$\lambda(P)\ge \frac{2\sqrt{d-1}}{d}$を満たすであろうことが予想される.
 
-\paragraph*{Alon-Boppanaの定理.}
+\subsection{Alon-Boppanaの定理}
 定数次数の正則グラフの直径は$\Omega(\log n)$を満たす.
 \begin{lemma}{}{regular graph diameter}
     $d\ge 3$のとき,
@@ -258,7 +257,7 @@ $\ell^2(V) = \cbra*{ f \colon V \to \Real\colon \sum_{u\in V}f(u)^2 < \infty }$�
 \end{proof}
 
 
-\paragraph*{ラマヌジャングラフ.}
+\subsection{ラマヌジャングラフ}
 漸近的に\cref{thm:Alon Boppana}を達成するグラフを\emph{ラマヌジャングラフ (Ramanujan graph)}という.
 \begin{definition}{ラマヌジャングラフ}{Ramanujan graph}
     $d$-正則グラフ$G=(V,E)$は, その単純ランダムウォークの遷移確率行列$P$の第二固有値$\lambda_2$が$\lambda_2 \le 2\sqrt{d-1}$を満たすとき, \emph{ラマヌジャングラフ (Ramanujan graph)}という.
@@ -291,7 +290,14 @@ $\calG_{n,d}$から一様ランダムに選ばれたグラフ$G\sim\calG_{n,d}$�
     任意の$d\ge 3$と任意の$\varepsilon > 0$に対し,
     \[ \lim_{n\to\infty}\Pr\sbra*{\lambda(P) \ge \frac{2\sqrt{d-1}}{d} + \varepsilon} = 0. \]
 \end{theorem}
-すなわち, ほとんど全ての定数次数正則グラフはラマヌジャングラフと同等のスペクトルを持つ.
+すなわち, ほとんど全ての定数次数正則グラフはラマヌジャングラフとほぼ同等のスペクトルを持つ.
+
+\subsection{ジグザグ積による組合せ的な構成}
+\begin{definition}{置換積}{replacement product}
+    グラフ$G=(V,E)$を$N$頂点$D$-正則グラフとし, グラフ$H=([D],F)$を$[D]$を頂点集合に持つ$D$頂点$d$-正則グラフとする.
+    グラフ$G$の各頂点$u\in V$の隣接頂点は$1$から$D$の番号づけが付随していて$N(u)=\{u_1,\dots,u_D\}$とする.
+
+\end{definition}
 
 \section{性質}
 エクスパンダーグラフは固有値によって定義されるが, 様々な興味深い性質を持つことが知られている.
