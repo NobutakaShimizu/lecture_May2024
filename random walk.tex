@@ -440,13 +440,25 @@ $G$の全ての辺が$L$と$R$の間を跨いでいることを意味する.
 さらに元のグラフ$G$が連結ならば既約的である.
 従って\cref{thm:random walk convergence}より定常分布が一意に存在し, その分布への収束性が成り立つ.
 %
-\begin{exercise}{easy}{prob1}
+\begin{exercise}{}{prob1}
   グラフ$G$が連結であるとする.
   上記の$P'$を遷移確率行列としてもつ辺集合$E$上のランダムウォークの定常分布を求めよ.
   答えだけでよい.
 \end{exercise}
 %
-
+\begin{proof}[\textbf{解答}]
+  定常分布$\pi_E$は$E$上の一様分布となる.
+  一意収束性より, $\pi_E(e)\equiv \frac{1}{|E|} $が定常分布の条件を満たすことを確認すればよい.　実際, 各辺$ e\in E $に対して
+  \begin{align*} 
+      (\pi_E P')(e) &= \rbra*{ \pi_E \Pdown_1 \Pup_0}(e) \\
+      &= \sum_{\substack{e' \in E \\ u \in V}} \pi_E(e')\cdot \Pdown_1(e',u)\cdot \Pup_0(u,e) \\
+      &= \frac{1}{|E|}\sum_{\substack{e'\in E \\ u \in V}} \frac{\indicator{u\in e'}\cdot \indicator{u\in e}}{2\deg(u)} \\
+      &= \frac{1}{|E|}\sum_{u\in e}\frac{1}{2}\sum_{e'\in E\colon e'\ni u}\frac{1}{\deg(u)} \\
+      &= \frac{1}{|E|} \\
+      &= \pi_E(e)
+  \end{align*}
+  より, 確かに一様分布$\pi_E$は定常分布である.  
+\end{proof}
 \subsection{重み付きグラフ上のランダムウォーク}
 単純ランダムウォークでは接続している全ての辺は同じ重みを持っている.
 各辺に重みと呼ばれる正の実数を割り当てることによって,
@@ -606,8 +618,16 @@ $(X_T,\dots,X_0)$はランダムウォークから得られた系列と見做せ
     可逆なランダムウォークの遷移確率行列を$P$とする.
     \cref{eq:reversible}を満たす分布$\pi$は定常分布であることを示せ.
 \end{exercise}
-
-
+\begin{proof}[\textbf{解答}]
+  等式$\pi P = \pi$を示せばよい.
+  各頂点$u \in V$に対し,
+    \begin{align*} 
+       (\pi P) (u) &= \sum_{v\in V}\pi(v) P(v,u) \\
+       &= \sum_{v\in V} \pi(u)P(u,v) & & \because\text{\cref{eq:reversible}} \\
+       &= \pi(u) & & \because \sum_{v\in V}P(u,v)=1
+    \end{align*}
+    より主張を得る.
+\end{proof}
 
 \section{定常分布から定まる内積とノルム}
 可逆なランダムウォークは遷移確率行列の固有値を考える上で非常に扱いやすいランダムウォークのクラスとなっている.
@@ -754,7 +774,7 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
     期待値と分散を
     \begin{align}
          & \Epi[f] \defeq \piprod{f,\allone} = \sum_{u\in V}\pi(u) f(u), \label{eq:mean}                       \\
-         & \Varpi[f] \defeq \pinorm{f - \Epi[\allone]}^2 = \Epi [f^2] - (\Epi [f])^2 \label{eq:variance}
+         & \Varpi[f] \defeq \pinorm{f - \Epi[f]\cdot \allone}^2 = \Epi [f^2] - (\Epi [f])^2 \label{eq:variance}
     \end{align}
     とする.
 \end{definition}
@@ -818,6 +838,27 @@ $\Real^V$上の通常の内積$\abra{\cdot,\cdot}$を考えたとき, 任意の�
 \begin{exercise}{}{Epi Pf = f}
     \cref{lem:variance}を証明せよ.
 \end{exercise}
+\begin{proof}[\textbf{解答}]
+  定義通りに計算すると
+  \begin{align*} 
+     \Epi[Pf] &= \sum_{u\in V}\pi(u)(Pf)(u) \\
+     &= \sum_{u,v\in V} \underbrace{\pi(u)P(u,v)}_{\pi(v)P(v,u)}f(v) \\
+     &= \sum_{v\in V}\pi(v)f(v)\cdot \sum_{u\in V} P(v,u) \\
+     &= \Epi[f].
+  \end{align*}
+  次に$\Varpi[Pf]$を考える.
+  \cref{thm:eigendecomposition}で得られる$\pispace$の正規直交基底を$x_1,\dots,x_n$とし, 関数$f$をこれらの線型結合$ f = \Epi f \cdot \allone + \sum_{i=2}^n f_i x_i $
+  で表すと, $P\allone = \allone$より$      Pf = \Epi[Pf] \cdot \allone + \sum_{i\ge 2} f_i Px_i $.
+  よって
+  \begin{align*} 
+     \Varpi[Pf] &= \norm*{ Pf - \Epi[Pf]\cdot\allone }^2 \\
+     &= \norm*{ \sum_{i \ge 2} f_i Px_i }^2 \\
+     &= \norm*{ \sum_{i\ge 2} f_i \lambda_i x_i}^2 \\
+     &= \sum_{i\ge 2}\abs*{\lambda_i}\norm*{ f_i x_i }^2& & \because\text{$x_i$の直交性} \\
+     &\le \lambda(P)\cdot \norm*{ \sum_{i\ge 2}f_i x_i }^2 \\
+     &= \lambda(P)\cdot \Varpi[f].
+  \end{align*}
+\end{proof}
 この補題の重要な系としてエクスパンダー混交補題と呼ばれる重要な結果を得る.
 エクスパンダー混交補題については\cref{sec:expander pseudorandom}でより詳しく紹介する.
 \begin{corollary}{可逆ランダムウォークに対するエクスパンダー混交補題}{general expander mixing lemma}

@@ -395,6 +395,26 @@ Green--Taoの定理の証明においても重要な役割を果たしている
 \begin{exercise}{}{check}
     \cref{lem:expander mixing lemma}の証明で表した五つの等式を実際に確認せよ.
 \end{exercise}
+\begin{proof}[\textbf{解答}]
+    $f$についての等式を示せば, $S$を$T$に置き換えるだけで$g$に関する等式が得られるので$f$についてのみ示す.
+    \begin{align*} 
+         \piprod{f,Pg} &= \sum_{u,v\in V} \pi(u)f(u)P(u,v)g(v) \\
+         &= \frac{1}{n}\sum_{u\in S,v\in T} \frac{\indicator{\{u,v\}\in E}}{d} \\
+         &= \frac{e(S,T)}{nd}.
+    \end{align*}
+    \begin{align*} 
+         \Epi f &= \sum_{u\in V} \pi(u)f(u) \\
+         &= \sum_{u\in S}\frac{1}{n}\\
+         &= \frac{|S|}{n}.
+    \end{align*}
+    $\Varpi f$について, $f^2=f$より
+    \begin{align*} 
+         \Varpi f &=  \Epi[f^2] - \Epi[f]^2 \\
+         &= \frac{|S|}{n} - \frac{|S|^2}{n^2} \\
+         &= \frac{|S|}{n}\rbra*{ 1 - \frac{|S|}{n} }.
+    \end{align*}    
+\end{proof}
+
 「エクスパンダー混交補題」と言うと聞こえが良いが, \cref{cor:general expander mixing lemma}を見るとその実は単なるCauchy--Schwarzの不等式とレイリー商の議論を適用しただけであることがわかる.
 
 エクスパンダー混交補題の応用として, エクスパンダーグラフ上のランダムウォークはずっと同じ頂点部分集合にとどまらないことを示せる.
