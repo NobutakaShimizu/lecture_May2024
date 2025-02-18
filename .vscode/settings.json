@@ -17,7 +17,9 @@
             "-norc",
             "-gg",
             "-pdfdvi",
-            "%DOC%"
+            "%DOC%",
+            "$emulate_aux = 1",
+            "$aux_dir = .tex_intermediates",
            ]
     }
 ]
