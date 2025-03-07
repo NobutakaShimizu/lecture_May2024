@@ -14,13 +14,15 @@
             "$makeindex=q/upmendex %O -o %D %S/",
             "-e",
             "$dvipdf=q/dvipdfmx %O -o %D %S/",
+            "-e",
+            "$emulate_aux = 1",
+            "-e",
+            "$aux_dir = \".tex_intermediates\"",
             "-norc",
             "-gg",
             "-pdfdvi",
             "%DOC%",
-            "$emulate_aux = 1",
-            "$aux_dir = .tex_intermediates",
-           ]
+        ]
     }
 ]
 }
