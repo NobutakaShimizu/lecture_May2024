@@ -454,13 +454,3 @@ INPUT ./images/graphicmatroid.png
 INPUT ./images/graphicmatroid.png
 INPUT ./images/graphicmatroid.png
 INPUT extractbb -B cropbox -O images/graphicmatroid.png
-INPUT ./conclusion.tex
-INPUT ./conclusion.tex
-INPUT conclusion.tex
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
-INPUT .tex_intermediates/main.aux
-INPUT .tex_intermediates/main.out
-INPUT .tex_intermediates/main.out
-INPUT .tex_intermediates/main.run.xml
-OUTPUT .tex_intermediates/main.run.xml
